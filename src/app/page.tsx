@@ -69,7 +69,7 @@ function CaseStudies({
   return (
     <>
       <SectionIntro
-        title="Harnessing technology for a brighter future"
+        title="Our Solutions"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
@@ -79,7 +79,7 @@ function CaseStudies({
         </p>
       </SectionIntro>
       <Container className="mt-16">
-        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           {caseStudies.map((caseStudy) => (
             <FadeIn key={caseStudy.href} className="flex">
               <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
@@ -94,7 +94,7 @@ function CaseStudies({
                     />
                   </Link>
                 </h3>
-                <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
+                {/* <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
                   <time
                     dateTime={caseStudy.date.split('-')[0]}
                     className="font-semibold"
@@ -105,7 +105,7 @@ function CaseStudies({
                     /
                   </span>
                   <span>Case study</span>
-                </p>
+                </p> */}
                 <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
                   {caseStudy.title}
                 </p>
@@ -178,19 +178,19 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  let caseStudies = (await loadCaseStudies()).slice(0, 3)
+  let caseStudies = (await loadCaseStudies()).slice(0, 4)
 
   return (
     <>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Award-winning development studio based in Denmark.
+            We strive to accelerate the digital transformation process in the Kingdom.
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            We are a development studio working at the intersection of design
-            and technology. It’s a really busy intersection though — a lot of
-            our staff have been involved in hit and runs.
+            We help all different entities build customized technological solutions that enable them to excel in the market and make informed decisions
+            based on solid information.
+            We provide a complete range of software development services, starting from gathering requirements to implementing innovative solutions.
           </p>
         </FadeIn>
       </Container>
