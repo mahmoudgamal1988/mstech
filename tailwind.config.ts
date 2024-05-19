@@ -29,6 +29,10 @@ export default {
           { fontVariationSettings: '"wdth" 125' },
         ],
       },
+      colors: {
+        primary: '#1DA1F2',
+        secondary: '#777777',
+      },
     },
   },
   plugins: [],
