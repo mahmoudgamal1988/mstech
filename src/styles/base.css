@@ -8,3 +8,18 @@
   font-stretch: 75% 125%;
   src: url('../fonts/Mona-Sans.var.woff2') format('woff2');
 }
+
+/* src/styles/custom.css */
+:root {
+  /* Define the custom mixed color using multiple color values (gradient example) */
+  --color-mixed: linear-gradient(to right, #1DA1F2, #145B93); /* Example gradient */
+}
+
+/* Optional: Define utility classes if needed */
+.bg-mixed {
+  background: var(--color-mixed);
+}
+
+.text-mixed {
+  color: var(--color-mixed);
+}

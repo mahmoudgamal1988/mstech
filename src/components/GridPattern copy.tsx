@@ -36,37 +36,55 @@ export function GridPattern({
     Array<[x: number, y: number, key: number]>
   >([])
   let staticBlocks = [
-    [1, 1],
+    // [1, 1],
+    // [2, 1],
+    // [3, 1],
+    // [1, 1],
     [2, 1],
     [3, 1],
+    [4, 1],
+    [5, 1],
+    [6, 1],
+    [7, 1],
+
     [3, 2],
     [4, 2],
     [5, 2],
+    [6, 2],
+    [7, 2],
+
+    [4, 3],
     [5, 3],
     [6, 3],
     [7, 3],
+
+    [5, 4],
+    [6, 4],
     [7, 4],
-    [8, 4],
-    [9, 4],
+    // [7, 5],
+
   ]
 
   const classes = [
-    "fill-color4 stroke-color4",
-    "fill-color4 stroke-color4",
-    "fill-color4 stroke-color4",
-    "fill-color4 stroke-color4",
-    "fill-color4 stroke-color4",
-    "fill-color4 stroke-color4",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
+    "fill-ooo stroke-ooo",
+    "fill-ooo stroke-ooo",
+    "fill-ooo stroke-ooo",
+    "fill-ooo stroke-ooo",
+    "fill-primary stroke-primary",
+    "fill-primary stroke-primary",
+    "fill-ooo stroke-ooo",
+    "fill-ooo stroke-ooo",
+    "fill-ooo stroke-ooo",
+    "fill-primary stroke-primary",
+    "fill-primary stroke-primary",
+    "fill-ooo stroke-ooo",
+    "fill-ooo stroke-ooo",
+    "fill-primary stroke-primary",
+    "fill-primary stroke-primary",
+    "fill-ooo stroke-ooo",
+    "fill-primary stroke-primary",
   ]
-
-
+  
   useEffect(() => {
     if (!interactive) {
       return
@@ -117,7 +135,8 @@ export function GridPattern({
       <rect width="100%" height="100%" fill={`url(#${id})`} strokeWidth="0" />
       <svg x="50%" y={yOffset} strokeWidth="0" className="overflow-visible">
         {staticBlocks.map((block, ind) => (
-          <Block key={`${block}`} x={block[0]} y={block[1]} className={classes[ind]} />
+          <Block key={`${block}`} x={block[0]} y={block[1]} className={classes[ind]}
+          />
         ))}
         {hoveredBlocks.map((block) => (
           <Block
