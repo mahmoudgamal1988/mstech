@@ -191,21 +191,13 @@ export default async function About() {
     <>
       <PageIntro eyebrow="About us" title="Our strength is collaboration">
         <p>
-          We believe that our strength lies in our collaborative approach, which
-          puts our clients at the center of everything we do.
+          Meshkati Solutions MSTech part of AMNEST group is a team of innovative visionary Saudi professionals
+          who create and adopt high-tech smart solutions, focusing on the areas of AI and IoT
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
-            Studio was started by three friends who noticed that developer
-            studios were charging clients double what an in-house team would
-            cost. Since the beginning, we have been committed to doing things
-            differently by charging triple instead.
-          </p>
-          <p>
-            At Studio, we’re more than just colleagues — we’re a family. This
-            means we pay very little and expect people to work late. We want our
-            employees to bring their whole selves to work. In return, we just
-            ask that they keep themselves there until at least 6:30pm.
+            AMNEST Holding Group Company was established in 1996 under which 15
+            companies do business in various sectors.
           </p>
         </div>
       </PageIntro>

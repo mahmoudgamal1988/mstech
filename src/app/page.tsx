@@ -20,17 +20,73 @@ import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
+import logo from '@/images/clients/phobia/logomark-dark.svg'
+// import imageHero from './hero.jpg'
+import imageJennyWilson from './jenny-wilson.jpg'
 
 const clients = [
-  ['Phobia', logoPhobiaLight],
-  ['Family Fund', logoFamilyFund],
-  ['Unseal', logoUnseal],
-  ['Mail Smirk', logoMailSmirk],
-  ['Home Work', logoHomeWork],
-  ['Green Life', logoGreenLife],
-  ['Bright Path', logoBrightPath],
-  ['North Adventures', logoNorthAdventures],
+  {
+    title: "SAUDI BRAND",
+    logo: logoPhobiaLight
+  },
+  {
+    title: "QUALITY",
+    logo: logoPhobiaLight
+  },
+  {
+    title: "SUPPORT",
+    logo: logoPhobiaLight
+  },
+  {
+    title: "METHODOLOGY",
+    logo: logoPhobiaLight
+  },
+  {
+    title: "ADVANCED TECHNOLOGIES ",
+    logo: logoGreenLife
+  },
+  {
+    title: "TAILORED SOLUTIONS",
+    logo: logoMailSmirk
+  },
+  {
+    title: "EXTENDED PARTNERS’ NETWORK",
+    logo: logoUnseal
+  },
+  {
+    title: "RESEACH & DEVELOPMENT",
+    logo: logoFamilyFund
+  },
 ]
+
+
+const values = [
+  {
+    title: 'TRANSPARENCY',
+    logo,
+  },
+  {
+    title: 'RESPONSIBILITY',
+    logo,
+  },
+  {
+    title: 'INNOVATION',
+    logo,
+  },
+  {
+    title: 'CLIENT CENTRIC',
+    logo,
+  },
+  {
+    title: 'RESPECT',
+    logo,
+  },
+  {
+    title: 'AGILITY',
+    logo,
+  }
+];
+
 
 function Clients() {
   return (
@@ -38,7 +94,7 @@ function Clients() {
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-            We’ve worked with hundreds of amazing people
+            Why MSTech
           </h2>
           <div className="h-px flex-auto bg-white" />
         </FadeIn>
@@ -47,10 +103,15 @@ function Clients() {
             role="list"
             className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
           >
-            {clients.map(([client, logo]) => (
-              <li key={client}>
+            {clients.map((client, index) => (
+              <li key={index}>
                 <FadeIn>
-                  <Image src={logo} alt={client} unoptimized />
+                  <div className='flex justify-center items-center'>
+                    <Image src={logo} alt={client.logo} unoptimized />
+                    <p className="mt-0 mx-2 w-full flex justify-start font-display text-xl font-semibold text-white">
+                      {client.title}
+                    </p>
+                  </div>
                 </FadeIn>
               </li>
             ))}
@@ -58,6 +119,38 @@ function Clients() {
         </FadeInStagger>
       </Container>
     </div>
+  )
+}
+
+function Vision() {
+  return (
+    <>
+      <SectionIntro
+        title="Vision"
+        className="mt-24 sm:mt-32 lg:mt-40"
+      >
+        <p>
+          To be a leading company in providing digital solutions andservices that achieve
+          sustainable growth while fulfilling the Kingdom’s vision.
+        </p>
+      </SectionIntro>
+    </>
+  )
+}
+
+function Mission() {
+  return (
+    <>
+      <SectionIntro
+        title="Mission"
+        className="mt-24 sm:mt-32 lg:mt-40"
+      >
+        <p>
+          Providing innovative technology solutions that enable our clients keeping
+          pace with market dynamics through a team of qualified.
+        </p>
+      </SectionIntro>
+    </>
   )
 }
 
@@ -126,12 +219,12 @@ function Services() {
     <>
       <SectionIntro
         eyebrow="Services"
-        title="We help you identify, explore and respond to new opportunities."
+        title="Our Methodology"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          As long as those opportunities involve giving us money to re-purpose
-          old projects — we can come up with an endless number of those.
+          We adopt a customer-focused, data-driven,  and iterative methodology. Our Lean approach helps us validate new ideas
+          avoid  costly mistakes, and build successful businesses
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -146,27 +239,65 @@ function Services() {
             </FadeIn>
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="Web development">
-              We specialise in crafting beautiful, high quality marketing pages.
-              The rest of the website will be a shell that uses lorem ipsum
-              everywhere.
+            <ListItem title="implementation">
+              Select implementation outcome framework
             </ListItem>
             <ListItem title="Application development">
               We have a team of skilled developers who are experts in the latest
               app frameworks, like Angular 1 and Google Web Toolkit.
             </ListItem>
-            <ListItem title="E-commerce">
-              We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we’ve
-              used for the past six years.
+            <ListItem title="Intervention">
+              Describe intervention components and implementation strategies
             </ListItem>
-            <ListItem title="Custom content management">
-              At Studio we understand the importance of having a robust and
-              customised CMS. That’s why we run all of our client projects out
-              of a single, enormous Joomla instance.
+            <ListItem title="Markers">
+              identify markers, measures, and data sources
+            </ListItem>
+            <ListItem title="Outcomes">
+              List implementation outcomes
             </ListItem>
           </List>
         </div>
+      </Container>
+    </>
+  )
+}
+
+function Values() {
+  return (
+    <>
+      <SectionIntro
+        title="Our Values"
+        className="mt-24 sm:mt-32 lg:mt-40"
+      >
+        {/* <p>
+          We believe technology is the answer to the world’s greatest
+          challenges. It’s also the cause, so we find ourselves in bit of a
+          catch 22 situation.
+        </p> */}
+      </SectionIntro>
+      <Container className="mt-16">
+        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+          {values.map((value, index) => (
+            <FadeIn key={index} className="flex">
+              <article className="relative flex flex-col w-full content-center items-center rounded-3xl p-6  transition hover:bg-neutral-50 sm:p-8">
+                <h3>
+                  <Link href={value.title}>
+                    <span className="absolute inset-0 rounded-3xl " />
+                    <Image
+                      src={value.logo}
+                      alt={"values.title"}
+                      className="h-16 w-16"
+                      unoptimized
+                    />
+                  </Link>
+                </h3>
+                <p className="mt-6 mx-2 w-full flex justify-center font-display text-xl font-semibold text-primary">
+                  {value.title}
+                </p>
+              </article>
+            </FadeIn>
+          ))}
+        </FadeInStagger>
       </Container>
     </>
   )
@@ -197,7 +328,16 @@ export default async function Home() {
 
       <Clients />
 
+      <Vision />
+
+      <Mission />
+
+      <Values />
+
+
       <CaseStudies caseStudies={caseStudies} />
+
+
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40 text-primary"
