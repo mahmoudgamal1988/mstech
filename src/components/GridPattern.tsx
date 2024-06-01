@@ -1,7 +1,48 @@
 'use client'
 
-import { useEffect, useId, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useId, useRef, useState, useContext } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
+import { FadeIn, FadeInStagger } from './FadeIn'
+import { createContext, } from 'react'
+
+const FadeInStaggerContext = createContext(false)
+const viewport = { once: true, margin: '0px 0px -200px' }
+
+
+
+
+function StaticBlock({
+  x,
+  y,
+  ...props
+}: Omit<React.ComponentPropsWithoutRef<typeof motion.path>, 'x' | 'y'> & {
+  x: number
+  y: number
+}) {
+
+  let shouldReduceMotion = useReducedMotion()
+  let isInStaggerGroup = useContext(FadeInStaggerContext)
+
+  console.log("y", props.fill)
+  return (
+    <motion.path
+      transform={`translate(${-32 * y + 96 * x} ${160 * y})`}
+      d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z"
+      // fill="transparent"
+      // stroke="black"
+      strokeWidth="2"
+      initial={{ pathLength: 0, fill: "transparent", opacity: 0 }}
+      animate={{ pathLength: 1, fill: props.fill as string, opacity: 1 }}
+      transition={{
+        duration: 0 + (y / 2),
+        ease: "easeInOut",
+        // repeat: Infinity,
+        // repeatType: 'reverse'
+      }}
+    // {...props}
+    />
+  )
+}
 
 function Block({
   x,
@@ -20,6 +61,7 @@ function Block({
   )
 }
 
+
 export function GridPattern({
   yOffset = 0,
   interactive = false,
@@ -37,35 +79,20 @@ export function GridPattern({
   >([])
   let staticBlocks = [
     [1, 1],
-    [2, 1],
-    [3, 1],
-    [3, 2],
-    [4, 2],
-    [5, 2],
-    [5, 3],
-    [6, 3],
-    [7, 3],
+    [2, 2],
+    [6, 2],
+    [4, 3],
     [7, 4],
-    [8, 4],
-    [9, 4],
   ]
 
-  const classes = [
-    "fill-color4 stroke-color4",
-    "fill-color4 stroke-color4",
-    "fill-color4 stroke-color4",
-    "fill-color4 stroke-color4",
-    "fill-color4 stroke-color4",
-    "fill-color4 stroke-color4",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
-    "fill-color5 stroke-color5",
-  ]
 
+  const staticColors = [
+    { fill: "#1E96C7" },
+    { fill: "#1E96C7" },
+    { fill: "#1E96C7" },
+    { fill: "#197DB7" },
+    { fill: "#197DB7" },
+  ]
 
   useEffect(() => {
     if (!interactive) {
@@ -106,7 +133,6 @@ export function GridPattern({
     }
 
     window.addEventListener('mousemove', onMouseMove)
-
     return () => {
       window.removeEventListener('mousemove', onMouseMove)
     }
@@ -117,7 +143,7 @@ export function GridPattern({
       <rect width="100%" height="100%" fill={`url(#${id})`} strokeWidth="0" />
       <svg x="50%" y={yOffset} strokeWidth="0" className="overflow-visible">
         {staticBlocks.map((block, ind) => (
-          <Block key={`${block}`} x={block[0]} y={block[1]} className={classes[ind]} />
+          <StaticBlock key={`${block}`} x={block[0]} y={block[1]} fill={staticColors[ind].fill} />
         ))}
         {hoveredBlocks.map((block) => (
           <Block

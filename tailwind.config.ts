@@ -30,6 +30,7 @@ export default {
         ],
       },
       colors: {
+        backgroundColor: "#e7edf4",
         primary: '#1E96C7',
         ooo: "#2DB2F9",
         secondary: '#777777',

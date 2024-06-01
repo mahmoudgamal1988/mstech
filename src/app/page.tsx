@@ -21,41 +21,78 @@ import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import logo from '@/images/clients/phobia/logomark-dark.svg'
+import { Border } from '@/components/Border'
 // import imageHero from './hero.jpg'
 import imageJennyWilson from './jenny-wilson.jpg'
+
+
+//Why Images
+import BRANDIMG from '@/images/why/BRAND.png';
+import QUALITY from '@/images/why/QUALITY.png';
+import SUPPORT from '@/images/why/SUPPORT.png';
+import METHODOLOGY from '@/images/why/METHODOLOGY.png';
+import TECHNOLOGIES from '@/images/why/TECHNOLOGIES.png';
+import TAILORED from '@/images/why/TAILORED.png';
+import NETWORK from '@/images/why/NETWORK.png';
+import RESEACH from '@/images/why/RESEACH.png';
+
+//values Images
+import TRANSPARENCY from '@/images/values/TRANSPARENCY.png';
+import RESPONSIBILITY from '@/images/values/RESPONSIBILITY.png';
+import INNOVATION from '@/images/values/INNOVATION.png';
+import CLIENTCENTRIC from '@/images/values/CLIENTCENTRIC.png';
+import RESPECT from '@/images/values/RESPECT.png';
+import AGILITY from '@/images/values/AGILITY.png';
+
+
+const FormattedText = ({ text }: any) => {
+  const lines = text.split('\n');
+
+  return (
+    <div>
+      {lines.map((line: string, index: number) => (
+        <pre style={{ whiteSpace: 'pre-wrap' }} key={index} className='flex flex-col items-center'>
+          {line}
+          {index !== lines.length - 1 && <br />}
+        </pre >
+      ))}
+    </div>
+  );
+};
+
 
 const clients = [
   {
     title: "SAUDI BRAND",
-    logo: logoPhobiaLight
+    logo: BRANDIMG
   },
   {
     title: "QUALITY",
-    logo: logoPhobiaLight
+    logo: QUALITY
   },
   {
     title: "SUPPORT",
-    logo: logoPhobiaLight
+    logo: SUPPORT
   },
   {
     title: "METHODOLOGY",
-    logo: logoPhobiaLight
+    logo: METHODOLOGY
   },
   {
-    title: "ADVANCED TECHNOLOGIES ",
-    logo: logoGreenLife
+    title: "ADVANCED\n TECHNOLOGIES ",
+    logo: TECHNOLOGIES
   },
   {
-    title: "TAILORED SOLUTIONS",
-    logo: logoMailSmirk
+    title: "TAILORED\n SOLUTIONS",
+    logo: TAILORED
   },
   {
-    title: "EXTENDED PARTNERS’ NETWORK",
-    logo: logoUnseal
+    title: `EXTENDED\n PARTNERS’ NETWORK`,
+    logo: NETWORK
   },
   {
-    title: "RESEACH & DEVELOPMENT",
-    logo: logoFamilyFund
+    title: "RESEACH\n & DEVELOPMENT",
+    logo: RESEACH
   },
 ]
 
@@ -63,55 +100,59 @@ const clients = [
 const values = [
   {
     title: 'TRANSPARENCY',
-    logo,
+    logo: TRANSPARENCY,
   },
   {
     title: 'RESPONSIBILITY',
-    logo,
+    logo: RESPONSIBILITY,
   },
   {
     title: 'INNOVATION',
-    logo,
+    logo: INNOVATION,
   },
   {
     title: 'CLIENT CENTRIC',
-    logo,
+    logo: CLIENTCENTRIC,
   },
   {
     title: 'RESPECT',
-    logo,
+    logo: RESPECT,
   },
   {
     title: 'AGILITY',
-    logo,
+    logo: AGILITY,
   }
 ];
 
 
 function Clients() {
   return (
-    <div className="mt-24 rounded-4xl bg-color4 py-20 sm:mt-32 sm:py-32 lg:mt-56">
-      <Container>
-        <FadeIn className="flex items-center gap-x-8">
-          <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
+    <div className="mt-24 rounded-4xl bg-primary py-20 sm:mt-32 sm:py-32 lg:mt-56">
+      <Container className="mt-0 sm:mt-32 lg:mt-0">
+        <FadeIn>
+          <h2 className="font-display text-2xl font-semibold text-white">
             Why MSTech
           </h2>
-          <div className="h-px flex-auto bg-white" />
         </FadeIn>
-        <FadeInStagger faster>
+        <FadeInStagger className="mt-10" faster>
+          <Border as={FadeIn} />
           <ul
             role="list"
-            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
+            className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-4"
           >
             {clients.map((client, index) => (
-              <li key={index}>
-                <FadeIn>
-                  <div className='flex justify-center items-center'>
-                    <Image src={logo} alt={client.logo} unoptimized />
-                    <p className="mt-0 mx-2 w-full flex justify-start font-display text-xl font-semibold text-white">
-                      {client.title}
-                    </p>
-                  </div>
+              <li key={index} className="group">
+                <FadeIn className="overflow-hidden">
+                  <Border className="pt-12 group-[&:nth-child(-n+2)]:-mt-px sm:group-[&:nth-child(3)]:-mt-px lg:group-[&:nth-child(4)]:-mt-px">
+                    <div className='flex  flex-col justify-center items-center'>
+                      <Image src={client.logo} className='w-20' alt={client.logo as any} unoptimized />
+                      <div className="mt-6 mx-2 flex justify-start font-display text-l font-semibold text-white">
+                        {/* {client.title} */}
+                        <FormattedText text={client.title} />
+                      </div>
+                    </div>
+                    {/* <Image src={client.logo} alt={client.logo} unoptimized /> */}
+                  </Border>
                 </FadeIn>
               </li>
             ))}
@@ -119,22 +160,7 @@ function Clients() {
         </FadeInStagger>
       </Container>
     </div>
-  )
-}
 
-function Vision() {
-  return (
-    <>
-      <SectionIntro
-        title="Vision"
-        className="mt-24 sm:mt-32 lg:mt-40"
-      >
-        <p>
-          To be a leading company in providing digital solutions andservices that achieve
-          sustainable growth while fulfilling the Kingdom’s vision.
-        </p>
-      </SectionIntro>
-    </>
   )
 }
 
@@ -257,26 +283,16 @@ function Values() {
         title="Our Values"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
-        {/* <p>
-          We believe technology is the answer to the world’s greatest
-          challenges. It’s also the cause, so we find ourselves in bit of a
-          catch 22 situation.
-        </p> */}
       </SectionIntro>
       <Container className="mt-16">
-        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {values.map((value, index) => (
             <FadeIn key={index} className="flex">
-              <article className="relative flex flex-col w-full content-center items-center rounded-3xl p-6  transition hover:bg-neutral-50 sm:p-8">
+              <article className="relative flex flex-col w-full content-center items-center rounded-3xl p-6  transition hover:bg-gray-200 sm:p-8">
                 <h3>
                   <Link href={value.title}>
                     <span className="absolute inset-0 rounded-3xl " />
-                    <Image
-                      src={value.logo}
-                      alt={"values.title"}
-                      className="h-16 w-16"
-                      unoptimized
-                    />
+                    <Image src={value.logo} className='h-24 w-24' alt={value.logo as any} unoptimized />
                   </Link>
                 </h3>
                 <p className="mt-6 mx-2 w-full flex justify-center font-display text-xl font-semibold text-primary">
@@ -304,21 +320,13 @@ export default async function Home() {
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-primary  [text-wrap:balance] sm:text-7xl">
-            We strive to accelerate the digital transformation process in the Kingdom.
+            A pioneering journey in AI and IOT
+            to shape a future that inspires the world.
           </h1>
-          {/* <p className="mt-6 text-xl text-neutral-600">
-            We help all different entities build customized technological solutions that enable them to excel in the market and make informed decisions
-            based on solid information.
-            We provide a complete range of software development services, starting from gathering requirements to implementing innovative solutions.
-          </p> */}
         </FadeIn>
       </Container>
 
       <Clients />
-
-      <Vision />
-
-      <Mission />
 
       <Values />
 
