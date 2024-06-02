@@ -51,10 +51,10 @@ const FormattedText = ({ text }: any) => {
   return (
     <div>
       {lines.map((line: string, index: number) => (
-        <pre style={{ whiteSpace: 'pre-wrap' }} key={index} className='flex flex-col items-center'>
+        <h1 key={index} className='flex flex-col items-center w-auto'>
           {line}
           {index !== lines.length - 1 && <br />}
-        </pre >
+        </h1 >
       ))}
     </div>
   );
@@ -127,7 +127,7 @@ const values = [
 
 function Clients() {
   return (
-    <div className="mt-24 rounded-4xl bg-primary py-20 sm:mt-32 sm:py-32 lg:mt-56">
+    <div className="mt-24 rounded-4xl bg-lightBg py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container className="mt-0 sm:mt-32 lg:mt-0">
         <FadeIn>
           <h2 className="font-display text-2xl font-semibold text-white">
@@ -145,8 +145,8 @@ function Clients() {
                 <FadeIn className="overflow-hidden">
                   <Border className="pt-12 group-[&:nth-child(-n+2)]:-mt-px sm:group-[&:nth-child(3)]:-mt-px lg:group-[&:nth-child(4)]:-mt-px">
                     <div className='flex  flex-col justify-center items-center'>
-                      <Image src={client.logo} className='w-20' alt={client.logo as any} unoptimized />
-                      <div className="mt-6 mx-2 flex justify-start font-display text-l font-semibold text-white">
+                      <Image src={client.logo} className='w-16' alt={client.logo as any} unoptimized />
+                      <div className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-white [text-wrap:balance] sm:text-base">
                         {/* {client.title} */}
                         <FormattedText text={client.title} />
                       </div>
@@ -292,10 +292,10 @@ function Values() {
                 <h3>
                   <Link href={value.title}>
                     <span className="absolute inset-0 rounded-3xl " />
-                    <Image src={value.logo} className='h-24 w-24' alt={value.logo as any} unoptimized />
+                    <Image src={value.logo} className='h-16 w-16 p-0' alt={value.logo as any} unoptimized />
                   </Link>
                 </h3>
-                <p className="mt-6 mx-2 w-full flex justify-center font-display text-xl font-semibold text-primary">
+                <p className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-primary [text-wrap:balance] sm:text-base">
                   {value.title}
                 </p>
               </article>
@@ -319,7 +319,7 @@ export default async function Home() {
     <>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-primary  [text-wrap:balance] sm:text-7xl">
+          <h1 className="font-display text-5xl font-medium tracking-tight text-white  [text-wrap:balance] sm:text-7xl">
             A pioneering journey in AI and IOT
             to shape a future that inspires the world.
           </h1>

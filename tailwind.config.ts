@@ -6,6 +6,7 @@ export default {
   theme: {
     // backgroundColor:"black",
     fontSize: {
+      xxs: ['0.45rem', { lineHeight: '.8rem' }],
       xs: ['0.75rem', { lineHeight: '1rem' }],
       sm: ['0.875rem', { lineHeight: '1.5rem' }],
       base: ['1rem', { lineHeight: '1.75rem' }],
@@ -31,6 +32,8 @@ export default {
       },
       colors: {
         backgroundColor: "#e7edf4",
+        darkBg: "#030814",
+        lightBg: "#197DB7",
         primary: '#1E96C7',
         ooo: "#2DB2F9",
         secondary: '#777777',

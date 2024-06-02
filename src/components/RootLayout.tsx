@@ -257,22 +257,20 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
       <motion.div
         layout
         style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-        className="relative flex flex-auto overflow-hidden bg-backgroundColor pt-14"
+        className="relative flex flex-col overflow-hidden bg-backgroundColor pt-14"
       >
         <motion.div
           layout
           className="relative isolate flex w-full flex-col pt-9"
         >
           <GridPattern
-            className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full fill-primary stroke-ooo [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
+            className="absolute inset-x-0 -top-14 -z-10 h-[850px] w-full fill-primary stroke-ooo [mask-image:linear-gradient(to_bottom_left,#030814_40%,#030814_50%)] bg-darkBg"
             yOffset={-96}
             interactive
           />
-
           <main className="w-full flex-auto">{children}</main>
-
-          <Footer />
         </motion.div>
+        <Footer />
       </motion.div>
     </MotionConfig>
   )
