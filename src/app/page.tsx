@@ -144,10 +144,16 @@ function Clients() {
               <li key={index} className="group">
                 <FadeIn className="overflow-hidden">
                   <Border className="pt-12 group-[&:nth-child(-n+2)]:-mt-px sm:group-[&:nth-child(3)]:-mt-px lg:group-[&:nth-child(4)]:-mt-px">
-                    <div className='flex  flex-col justify-center items-center'>
-                      <Image src={client.logo} className='w-16' alt={client.logo as any} unoptimized />
-                      <div className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-white [text-wrap:balance] sm:text-base">
-                        {/* {client.title} */}
+                    <div className='flex flex-col justify-center items-center group cursor-pointer'>
+                      <Image
+                        src={client.logo}
+                        className='w-16 transition-transform transform transition-filter filter-none group-hover:scale-110'
+                        alt={client.logo as any}
+                        unoptimized
+                      />
+                      <div
+                        className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-white [text-wrap:balance] sm:text-base transition-transform transform transition-filter filter-none group-hover:scale-110"
+                      >
                         <FormattedText text={client.title} />
                       </div>
                     </div>
@@ -192,13 +198,12 @@ function CaseStudies({
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          We believe technology is the answer to the world’s greatest
-          challenges. It’s also the cause, so we find ourselves in bit of a
-          catch 22 situation.
+          MSTech catalogue of offerings is presented in three main stacks: Smart Solutions for Businesses, Smart Solutions
+          for home automa-tion, and Additional stack of services.
         </p>
       </SectionIntro>
       <Container className="mt-16">
-        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+        <FadeInStagger className="grid grid-cols-1 gap-32 lg:grid-cols-3">
           {caseStudies.map((caseStudy) => (
             <FadeIn key={caseStudy.href} className="flex">
               <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-primary transition hover:bg-primary text-white sm:p-8 group">
@@ -216,7 +221,7 @@ function CaseStudies({
                 <p className="mt-6 font-display text-2xl font-semibold text-primary group-hover:text-white">
                   {caseStudy.title}
                 </p>
-                <p className="mt-4 text-base text-secondary group-hover:text-white">
+                <p className="mt-4 mb-6 text-base text-secondary group-hover:text-white">
                   {caseStudy.description}
                 </p>
               </article>
@@ -228,12 +233,52 @@ function CaseStudies({
   )
 }
 
+function Section({
+  title,
+  titleExtraClass,
+  image,
+  children,
+}: {
+  title: string;
+  titleExtraClass?: string;
+  image: React.ComponentPropsWithoutRef<typeof StylizedImage>
+  children: React.ReactNode
+}) {
+  return (
+    <Container className="group/section [counter-increment:section]">
+      <div className="lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20">
+        <div className="flex justify-center">
+          <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
+            <StylizedImage
+              {...image}
+              sizes="(min-width: 1024px) 41rem, 31rem"
+              className="justify-center lg:justify-end lg:group-even/section:justify-start"
+            />
+          </FadeIn>
+        </div>
+        <div className="mt-12 lg:mt-0 lg:w-[37rem] lg:flex-none lg:group-even/section:order-first">
+          <FadeIn>
+            <div
+              className="font-display text-base font-semibold before:text-neutral-300 before:content-['/_'] after:text-neutral-950 after:content-[counter(section,decimal-leading-zero)]"
+              aria-hidden="true"
+            />
+            <h2 className={"mt-2 font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl" + " " + titleExtraClass}>
+              {title}
+            </h2>
+            <div className="mt-6">{children}</div>
+          </FadeIn>
+        </div>
+      </div>
+    </Container>
+  )
+}
+
 function Services() {
   return (
     <>
       <SectionIntro
-        eyebrow="Services"
-        title="Our Methodology"
+        eyebrow=""
+        title="Projects"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
@@ -241,37 +286,44 @@ function Services() {
           avoid  costly mistakes, and build successful businesses
         </p>
       </SectionIntro>
-      <Container className="mt-16">
-        <div className="lg:flex lg:items-center lg:justify-end">
-          <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-            <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
-              <StylizedImage
-                src={imageLaptop}
-                sizes="(min-width: 1024px) 41rem, 31rem"
-                className="justify-center lg:justify-end"
-              />
-            </FadeIn>
+
+      <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
+
+        <Container className="mr-0 mt-16">
+          <Section title="Leanh" titleExtraClass='text-green-600' image={{ src: imageLaptop }}>
+            <div className="space-y-6 text-base text-neutral-600">
+              <p>
+                A leading platform for developing smart city and <strong className="font-semibold text-neutral-950">Internet of Things</strong> solutions
+                using Artificial intelligence for forecasting, decision making and bringing
+                together solutions under one umbrella.
+              </p>
+              <p>
+                With Leanh, cities can harness the power of <strong className="font-semibold text-neutral-950">advanced technologies</strong>{' '}
+                data analytics, and IoT to optimize urban infrastructure
+                enhance public services, and improve the overall quality of life for residents.
+              </p>
+            </div>
+          </Section>
+        </Container>
+
+        <Section title="Rack" titleExtraClass='text-[#c2073f]' image={{ src: imageLaptop, shape: 1 }}>
+          <div className="space-y-6 text-base text-neutral-600">
+            <p>
+              Rack Smart Retail System is one of the comprehensive solutions
+              fot managing retail operations and data analysis to increase efficiency and improve sales.
+            </p>
+            <p>
+              Rack offers real-time monitoring capabilities,
+              allowing you to stay updated on your business operations at all times.
+              With instant access to vital information, you can make informed decisions
+              and take proactive actions to drive business growth.
+            </p>
           </div>
-          <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="implementation">
-              Select implementation outcome framework
-            </ListItem>
-            <ListItem title="Application development">
-              We have a team of skilled developers who are experts in the latest
-              app frameworks, like Angular 1 and Google Web Toolkit.
-            </ListItem>
-            <ListItem title="Intervention">
-              Describe intervention components and implementation strategies
-            </ListItem>
-            <ListItem title="Markers">
-              identify markers, measures, and data sources
-            </ListItem>
-            <ListItem title="Outcomes">
-              List implementation outcomes
-            </ListItem>
-          </List>
-        </div>
-      </Container>
+        </Section>
+
+        
+      </div>
+
     </>
   )
 }
@@ -288,14 +340,19 @@ function Values() {
         <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {values.map((value, index) => (
             <FadeIn key={index} className="flex">
-              <article className="relative flex flex-col w-full content-center items-center rounded-3xl p-6  transition hover:bg-gray-200 sm:p-8">
+              <article className="relative flex flex-col w-full content-center items-center rounded-3xl p-6 transition hover: sm:p-8 group">
                 <h3>
                   <Link href={value.title}>
-                    <span className="absolute inset-0 rounded-3xl " />
-                    <Image src={value.logo} className='h-16 w-16 p-0' alt={value.logo as any} unoptimized />
+                    <span className="absolute inset-0 rounded-3xl" />
+                    <Image
+                      src={value.logo}
+                      className='h-16 w-16 p-0 transition-transform transform group-hover:scale-110 group-hover:translate-y-2'
+                      alt={value.logo as any}
+                      unoptimized
+                    />
                   </Link>
                 </h3>
-                <p className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-primary [text-wrap:balance] sm:text-base">
+                <p className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-primary [text-wrap:balance] sm:text-base transition-transform transform group-hover:scale-110 group-hover:translate-y-2">
                   {value.title}
                 </p>
               </article>
@@ -330,20 +387,8 @@ export default async function Home() {
 
       <Values />
 
-
       <CaseStudies caseStudies={caseStudies} />
 
-
-
-      <Testimonial
-        className="mt-24 sm:mt-32 lg:mt-40 text-primary"
-        client={{ name: 'Phobia', logo: logoPhobiaDark }}
-      >
-        The team at Studio went above and beyond
-        with our onboarding even finding a way
-        to access the user’s microphone without
-        triggering one of those annoying permission dialogs.
-      </Testimonial>
 
       <Services />
 
