@@ -6,11 +6,15 @@ import { FadeIn } from '@/components/FadeIn'
 export function PageIntro({
   eyebrow,
   title,
+  extraTitleClass,
+  extraChildrenClass,
   children,
   centered = false,
 }: {
   eyebrow: string
   title: string
+  extraTitleClass?: string
+  extraChildrenClass?: string
   children: React.ReactNode
   centered?: boolean
 }) {
@@ -27,7 +31,7 @@ export function PageIntro({
           <span
             className={clsx(
               'mt-6 block max-w-5xl font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-6xl',
-              centered && 'mx-auto',
+              centered && 'mx-auto', extraTitleClass
             )}
           >
             {title}
@@ -35,8 +39,8 @@ export function PageIntro({
         </h1>
         <div
           className={clsx(
-            'mt-6 max-w-3xl text-xl text-neutral-600',
-            centered && 'mx-auto',
+            'mt-6 max-w-3xl text-xl text-neutral-60',
+            centered && 'mx-auto', extraChildrenClass
           )}
         >
           {children}

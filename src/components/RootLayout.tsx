@@ -28,8 +28,9 @@ const RootLayoutContext = createContext<{
 } | null>(null)
 
 function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  console.log("props props", props)
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+    <svg viewBox="0 0 24 24" fill='white' aria-hidden="true" {...props}>
       <path d="m5.636 4.223 14.142 14.142-1.414 1.414L4.222 5.637z" />
       <path d="M4.222 18.363 18.364 4.22l1.414 1.414L5.636 19.777z" />
     </svg>
@@ -44,7 +45,8 @@ function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function Header({
+function 
+Header({
   panelId,
   icon: Icon,
   expanded,
@@ -102,7 +104,7 @@ function Header({
                 'h-6 w-6',
                 invert
                   ? 'fill-white group-hover:fill-neutral-200'
-                  : 'fill-neutral-950 group-hover:fill-neutral-700',
+                  : 'fill-white group-hover:fill-neutral-200',
               )}
             />
           </button>
@@ -144,12 +146,12 @@ function Navigation() {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
-        <NavigationItem href="/work">Our Work</NavigationItem>
+        <NavigationItem href="/solutions">Our Work</NavigationItem>
         <NavigationItem href="/about">About Us</NavigationItem>
       </NavigationRow>
       <NavigationRow>
         <NavigationItem href="/process">Our Process</NavigationItem>
-        <NavigationItem href="/blog">Blog</NavigationItem>
+        <NavigationItem href="/products">Products</NavigationItem>
       </NavigationRow>
     </nav>
   )

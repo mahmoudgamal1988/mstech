@@ -22,14 +22,14 @@ export default async function Blog() {
 
   return (
     <>
-      <PageIntro eyebrow="Blog" title="The latest articles and news">
+      <PageIntro eyebrow="Blog" extraTitleClass='text-white' extraChildrenClass='text-gray-50' title="The latest products and news">
         <p>
-          Stay up-to-date with the latest industry news as our marketing teams
-          finds new ways to re-purpose old CSS tricks articles.
+          Stay up-to-date with the latest industry products as our marketing teams
+          finds new solutions.
         </p>
       </PageIntro>
 
-      <Container className="mt-24 sm:mt-32 lg:mt-40">
+      <Container className="mt-36 sm:mt-32 lg:mt-96 py-28">
         <div className="space-y-24 lg:space-y-32">
           {articles.map((article) => (
             <FadeIn key={article.href}>

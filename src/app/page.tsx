@@ -2,30 +2,16 @@ import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useId } from 'react'
-
-import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
-import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-light.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-light.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-light.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-light.svg'
-import logoMailSmirk from '@/images/clients/mail-smirk/logo-light.svg'
-import logoNorthAdventures from '@/images/clients/north-adventures/logo-light.svg'
-import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
-import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
-import logoUnseal from '@/images/clients/unseal/logo-light.svg'
+import { PageIntro } from '@/components/PageIntro'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
-import logo from '@/images/clients/phobia/logomark-dark.svg'
 import { Border } from '@/components/Border'
-// import imageHero from './hero.jpg'
-import imageJennyWilson from './jenny-wilson.jpg'
-
+import { StatList, StatListItem } from '@/components/StatList'
 import { Button } from '@/components/Button'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
@@ -309,7 +295,9 @@ function Section({
               aria-hidden="true"
             />
             <h2 className={"mt-2 font-display text-3xl font-medium tracking-tight sm:text-4xl" + " " + titleExtraClass || "text-neutral-950"}>
-              {title}
+              <Link href={`products/${title.toLowerCase()}`}>
+                {title}
+              </Link>
             </h2>
             <div className="mt-6">{children}</div>
           </FadeIn>
@@ -324,7 +312,7 @@ function Services() {
     <>
       <SectionIntro
         eyebrow=""
-        title="Projects"
+        title="Products"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
@@ -335,7 +323,7 @@ function Services() {
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
 
-        <Container className=" mt-16">
+        <Container className="mt-16">
           <Section title="Leanh" titleExtraClass='text-green-600' image={{ src: imageLaptop }}>
             <div className="space-y-6 text-base text-neutral-600">
               <p>
@@ -367,6 +355,27 @@ function Services() {
           </div>
         </Section>
 
+        <Section title="Proptech" titleExtraClass='' image={{ src: imageLaptop }}>
+          <div className="space-y-6 text-base text-neutral-600">
+            <p>
+              Introducing /proptech, the revolutionary smart solution for property management that empowers property owners
+              and managers to streamline operations, enhance tenant experiences, and maximize returns on their real estate investments.
+            </p>
+            <p>
+              Proptech leverages cutting-edge technology and innovative features to transform traditional property
+              management into a seamless, efficient, and data-driven process.
+            </p>
+          </div>
+        </Section>
+
+
+        <Section title="Huem" titleExtraClass='' image={{ src: imageLaptop, shape: 1 }}>
+          <div className="space-y-6 text-base text-neutral-600">
+            <p>
+              A smart application to control the home easily and safely from one interface.
+            </p>
+          </div>
+        </Section>
 
       </div>
 
@@ -483,6 +492,19 @@ export default async function Home() {
       <Services />
 
       {/* <ContactSection /> */}
+
+
+      <PageIntro eyebrow="" title="Our Achievements">
+        <></>
+      </PageIntro>
+      <Container className="mt-16">
+        <StatList>
+          <StatListItem value="10k" label="Users" />
+          <StatListItem value="12k" label="Connected devices" />
+          <StatListItem value="3k" label="Managed Units" />
+          <StatListItem value="115" label="Projects" />
+        </StatList>
+      </Container>
 
       <Container className="mt-24 sm:mt-32 lg:mt-40">
         <div className="grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2">

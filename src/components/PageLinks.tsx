@@ -77,7 +77,6 @@ export function PageLinks({
           yOffset={-270}
         />
       </div>
-
       <SectionIntro title={title} smaller>
         {intro && <p>{intro}</p>}
       </SectionIntro>

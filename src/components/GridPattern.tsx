@@ -23,7 +23,7 @@ function StaticBlock({
   let shouldReduceMotion = useReducedMotion()
   let isInStaggerGroup = useContext(FadeInStaggerContext)
 
-  console.log("y", props.fill)
+  // console.log("y", props.fill)
   return (
     <motion.path
       transform={`translate(${-32 * y + 96 * x} ${160 * y})`}
