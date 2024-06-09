@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useId } from 'react'
 import { Container } from '@/components/Container'
+import { FooterContainer } from '@/components/FooterContainer'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
@@ -11,7 +12,7 @@ import { PageIntro } from '@/components/PageIntro'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { Border } from '@/components/Border'
-import { StatList, StatListItem } from '@/components/StatList'
+import { StatList, StatListItem, CustomStatList } from '@/components/StatList'
 import { Button } from '@/components/Button'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
@@ -33,6 +34,8 @@ import INNOVATION from '@/images/values/INNOVATION.png';
 import CLIENTCENTRIC from '@/images/values/CLIENTCENTRIC.png';
 import RESPECT from '@/images/values/RESPECT.png';
 import AGILITY from '@/images/values/AGILITY.png';
+
+import HomeSvg from '@/images/home.svg';
 
 
 
@@ -493,18 +496,19 @@ export default async function Home() {
 
       {/* <ContactSection /> */}
 
-
-      <PageIntro eyebrow="" title="Our Achievements">
-        <></>
-      </PageIntro>
-      <Container className="mt-16">
-        <StatList>
-          <StatListItem value="10k" label="Users" />
-          <StatListItem value="12k" label="Connected devices" />
-          <StatListItem value="3k" label="Managed Units" />
-          <StatListItem value="115" label="Projects" />
-        </StatList>
-      </Container>
+      <FooterContainer className="bg-grayBg max-w-full pb-24 pt-1 mt-16">
+        <PageIntro eyebrow="" title="Our Achievements" extraTitleClass='mt-0 text-lightBg' mainClass='lg:mt-16' >
+          <></>
+        </PageIntro>
+        <Container className="mt-20">
+          <StatList>
+            <CustomStatList value="10k" label="Users" extraClass='text-lightBg' icon={TRANSPARENCY} />
+            <CustomStatList value="12k" label="Connected devices" extraClass='text-lightBg' icon={TRANSPARENCY} />
+            <CustomStatList value="3k" label="Managed Units" extraClass='text-lightBg' icon={TRANSPARENCY} />
+            <CustomStatList value="115" label="Projects" extraClass='text-lightBg' icon={TRANSPARENCY} />
+          </StatList>
+        </Container>
+      </FooterContainer>
 
       <Container className="mt-24 sm:mt-32 lg:mt-40">
         <div className="grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2">

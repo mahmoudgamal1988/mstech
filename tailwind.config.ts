@@ -34,6 +34,7 @@ export default {
         backgroundColor: "#e7edf4",
         darkBg: "#030814",
         lightBg: "#197DB7",
+        grayBg: "#f9fafc",
         primary: '#1E96C7',
         ooo: "#2DB2F9",
         secondary: '#777777',

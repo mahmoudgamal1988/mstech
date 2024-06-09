@@ -6,6 +6,7 @@ import { FadeIn } from '@/components/FadeIn'
 export function PageIntro({
   eyebrow,
   title,
+  mainClass,
   extraTitleClass,
   extraChildrenClass,
   children,
@@ -13,6 +14,7 @@ export function PageIntro({
 }: {
   eyebrow: string
   title: string
+  mainClass?: string
   extraTitleClass?: string
   extraChildrenClass?: string
   children: React.ReactNode
@@ -20,7 +22,7 @@ export function PageIntro({
 }) {
   return (
     <Container
-      className={clsx('mt-24 sm:mt-32 lg:mt-40', centered && 'text-center')}
+      className={clsx('mt-24 sm:mt-32', centered && 'text-center', mainClass || "lg:mt-40")}
     >
       <FadeIn>
         <h1>
