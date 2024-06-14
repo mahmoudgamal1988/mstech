@@ -20,6 +20,8 @@ import { GridPattern } from '@/components/GridPattern'
 import { Logo, Logomark } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
+import { Header } from '@/components/Header'
+
 // import './styles/tailwind.css';
 
 const RootLayoutContext = createContext<{
@@ -45,74 +47,73 @@ function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function 
-Header({
-  panelId,
-  icon: Icon,
-  expanded,
-  onToggle,
-  toggleRef,
-  invert = false,
-}: {
-  panelId: string
-  icon: React.ComponentType<{ className?: string }>
-  expanded: boolean
-  onToggle: () => void
-  toggleRef: React.RefObject<HTMLButtonElement>
-  invert?: boolean
-}) {
-  let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
+// function Header({
+//   panelId,
+//   icon: Icon,
+//   expanded,
+//   onToggle,
+//   toggleRef,
+//   invert = false,
+// }: {
+//   panelId: string
+//   icon: React.ComponentType<{ className?: string }>
+//   expanded: boolean
+//   onToggle: () => void
+//   toggleRef: React.RefObject<HTMLButtonElement>
+//   invert?: boolean
+// }) {
+//   let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
 
-  return (
-    <Container>
-      <div className="flex items-center justify-between">
-        <Link
-          href="/"
-          aria-label="Home"
-          onMouseEnter={() => setLogoHovered(true)}
-          onMouseLeave={() => setLogoHovered(false)}
-        >
-          <Logomark
-            className="h-8 sm:hidden"
-            invert={invert}
-            filled={logoHovered}
-          />
-          <Logo
-            className="hidden h-8 sm:block"
-            invert={invert}
-            filled={logoHovered}
-          />
-        </Link>
-        <div className="flex items-center gap-x-8">
-          <Button href="/contact" invert={invert}>
-            Contact us
-          </Button>
-          <button
-            ref={toggleRef}
-            type="button"
-            onClick={onToggle}
-            aria-expanded={expanded ? 'true' : 'false'}
-            aria-controls={panelId}
-            className={clsx(
-              'group -m-2.5 rounded-full p-2.5 transition',
-              invert ? 'hover:bg-white/10' : 'hover:bg-neutral-950/10',
-            )}
-            aria-label="Toggle navigation"
-          >
-            <Icon
-              className={clsx(
-                'h-6 w-6',
-                invert
-                  ? 'fill-white group-hover:fill-neutral-200'
-                  : 'fill-white group-hover:fill-neutral-200',
-              )}
-            />
-          </button>
-        </div>
-      </div>
-    </Container>
-  )
-}
+//   return (
+//     <Container>
+//       <div className="flex items-center justify-between">
+//         <Link
+//           href="/"
+//           aria-label="Home"
+//           onMouseEnter={() => setLogoHovered(true)}
+//           onMouseLeave={() => setLogoHovered(false)}
+//         >
+//           <Logomark
+//             className="h-8 sm:hidden"
+//             invert={invert}
+//             filled={logoHovered}
+//           />
+//           <Logo
+//             className="hidden h-8 sm:block"
+//             invert={invert}
+//             filled={logoHovered}
+//           />
+//         </Link>
+//         <div className="flex items-center gap-x-8">
+//           <Button href="/contact" invert={invert}>
+//             Contact us
+//           </Button>
+//           <button
+//             ref={toggleRef}
+//             type="button"
+//             onClick={onToggle}
+//             aria-expanded={expanded ? 'true' : 'false'}
+//             aria-controls={panelId}
+//             className={clsx(
+//               'group -m-2.5 rounded-full p-2.5 transition',
+//               invert ? 'hover:bg-white/10' : 'hover:bg-neutral-950/10',
+//             )}
+//             aria-label="Toggle navigation"
+//           >
+//             <Icon
+//               className={clsx(
+//                 'h-6 w-6',
+//                 invert
+//                   ? 'fill-white group-hover:fill-neutral-200'
+//                   : 'fill-white group-hover:fill-neutral-200',
+//               )}
+//             />
+//           </button>
+//         </div>
+//       </div>
+//     </Container>
+//   )
+// }
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
@@ -186,22 +187,22 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
       <header>
         <div
-          className="absolute left-0 right-0 top-2 z-40 pt-14"
+          className="absolute top-2 w-full"
           aria-hidden={expanded ? 'true' : undefined}
           // @ts-ignore (https://github.com/facebook/react/issues/17157)
           inert={expanded ? '' : undefined}
         >
           <Header
-            panelId={panelId}
-            icon={MenuIcon}
-            toggleRef={openRef}
-            expanded={expanded}
-            onToggle={() => {
-              setExpanded((expanded) => !expanded)
-              window.setTimeout(() =>
-                closeRef.current?.focus({ preventScroll: true }),
-              )
-            }}
+          // panelId={panelId}
+          // icon={MenuIcon}
+          // toggleRef={openRef}
+          // expanded={expanded}
+          // onToggle={() => {
+          //   setExpanded((expanded) => !expanded)
+          //   window.setTimeout(() =>
+          //     closeRef.current?.focus({ preventScroll: true }),
+          //   )
+          // }}
           />
         </div>
 
@@ -217,17 +218,17 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           <motion.div layout className="bg-primary-800">
             <div ref={navRef} className="bg-neutral-950 pb-16 pt-14">
               <Header
-                invert
-                panelId={panelId}
-                icon={XIcon}
-                toggleRef={closeRef}
-                expanded={expanded}
-                onToggle={() => {
-                  setExpanded((expanded) => !expanded)
-                  window.setTimeout(() =>
-                    openRef.current?.focus({ preventScroll: true }),
-                  )
-                }}
+              // invert
+              // panelId={panelId}
+              // icon={XIcon}
+              // toggleRef={closeRef}
+              // expanded={expanded}
+              // onToggle={() => {
+              //   setExpanded((expanded) => !expanded)
+              //   window.setTimeout(() =>
+              //     openRef.current?.focus({ preventScroll: true }),
+              //   )
+              // }}
               />
             </div>
             <Navigation />
