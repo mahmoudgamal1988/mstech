@@ -21,10 +21,9 @@ export function NavLinks() {
 
   return Links.map((link, index) => {
     const { name, href, subLinks } = link;
-    // console.log("link", link)
-    return <Link
+    return <div
       key={name}
-      href={href}
+      // href={href}
       className="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-sm text-gray-900 transition-colors delay-150 hover:text-gray-900 hover:delay-0"
       onMouseEnter={() => {
         if (timeoutRef.current) {
@@ -40,6 +39,7 @@ export function NavLinks() {
         }, 200)
       }}
     >
+
       <AnimatePresence>
         {hoveredIndex === index && (
           <motion.span
@@ -54,14 +54,19 @@ export function NavLinks() {
           />
         )}
       </AnimatePresence>
-
       <Popover className="relative" >
-        <PopoverButton className="flex items-center">
-          <Link href={href} className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-50 hover:text-gray-50">
-            <span className="relative z-10">{name}</span>
+        {/* <Link href={href} className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-50 hover:text-gray-50"> */}
+        {/* <a href={href}> */}
+        <Link href={href}>
+
+          <PopoverButton className="flex items-center">
+            <span className="relative z-10 text-white" > {name}</span >
             {subLinks.length > 0 && <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" />}
-          </Link>
-        </PopoverButton>
+          </PopoverButton>
+        </Link>
+
+        {/* </a> */}
+        {/* </Link> */}
         {
           hoveredIndex === index && subLinks.length > 0 &&
           <Transition
@@ -97,6 +102,8 @@ export function NavLinks() {
           </Transition>
         }
       </Popover >
-    </Link >
+
+
+    </div >
   })
 }

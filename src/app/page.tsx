@@ -162,10 +162,10 @@ const values = [
 
 function Clients() {
   return (
-    <div className="mt-24 rounded-4xl bg-lightBg py-20 sm:mt-32 sm:py-32 lg:mt-56">
+    <div className="mt-24 rounded-4xl bg-grayBg py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container className="mt-0 sm:mt-32 lg:mt-0">
         <FadeIn>
-          <h2 className="font-display text-2xl font-semibold text-white">
+          <h2 className="font-display text-2xl font-semibold text-lightBg">
             Why MSTech
           </h2>
         </FadeIn>
@@ -187,7 +187,7 @@ function Clients() {
                         unoptimized
                       />
                       <div
-                        className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-white [text-wrap:balance] sm:text-base transition-transform transform transition-filter filter-none group-hover:scale-110"
+                        className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-secondary [text-wrap:balance] sm:text-base transition-transform transform transition-filter filter-none group-hover:scale-110"
                       >
                         <FormattedText text={client.title} />
                       </div>
@@ -391,7 +391,7 @@ function Values() {
     <>
       <SectionIntro
         title="Our Values"
-        className="mt-24 sm:mt-32 lg:mt-40"
+        className="mt-24 sm:mt-32 lg:mt-80"
       >
       </SectionIntro>
       <Container className="mt-16">
@@ -486,9 +486,10 @@ export default async function Home() {
         </FadeIn>
       </Container>
 
+      <Values />
+
       <Clients />
 
-      <Values />
 
       <CaseStudies caseStudies={caseStudies} />
 
@@ -496,16 +497,16 @@ export default async function Home() {
 
       {/* <ContactSection /> */}
 
-      <FooterContainer className="bg-grayBg max-w-full pb-24 pt-1 mt-16">
+      <FooterContainer className="bg-grayBg max-w-full pb-40 pt-14 mt-20">
         <PageIntro eyebrow="" title="Our Achievements" extraTitleClass='mt-0 text-lightBg' mainClass='lg:mt-16' >
           <></>
         </PageIntro>
         <Container className="mt-20">
           <StatList>
-            <CustomStatList value="10k" label="Users" extraClass='text-lightBg' icon={TRANSPARENCY} />
-            <CustomStatList value="12k" label="Connected devices" extraClass='text-lightBg' icon={TRANSPARENCY} />
-            <CustomStatList value="3k" label="Managed Units" extraClass='text-lightBg' icon={TRANSPARENCY} />
-            <CustomStatList value="115" label="Projects" extraClass='text-lightBg' icon={TRANSPARENCY} />
+            <CustomStatList value="10k" label="Users" extraClass='text-secondary' icon={TRANSPARENCY} />
+            <CustomStatList value="12k" label="Connected devices" extraClass='text-secondary' icon={TRANSPARENCY} />
+            <CustomStatList value="3k" label="Managed Units" extraClass='text-secondary' icon={TRANSPARENCY} />
+            <CustomStatList value="115" label="Projects" extraClass='text-secondary' icon={TRANSPARENCY} />
           </StatList>
         </Container>
       </FooterContainer>

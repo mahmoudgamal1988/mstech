@@ -46,9 +46,9 @@ export const Links: MenuLink[] = [
     name: 'Solutions',
     href: '#',
     subLinks: [
-      { name: 'Businesses', href: '#' },
-      { name: 'Home Automation', href: '#' },
-      { name: 'Additional Stack of Services', href: '#' },
+      { name: 'Businesses', href: '/solutions/businesses' },
+      { name: 'Home Automation', href: '/solutions/home_automation' },
+      { name: 'Additional Stack of Services', href: '/solutions/services' },
     ]
   },
   {
