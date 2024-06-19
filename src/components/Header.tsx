@@ -53,7 +53,7 @@ export const Links: MenuLink[] = [
   },
   {
     name: 'Use-cases',
-    href: '#',
+    href: '/use-cases',
     subLinks: []
   },
   {

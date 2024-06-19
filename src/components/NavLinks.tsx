@@ -21,9 +21,9 @@ export function NavLinks() {
 
   return Links.map((link, index) => {
     const { name, href, subLinks } = link;
-    return <div
+    return <Link
       key={name}
-      // href={href}
+      href={href}
       className="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-sm text-gray-900 transition-colors delay-150 hover:text-gray-900 hover:delay-0"
       onMouseEnter={() => {
         if (timeoutRef.current) {
@@ -57,13 +57,13 @@ export function NavLinks() {
       <Popover className="relative" >
         {/* <Link href={href} className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-50 hover:text-gray-50"> */}
         {/* <a href={href}> */}
-        <Link href={href}>
+        {/* <Link href={href}> */}
 
-          <PopoverButton className="flex items-center">
-            <span className="relative z-10 text-white" > {name}</span >
-            {subLinks.length > 0 && <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" />}
-          </PopoverButton>
-        </Link>
+        <PopoverButton className="flex items-center">
+          <span className="relative z-10 text-white" > {name}</span >
+          {subLinks.length > 0 && <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" />}
+        </PopoverButton>
+        {/* </Link> */}
 
         {/* </a> */}
         {/* </Link> */}
@@ -104,6 +104,6 @@ export function NavLinks() {
       </Popover >
 
 
-    </div >
+    </Link >
   })
 }
