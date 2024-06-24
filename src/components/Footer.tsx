@@ -7,11 +7,28 @@ import { socialMediaProfiles } from '@/components/SocialMedia'
 
 const navigation = [
   {
+    title: 'Products',
+    links: [
+      { title: 'Leanh', href: '/products/leanh' },
+      { title: 'Rack', href: '/products/rack' },
+      { title: 'Huem', href: '/products/huem' },
+      { title: 'Proptech', href: '/products/proptech' },
+      {
+        title: (
+          <>
+            See all <span aria-hidden="true">&rarr;</span>
+          </>
+        ),
+        href: '/solutions',
+      },
+    ],
+  },
+  {
     title: 'Solutions',
     links: [
-      { title: 'FamilyFund', href: '/solutions/family-fund' },
-      { title: 'Unseal', href: '/solutions/unseal' },
-      { title: 'Phobia', href: '/solutions/phobia' },
+      { title: 'Businesses', href: '/solutions/businesses' },
+      { title: 'Home Automation', href: '/solutions/home_automation' },
+      { title: 'Additional Stack of Services', href: '/solutions/services' },
       {
         title: (
           <>
@@ -25,9 +42,8 @@ const navigation = [
   {
     title: 'Company',
     links: [
+      { title: 'Use-cases', href: '/use-cases' },
       { title: 'About', href: '/about' },
-      { title: 'Process', href: '/process' },
-      { title: 'Products', href: '/products' },
       { title: 'Contact us', href: '/contact' },
     ],
   },
@@ -40,7 +56,7 @@ const navigation = [
 function Navigation() {
   return (
     <nav>
-      <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+      <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-4">
         {navigation.map((section, sectionIndex) => (
           <li key={sectionIndex}>
             <div className="font-display text-sm font-semibold tracking-wider text-white">
@@ -124,9 +140,9 @@ export function Footer() {
           <Link href="/" aria-label="Home">
             <Logo className="h-8 " fillOnHover />
           </Link>
-          <p className="text-sm text-gray-300">
+          {/* <p className="text-sm text-gray-300">
             © Studio Agency Inc. {new Date().getFullYear()}
-          </p>
+          </p> */}
         </div>
       </FadeIn>
     </FooterContainer>

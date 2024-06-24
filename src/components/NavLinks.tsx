@@ -59,7 +59,7 @@ export function NavLinks() {
         {/* <a href={href}> */}
         {/* <Link href={href}> */}
 
-        <PopoverButton className="flex items-center">
+        <PopoverButton className="flex items-center" style={{pointerEvents:"none"}}>
           <span className="relative z-10 text-white" > {name}</span >
           {subLinks.length > 0 && <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" />}
         </PopoverButton>

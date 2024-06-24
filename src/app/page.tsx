@@ -294,10 +294,10 @@ function Section({
         <div className="mt-12 lg:mt-0 lg:w-[37rem] lg:flex-none lg:group-even/section:order-first">
           <FadeIn>
             <div
-              className="font-display text-base font-semibold before:text-neutral-300 before:content-['/_'] after:text-neutral-950 after:content-[counter(section,decimal-leading-zero)]"
+              className="font-display text-base font-semibold before:text-neutral-300 before:content-['/_'] after:text-secondary after:content-[counter(section,decimal-leading-zero)]"
               aria-hidden="true"
             />
-            <h2 className={"mt-2 font-display text-3xl font-medium tracking-tight sm:text-4xl" + " " + titleExtraClass || "text-neutral-950"}>
+            <h2 className={"mt-2 font-display text-3xl font-medium tracking-tight sm:text-4xl" + " " + titleExtraClass || "text-secondary"}>
               <Link href={`products/${title.toLowerCase()}`}>
                 {title}
               </Link>
@@ -328,14 +328,14 @@ function Services() {
 
         <Container className="mt-16">
           <Section title="Leanh" titleExtraClass='text-green-600' image={{ src: imageLaptop }}>
-            <div className="space-y-6 text-base text-neutral-600">
+            <div className="space-y-6 text-base text-secondary">
               <p>
-                A leading platform for developing smart city and <strong className="font-semibold text-neutral-950">Internet of Things</strong> solutions
+                A leading platform for developing smart city and <strong className="font-semibold text-neutral-600">Internet of Things</strong> solutions
                 using Artificial intelligence for forecasting, decision making and bringing
                 together solutions under one umbrella.
               </p>
               <p>
-                With Leanh, cities can harness the power of <strong className="font-semibold text-neutral-950">advanced technologies</strong>{' '}
+                With Leanh, cities can harness the power of <strong className="font-semibold text-neutral-600">advanced technologies</strong>{' '}
                 data analytics, and IoT to optimize urban infrastructure
                 enhance public services, and improve the overall quality of life for residents.
               </p>
@@ -344,7 +344,7 @@ function Services() {
         </Container>
 
         <Section title="Rack" titleExtraClass='text-[#c2073f]' image={{ src: imageLaptop, shape: 1 }}>
-          <div className="space-y-6 text-base text-neutral-600">
+          <div className="space-y-6 text-base text-secondary">
             <p>
               Rack Smart Retail System is one of the comprehensive solutions
               fot managing retail operations and data analysis to increase efficiency and improve sales.
@@ -359,7 +359,7 @@ function Services() {
         </Section>
 
         <Section title="Proptech" titleExtraClass='' image={{ src: imageLaptop }}>
-          <div className="space-y-6 text-base text-neutral-600">
+          <div className="space-y-6 text-base text-secondary">
             <p>
               Introducing /proptech, the revolutionary smart solution for property management that empowers property owners
               and managers to streamline operations, enhance tenant experiences, and maximize returns on their real estate investments.
@@ -373,7 +373,7 @@ function Services() {
 
 
         <Section title="Huem" titleExtraClass='' image={{ src: imageLaptop, shape: 1 }}>
-          <div className="space-y-6 text-base text-neutral-600">
+          <div className="space-y-6 text-base text-secondary">
             <p>
               A smart application to control the home easily and safely from one interface.
             </p>
@@ -426,7 +426,7 @@ function ContactForm() {
   return (
     <FadeIn className="lg:order-last">
       <form>
-        <h2 className="font-display text-base font-semibold text-neutral-950">
+        <h2 className="font-display text-base font-semibold text-secondary">
           Work inquiries
         </h2>
         <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
@@ -456,7 +456,7 @@ function ContactForm() {
 function ContactDetails() {
   return (
     <FadeIn>
-      <h2 className="font-display text-base font-semibold text-neutral-950">
+      <h2 className="font-display text-base font-semibold text-secondary">
         Contact us !
       </h2>
       <p className="mt-6 text-base text-neutral-600">

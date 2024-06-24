@@ -60,7 +60,7 @@ export const Links: MenuLink[] = [
     name: 'Mstech',
     href: '#',
     subLinks: [
-      { name: 'About us ', href: '#' },
+      { name: 'About us ', href: '/about' },
       { name: 'Careers', href: '#' },
     ]
   },

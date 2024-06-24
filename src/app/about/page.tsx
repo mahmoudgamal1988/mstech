@@ -189,7 +189,7 @@ export default async function About() {
 
   return (
     <>
-      <PageIntro eyebrow="About us" title="Our strength is collaboration">
+      <PageIntro eyebrow="About us" title="Our strength is collaboration" extraTitleClass='text-white' extraChildrenClass='text-gray-50'>
         <p>
           Meshkati Solutions MSTech part of AMNEST group is a team of innovative visionary Saudi professionals
           who create and adopt high-tech smart solutions, focusing on the areas of AI and IoT
@@ -201,26 +201,26 @@ export default async function About() {
           </p>
         </div>
       </PageIntro>
-      <Container className="mt-16">
+      {/* <Container className="mt-16">
         <StatList>
           <StatListItem value="35" label="Underpaid employees" />
           <StatListItem value="52" label="Placated clients" />
           <StatListItem value="$25M" label="Invoices billed" />
         </StatList>
-      </Container>
-
+      </Container> */}
+{/* 
       <Culture />
 
-      <Team />
+      <Team /> */}
 
-      <PageLinks
+      {/* <PageLinks
         className="mt-24 sm:mt-32 lg:mt-40"
         title="From the blog"
         intro="Our team of experienced designers and developers has just one thing on their mind; working on your ideas to draw a smile on the face of your users worldwide. From conducting Brand Sprints to UX Design."
         pages={blogArticles}
-      />
+      /> */}
 
-      <ContactSection />
+      {/* <ContactSection /> */}
     </>
   )
 }

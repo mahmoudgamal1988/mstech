@@ -55,7 +55,7 @@ export function CustomStatList({
     <Border as={FadeIn} position="left" className={clsx('flex content-end justify-end items-start  flex-row-reverse pl-6')} >
       <div className='flex flex-col-reverse ml-4'>
         <dt className={clsx('mt-2 text-base text-neutral-600', extraClass)}>{label}</dt>
-        <dd className={clsx('font-display text-3xl font-semibold text-neutral-950 sm:text-4xl')}>
+        <dd className={clsx('font-display text-3xl font-semibold text-secondary sm:text-4xl')}>
           {value}
         </dd>
       </div>
