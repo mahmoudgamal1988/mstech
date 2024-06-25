@@ -17,6 +17,14 @@ import { Button } from '@/components/Button'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
 
+
+
+import RackImg from '@/images/products/rack.png'
+import HuemImg from '@/images/products/huem.png'
+import LeanhImg from '@/images/products/leanh.png'
+
+
+
 //Why Images
 import BRANDIMG from '@/images/why/BRAND.png';
 import QUALITY from '@/images/why/QUALITY.png';
@@ -162,7 +170,7 @@ const values = [
 
 function Clients() {
   return (
-    <div className="mt-24 rounded-4xl bg-grayBg py-20 sm:mt-32 sm:py-32 lg:mt-56">
+    <div className="mt-4 rounded-4xl bg-grayBg py-20 sm:mt-32 sm:py-32 lg:mt-36">
       <Container className="mt-0 sm:mt-32 lg:mt-0">
         <FadeIn>
           <h2 className="font-display text-2xl font-semibold text-lightBg">
@@ -213,13 +221,50 @@ function Mission() {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Providing innovative technology solutions that enable our clients keeping
-          pace with market dynamics through a team of qualified.
+          Providing innovative technology solutions that enable our clients
+          to keep pace with market dynamics through a team of qualified experts.
         </p>
       </SectionIntro>
+      <div className='px-80 mt-8'>
+        <p className='px-6 text-secondary'>
+          At Meshkati solutions, our mission is to empower individuals and businesses in the Kingdom of Saudi Arabia (KSA) with transformative AI and IoT solutions.
+          We believe in the power of technology to revolutionize the way we live and work, and we are dedicated to enabling our customers to thrive in the digital age.
+          By leveraging our expertise in AI and IoT, we provide innovative solutions that enhance productivity and efficiency, helping businesses achieve sustainable growth.
+          Through personalized services and a deep understanding of industry needs, we serve as a trusted partner for organizations seeking digital transformation.
+          Our comprehensive and tailored solutions are designed to make a tangible impact on our customers operations, unlocking new possibilities and driving their success.
+          With a commitment to excellence, we strive to be at the forefront of technological advancements, delivering exceptional value and empowering businesses & cities to reach their full potential.
+        </p>
+      </div>
     </>
   )
 }
+
+function Vission() {
+  return (
+    <>
+      <SectionIntro
+        title="Vission"
+        className="mt-24 sm:mt-32 lg:mt-40"
+      >
+        <p>
+          To be a leading company in providing digital solutions and services
+          that achieve sustainable growth while fulfilling the Kingdom’s vision.
+        </p>
+      </SectionIntro>
+      <div className='px-80 mt-8'>
+        <p className='px-6 text-secondary'>
+          At Meshkati solutions, our vision is to become one of the top five technology providers start-ups in AI and IoT in the Kingdom of Saudi Arabia by 2030.
+          We are driven by the goals of making peoples lives easier and businesses more profitable through our innovative solutions.
+          By harnessing the power of artificial intelligence and the Internet of Things, we aim to revolutionise the way individuals and organisations interact with technology.
+          Our dedicated team of experts is committed to delivering cutting-edge products and services that enhance efficiency,
+          optimize processes, and unlock new opportunities in the digital landscape. With a focus on customer satisfaction and a passion for innovation,
+          we strive to be at the forefront of technological advancements, shaping the future of AI and IoT in KSA.
+        </p>
+      </div>
+    </>
+  )
+}
+
 
 function CaseStudies({
   caseStudies,
@@ -327,7 +372,7 @@ function Services() {
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
 
         <Container className="mt-16">
-          <Section title="Leanh" titleExtraClass='text-green-600' image={{ src: imageLaptop }}>
+          <Section title="Leanh" titleExtraClass='text-green-600' image={{ src: LeanhImg }}>
             <div className="space-y-6 text-base text-secondary">
               <p>
                 A leading platform for developing smart city and <strong className="font-semibold text-neutral-600">Internet of Things</strong> solutions
@@ -343,7 +388,7 @@ function Services() {
           </Section>
         </Container>
 
-        <Section title="Rack" titleExtraClass='text-[#c2073f]' image={{ src: imageLaptop, shape: 1 }}>
+        <Section title="Rack" titleExtraClass='text-[#c2073f]' image={{ src: RackImg, shape: 1 }}>
           <div className="space-y-6 text-base text-secondary">
             <p>
               Rack Smart Retail System is one of the comprehensive solutions
@@ -372,7 +417,7 @@ function Services() {
         </Section>
 
 
-        <Section title="Huem" titleExtraClass='' image={{ src: imageLaptop, shape: 1 }}>
+        <Section title="Huem" titleExtraClass='text-primary' image={{ src: HuemImg, shape: 1 }}>
           <div className="space-y-6 text-base text-secondary">
             <p>
               A smart application to control the home easily and safely from one interface.
@@ -426,7 +471,7 @@ function ContactForm() {
   return (
     <FadeIn className="lg:order-last">
       <form>
-        <h2 className="font-display text-base font-semibold text-secondary">
+        <h2 className="font-display text-base font-semibold text-primary">
           Work inquiries
         </h2>
         <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
@@ -456,7 +501,7 @@ function ContactForm() {
 function ContactDetails() {
   return (
     <FadeIn>
-      <h2 className="font-display text-base font-semibold text-secondary">
+      <h2 className="font-display text-base font-semibold text-primary">
         Contact us !
       </h2>
       <p className="mt-6 text-base text-neutral-600">
@@ -487,6 +532,11 @@ export default async function Home() {
       </Container>
 
       <Values />
+
+      <Vission />
+
+      <Mission />
+
 
       <Clients />
 

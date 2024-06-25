@@ -53,6 +53,7 @@ export function SectionIntro({
           <div
             className={clsx(
               'mt-6 text-xl',
+              "w-full",
               invert ? 'text-neutral-300' : 'text-secondary',
             )}
           >

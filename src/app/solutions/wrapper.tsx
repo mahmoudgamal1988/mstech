@@ -19,6 +19,7 @@ export default async function CaseStudyLayout({
     .filter(({ metadata }) => metadata !== caseStudy)
     .slice(0, 2)
 
+
   return (
     <>
       <article className="mt-24 sm:mt-32 lg:mt-40">

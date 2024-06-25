@@ -20,6 +20,11 @@ export const metadata: Metadata = {
 export default async function Blog() {
   let articles = await loadArticles()
 
+
+  console.log("articles ")
+
+  console.log("articles", articles)
+
   return (
     <>
       <PageIntro eyebrow="Blog" extraTitleClass='text-white' extraChildrenClass='text-gray-50' title="The latest products and news">
@@ -29,7 +34,7 @@ export default async function Blog() {
         </p>
       </PageIntro>
 
-      <Container className="mt-36 sm:mt-32 lg:mt-96 py-28">
+      {/* <Container className="mt-36 sm:mt-32 lg:mt-96 py-28">
         <div className="space-y-24 lg:space-y-32">
           {articles.map((article) => (
             <FadeIn key={article.href}>
@@ -81,7 +86,7 @@ export default async function Blog() {
             </FadeIn>
           ))}
         </div>
-      </Container>
+      </Container> */}
 
       <ContactSection />
     </>

@@ -147,7 +147,7 @@ export default async function Work() {
 
   return (
     <>
-      <PageIntro
+      {/* <PageIntro
         eyebrow="Our work"
         title="Proven solutions for real-world problems."
       >
@@ -156,8 +156,8 @@ export default async function Work() {
           best value to our clients. The primary way we do that is by re-using
           the same five projects we’ve been developing for the past decade.
         </p>
-      </PageIntro>
-
+      </PageIntro> */}
+{/* 
       <CaseStudies caseStudies={caseStudies} />
 
       <Testimonial
@@ -168,7 +168,7 @@ export default async function Work() {
         delivered something remarkably similar in record time.
       </Testimonial>
 
-      <Clients />
+      <Clients /> */}
 
       <ContactSection />
     </>

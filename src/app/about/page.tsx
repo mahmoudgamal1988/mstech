@@ -190,11 +190,16 @@ export default async function About() {
   return (
     <>
       <PageIntro eyebrow="About us" title="Our strength is collaboration" extraTitleClass='text-white' extraChildrenClass='text-gray-50'>
-        <p>
+        <>
+        </>
+      </PageIntro>
+
+      <PageIntro eyebrow="." title="" extraTitleClass='text-gray-50' extraChildrenClass='text-gray-50'>
+        <p className='text-secondary mt-96'>
           Meshkati Solutions MSTech part of AMNEST group is a team of innovative visionary Saudi professionals
           who create and adopt high-tech smart solutions, focusing on the areas of AI and IoT
         </p>
-        <div className="mt-10 max-w-2xl space-y-6 text-base">
+        <div className="mt-10 max-w-2xl space-y-6 text-base text-secondary">
           <p>
             AMNEST Holding Group Company was established in 1996 under which 15
             companies do business in various sectors.
@@ -208,7 +213,7 @@ export default async function About() {
           <StatListItem value="$25M" label="Invoices billed" />
         </StatList>
       </Container> */}
-{/* 
+      {/* 
       <Culture />
 
       <Team /> */}
