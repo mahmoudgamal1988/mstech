@@ -34,20 +34,21 @@ export function StylizedImage({
     <div
       className={clsx(
         className,
-        'relative flex aspect-[719/680] w-full grayscale',
+        'relative flex aspect-[719/680] w-full',
       )}
     >
-      <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">
+      <foreignObject width={width} height={height}>
+        <Image
+          alt=""
+          className="w-full rounded-4xl object-cover origin-center scale-100 transition duration-500 motion-safe:hover:scale-105"
+          style={{ aspectRatio: `${width} / ${height}` }}
+          {...props}
+        />
+      </foreignObject>
+      {/* <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">
         <g clipPath={`url(#${id}-clip)`} className="group">
           <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-105">
-            <foreignObject width={width} height={height}>
-              <Image
-                alt=""
-                className="w-full bg-neutral-100 object-cover"
-                style={{ aspectRatio: `${width} / ${height}` }}
-                {...props}
-              />
-            </foreignObject>
+
           </g>
           <use
             href={`#${id}-shape`}
@@ -65,7 +66,7 @@ export function StylizedImage({
             />
           </clipPath>
         </defs>
-      </svg>
+      </svg> */}
     </div>
   )
 }
