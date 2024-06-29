@@ -221,23 +221,11 @@ function Mission() {
         title="Mission"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
-        <p>
+        <p className='ml-[200px] mt-[-60px]'>
           Providing innovative technology solutions that enable our clients
-          to keep pace with market dynamics through a team of qualified experts.
+          keeping pace with market dynamics through a team of qualified.
         </p>
       </SectionIntro>
-      <FadeIn>
-        <div className='px-80 mt-8'>
-          <p className='px-32 text-secondary'>
-            At Meshkati solutions, our mission is to empower individuals and businesses in the Kingdom of Saudi Arabia (KSA) with transformative AI and IoT solutions.
-            We believe in the power of technology to revolutionize the way we live and work, and we are dedicated to enabling our customers to thrive in the digital age.
-            By leveraging our expertise in AI and IoT, we provide innovative solutions that enhance productivity and efficiency, helping businesses achieve sustainable growth.
-            Through personalized services and a deep understanding of industry needs, we serve as a trusted partner for organizations seeking digital transformation.
-            Our comprehensive and tailored solutions are designed to make a tangible impact on our customers operations, unlocking new possibilities and driving their success.
-            With a commitment to excellence, we strive to be at the forefront of technological advancements, delivering exceptional value and empowering businesses & cities to reach their full potential.
-          </p>
-        </div>
-      </FadeIn>
     </>
   )
 }
@@ -249,23 +237,11 @@ function Vission() {
         title="Vission"
         className="mt-24 sm:mt-32 lg:mt-96"
       >
-        <p>
+        <p className='ml-52 mt-[-60px]'>
           To be a leading company in providing digital solutions and services
           that achieve sustainable growth while fulfilling the Kingdom’s vision.
         </p>
       </SectionIntro>
-      <FadeIn>
-        <div className='px-80 mt-8'>
-          <p className='px-32 text-secondary'>
-            At Meshkati solutions, our vision is to become one of the top five technology providers start-ups in AI and IoT in the Kingdom of Saudi Arabia by 2030.
-            We are driven by the goals of making peoples lives easier and businesses more profitable through our innovative solutions.
-            By harnessing the power of artificial intelligence and the Internet of Things, we aim to revolutionise the way individuals and organisations interact with technology.
-            Our dedicated team of experts is committed to delivering cutting-edge products and services that enhance efficiency,
-            optimize processes, and unlock new opportunities in the digital landscape. With a focus on customer satisfaction and a passion for innovation,
-            we strive to be at the forefront of technological advancements, shaping the future of AI and IoT in KSA.
-          </p>
-        </div>
-      </FadeIn>
     </>
   )
 }
@@ -441,7 +417,7 @@ function Values() {
     <>
       <SectionIntro
         title="Our Values"
-        className="mt-24 sm:mt-32 lg:mt-80"
+        className="mt-24 sm:mt-32 lg:mt-52"
       >
       </SectionIntro>
       <Container className="mt-16">
@@ -536,9 +512,12 @@ export default async function Home() {
         </FadeIn>
       </Container>
 
+      {/* <div className="grid gap-32 lg:grid-cols-2 mt-32"> */}
       <Vission />
-
       <Mission />
+      {/* </div> */}
+
+
 
       <Values />
 

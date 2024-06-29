@@ -230,7 +230,7 @@ export function Header() {
                             <MobileNavLink href="/#faqs">FAQs</MobileNavLink> */}
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
-                            <Button href="#">Contact Us</Button>
+                            <Button href="/contact">Contact Us</Button>
                           </div>
                         </PopoverPanel>
                       </>
@@ -239,7 +239,7 @@ export function Header() {
                 </>
               )}
             </Popover>
-            <Button href="#" className="hidden lg:block">
+            <Button href="/contact" className="hidden lg:block">
               Contact Us
             </Button>
           </div>
