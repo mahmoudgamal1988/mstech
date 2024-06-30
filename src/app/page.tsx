@@ -483,11 +483,11 @@ function ContactDetails() {
   return (
     <FadeIn>
       <h2 className="font-display text-base font-semibold text-primary">
-        Contact us !
+        Get in touch.
       </h2>
       <p className="mt-6 text-base text-neutral-600">
-        Prefer doing things in person? We don’t but we have to list our
-        addresses here for legal reasons.
+        Let’s make something awesome together!
+        Drop us a line, or give us a heads up if you’re interested in visiting us.
       </p>
     </FadeIn>
   )

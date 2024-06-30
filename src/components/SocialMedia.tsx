@@ -50,10 +50,11 @@ function DribbbleIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 export const socialMediaProfiles = [
-  { title: 'Facebook', href: 'https://facebook.com', icon: FacebookIcon },
-  { title: 'Instagram', href: 'https://instagram.com', icon: InstagramIcon },
-  { title: 'GitHub', href: 'https://github.com', icon: GitHubIcon },
-  { title: 'Dribbble', href: 'https://dribbble.com', icon: DribbbleIcon },
+  { title: 'X', href: 'https://x.com/mstech_sa?s=11&t=TJlzrfBBSqRXZvOYG9LW-Q', icon: FacebookIcon },
+  {
+    title: 'LinkedIn', href: 'https://www.linkedin.com/company/meshkati-solutions-company/', icon: InstagramIcon
+  },
+  { title: 'Mail', href: 'Info@mstech.sa', icon: GitHubIcon },
 ]
 
 export function SocialMedia({
