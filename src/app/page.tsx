@@ -235,7 +235,7 @@ function Vission() {
     <>
       <SectionIntro
         title="Vission"
-        className="mt-24 sm:mt-32 lg:mt-96"
+        className="mt-96 sm:mt-32 lg:mt-96"
       >
         <p className='ml-52 mt-[-60px]'>
           To be a leading company in providing digital solutions and services
