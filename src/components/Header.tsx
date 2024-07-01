@@ -61,7 +61,7 @@ export const Links: MenuLink[] = [
     href: '#',
     subLinks: [
       { name: 'About us ', href: '/about' },
-      { name: 'Careers', href: '#' },
+      // { name: 'Careers', href: '#' },
     ]
   },
 ]

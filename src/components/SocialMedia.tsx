@@ -50,11 +50,13 @@ function DribbbleIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 export const socialMediaProfiles = [
+  { title: '7630, Al Abbas Bin Abdul Multaib SL With Othman Bin, KSA', href: '#', icon: GitHubIcon },
   { title: 'X', href: 'https://x.com/mstech_sa?s=11&t=TJlzrfBBSqRXZvOYG9LW-Q', icon: FacebookIcon },
   {
     title: 'LinkedIn', href: 'https://www.linkedin.com/company/meshkati-solutions-company/', icon: InstagramIcon
   },
   { title: 'Mail', href: 'Info@mstech.sa', icon: GitHubIcon },
+
 ]
 
 export function SocialMedia({

@@ -40,7 +40,7 @@ export function StylizedImage({
       <foreignObject width={width} height={height}>
         <Image
           alt=""
-          className="w-full rounded-4xl object-cover origin-center scale-100 transition duration-500 motion-safe:hover:scale-105"
+          className="w-full rounded-4xl object-contain origin-center scale-100 transition duration-500 motion-safe:hover:scale-105 "
           style={{ aspectRatio: `${width} / ${height}` }}
           {...props}
         />
