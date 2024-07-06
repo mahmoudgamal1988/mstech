@@ -2,6 +2,19 @@ import logo from './services.svg'
 // import imageHero from './hero.jpg'
 import imageHero from '@/images/logo.png'
 import imageEmilySelman from './emily-selman.jpg'
+import { SectionIntro } from '@/components/SectionIntro'
+import { Container } from '@/components/Container'
+import { StylizedImage } from '@/components/StylizedImage'
+import { FadeIn, FadeInStagger } from '@/components/FadeIn'
+import Link from 'next/link'
+
+import { Section } from '@/components/Section'
+
+import ConsultancyImg from './Consultancy.png'
+import OutsourcingImg from './Outsourcing.png'
+import ManagedServicesImg from './ManagedServices.png'
+import IntegrationServicesgImg from './IntegrationServices.png'
+import SoftwareDevelopmentImg from './SoftwareDevelopment.png'
 
 export const caseStudy = {
   client: 'Unseal',
@@ -27,25 +40,53 @@ export const metadata = {
   description: caseStudy.description,
 }
 
-## Overview
+<>
+  <SectionIntro eyebrow="" title="Overview" className="mt-24 sm:mt-32 lg:mt-40">
+    <>
+      {
+        'In order to provide an end-to-end total solution, MSTech is offering additional consultancy and IT services.'
+      }
+    </>
 
-Consultancy
+  </SectionIntro>
+  <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
+    <Section title="Consultancy" titleExtraClass='text-primary' image={{ src: ConsultancyImg }}>
+        <div className="space-y-6 text-base text-secondary">
+          <>
+            Our skilled team with wealth of experience in the area of IT, Smart Solutions, IoT, and AI is ready to assist clients match the right solution to address their needs and guide them through the right path for successful implementation.
+          </>
+        </div>
+    </Section>
+    <Section title="Outsourcing" titleExtraClass='text-primary' image={{ src: OutsourcingImg, shape: 1 }}>
+      <div className="space-y-6 text-base text-secondary">
+        <>
+          Through our local and offshore resources, we can augment client’s team with the right skills.
+        </>
+      </div>
+    </Section>
+    <Section title="Managed Services" titleExtraClass='text-primary' image={{ src: ManagedServicesImg }}>
+        <div className="space-y-6 text-base text-secondary">
+          <>
+            We are ready to offload clients from day-to-day IT related technical tasks in order to give them the needed time to focus on their business goals through SLA based contracts. Through our Local resources and offshore arms, we can guarantee a smooth and continuous operations.
+          </>
+        </div>
+    </Section>
+    <Section title="Integration Services" titleExtraClass='text-primary' image={{ src: IntegrationServicesgImg }}>
+        <div className="space-y-6 text-base text-secondary">
+          <>
+            We help our clients to maximize their IT performance and capability. Implementing new software solutions and connecting with existing solutions, we assure our clients a homogeneous environment.
+          </>
+        </div>
+    </Section>
+    <Section title="Software Development" titleExtraClass='text-primary' image={{ src: SoftwareDevelopmentImg }}>
+      <div className="space-y-6 text-base text-secondary">
+        <>
+            From mobile apps to Back-office enterprise apps, we can fulfill client’s software development, tailoring, and maintenance requirements.
+        </>
+      </div>
+    </Section>
 
-Our skilled team with wealth of experience in the area of IT, Smart Solutions, IoT, and AI is ready to assist clients match the right solution to address their needs and guide them through the right path for successful implementation.
+  </div>
 
-Outsourcing
-
-Through our local and offshore resources, we can augment client’s team with the right skills.
-
-Managed Services
-
-We are ready to offload clients from day-to-day IT related technical tasks in order to give them the needed time to focus on their business goals through SLA based contracts. Through our Local resources and offshore arms, we can guarantee a smooth and continuous operations.
-
-Integration Services
-
-We help our clients to maximize their IT performance and capability. Implementing new software solutions and connecting with existing solutions, we assure our clients a homogeneous environment.
-
-Software Development
-
-From mobile apps to Back-office enterprise apps, we can fulfill client’s software development, tailoring, and maintenance requirements. 
+</>
 
