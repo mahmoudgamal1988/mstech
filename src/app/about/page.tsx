@@ -184,6 +184,39 @@ export const metadata: Metadata = {
     'We believe that our strength lies in our collaborative approach, which puts our clients at the center of everything we do.',
 }
 
+
+function Mission() {
+  return (
+    <>
+      <SectionIntro
+        title="Mission"
+        className="mt-24 sm:mt-32 lg:mt-40"
+      >
+        <p className='ml-[200px] mt-[-60px]'>
+          Providing innovative technology solutions that enable our clients
+          keeping pace with market dynamics through a team of qualified.
+        </p>
+      </SectionIntro>
+    </>
+  )
+}
+
+function Vission() {
+  return (
+    <>
+      <SectionIntro
+        title="Vission"
+        className="mt-96 sm:mt-32 lg:mt-96"
+      >
+        <p className='ml-52 mt-[-60px]'>
+          To be a leading company in providing digital solutions and services
+          that achieve sustainable growth while fulfilling the Kingdom’s vision.
+        </p>
+      </SectionIntro>
+    </>
+  )
+}
+
 export default async function About() {
   let blogArticles = (await loadArticles()).slice(0, 2)
 
@@ -194,8 +227,21 @@ export default async function About() {
         </>
       </PageIntro>
 
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <Vission />
+      <Mission />
+
+
       <PageIntro eyebrow="." title="" extraTitleClass='text-gray-50' extraChildrenClass='text-gray-50'>
-        <p className='text-secondary mt-96'>
+        <p className='text-secondary mt-[-56px]'>
           Meshkati Solutions MSTech part of AMNEST group is a team of innovative visionary Saudi professionals
           who create and adopt high-tech smart solutions, focusing on the areas of AI and IoT
         </p>
@@ -205,7 +251,10 @@ export default async function About() {
             companies do business in various sectors.
           </p>
         </div>
+
       </PageIntro>
+
+
       {/* <Container className="mt-16">
         <StatList>
           <StatListItem value="35" label="Underpaid employees" />

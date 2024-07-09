@@ -37,10 +37,10 @@ export function StylizedImage({
         'relative flex aspect-[719/680] w-full',
       )}
     >
-      <foreignObject width={width} height={height}>
+      <foreignObject width={width} height={height} style={{ display: "flex" }}>
         <Image
           alt=""
-          className="w-full rounded-4xl object-contain origin-center scale-100 transition duration-500 motion-safe:hover:scale-105 "
+          className="flex w-full rounded-4xl object-contain origin-center scale-100 transition duration-500 motion-safe:hover:scale-105"
           style={{ aspectRatio: `${width} / ${height}` }}
           {...props}
         />

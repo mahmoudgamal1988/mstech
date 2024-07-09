@@ -28,7 +28,7 @@ export default async function CaseStudyLayout({
             <p>{caseStudy.description}</p>
           </PageIntro>
 
-          <FadeIn>
+          {caseStudy.image.src && <FadeIn>
             <div className="mt-48 border-t border-neutral-200 bg-white/50 sm:mt-32 lg:mt-40">
               <Container>
                 <div className="mx-auto max-w-5xl">
@@ -55,7 +55,7 @@ export default async function CaseStudyLayout({
             </div>
 
             <div className="border-y border-neutral-200 bg-neutral-100">
-              <div className="-my-px mx-auto max-w-[76rem] bg-neutral-200">
+              <div className="-my-px mx-auto max-w-[36rem] bg-neutral-200">
                 <GrayscaleTransitionImage
                   {...caseStudy.image}
                   quality={90}
@@ -66,6 +66,7 @@ export default async function CaseStudyLayout({
               </div>
             </div>
           </FadeIn>
+          }
         </header>
 
         <Container className="mt-24 sm:mt-32 lg:mt-40">

@@ -23,8 +23,8 @@ export function Section({
           <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
             <StylizedImage
               {...image}
-              sizes="(min-width: 1024px) 41rem, 31rem"
-              className="justify-center lg:justify-end lg:group-even/section:justify-start "
+              sizes="(min-width: 512px) 25rem, 25rem"
+              className="flex justify-center lg:justify-end lg:group-even/section:justify-start "
             />
           </FadeIn>
         </div>

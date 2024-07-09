@@ -512,6 +512,8 @@ export default async function Home() {
         </FadeIn>
       </Container>
 
+      <Clients />
+
       {/* <div className="grid gap-32 lg:grid-cols-2 mt-32"> */}
       <Vission />
       <Mission />
@@ -523,7 +525,6 @@ export default async function Home() {
 
 
 
-      <Clients />
 
 
       <CaseStudies caseStudies={caseStudies} />
