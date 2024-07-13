@@ -24,8 +24,10 @@ import { Header } from '@/components/Header'
 
 // import './styles/tailwind.css';
 
-const RootLayoutContext = createContext<{
+export const RootLayoutContext = createContext<{
   logoHovered: boolean
+  productRef: React.RefObject<HTMLDivElement>;
+  solutionRef: React.RefObject<HTMLDivElement>;
   setLogoHovered: React.Dispatch<React.SetStateAction<boolean>>
 } | null>(null)
 
@@ -282,9 +284,11 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 export function RootLayout({ children }: { children: React.ReactNode }) {
   let pathname = usePathname()
   let [logoHovered, setLogoHovered] = useState(false)
+  const productRef = useRef<HTMLDivElement>(null);
+  const solutionRef = useRef<HTMLDivElement>(null);
 
   return (
-    <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
+    <RootLayoutContext.Provider value={{ logoHovered, productRef, solutionRef, setLogoHovered }}>
       <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
     </RootLayoutContext.Provider>
   )

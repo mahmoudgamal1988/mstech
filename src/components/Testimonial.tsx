@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 // import { GridPattern } from '@/components/GridPattern'
-import { GridPattern } from '@/components/GridPatternContent'
+import { GridPattern } from '@/components/GridPattern copy 2'
 
 export function Testimonial({
   children,

@@ -1,3 +1,5 @@
+
+import { useRef, useState, useContext } from 'react'
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -44,8 +46,40 @@ import CLIENTCENTRIC from '@/images/values/CLIENTCENTRIC.png';
 import RESPECT from '@/images/values/RESPECT.png';
 import AGILITY from '@/images/values/AGILITY.png';
 
-import HomeSvg from '@/images/home.svg';
 
+import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
+
+
+import Consultancy from '@/app/solutions/services/Consultancy.png';
+
+
+import Partners01 from '@/images/our-partners/our partners/Meshkati Solutions Partners-01.png';
+import Partners02 from '@/images/our-partners/our partners/Meshkati Solutions Partners-02.png';
+import Partners03 from '@/images/our-partners/our partners/Meshkati Solutions Partners-03.png';
+import Partners04 from '@/images/our-partners/our partners/Meshkati Solutions Partners-04.png';
+import Partners05 from '@/images/our-partners/our partners/Meshkati Solutions Partners-05.png';
+import Partners06 from '@/images/our-partners/our partners/Meshkati Solutions Partners-06.png';
+import Partners07 from '@/images/our-partners/our partners/Meshkati Solutions Partners-07.png';
+import Partners08 from '@/images/our-partners/our partners/Meshkati Solutions Partners-08.png';
+import Partners09 from '@/images/our-partners/our partners/Meshkati Solutions Partners-09.png';
+import Partners10 from '@/images/our-partners/our partners/Meshkati Solutions Partners-10.png';
+import Partners11 from '@/images/our-partners/our partners/Meshkati Solutions Partners-11.png';
+import Partners12 from '@/images/our-partners/our partners/Meshkati Solutions Partners-12.png';
+import Partners13 from '@/images/our-partners/our partners/Meshkati Solutions Partners-13.png';
+import Partners14 from '@/images/our-partners/our partners/Meshkati Solutions Partners-14.png';
+import Partners15 from '@/images/our-partners/our partners/Meshkati Solutions Partners-15.png';
+import Partners16 from '@/images/our-partners/our partners/Meshkati Solutions Partners-16.png';
+import Partners17 from '@/images/our-partners/our partners/Meshkati Solutions Partners-17.png';
+import Partners18 from '@/images/our-partners/our partners/Meshkati Solutions Partners-18.png';
+import Partners19 from '@/images/our-partners/our partners/Meshkati Solutions Partners-19.png';
+import Partners20 from '@/images/our-partners/our partners/Meshkati Solutions Partners-20.png';
+// import Partners21 from '@/images/our-partners/our partners/Meshkati Solutions Partners-21.png';
+import Partners22 from '@/images/our-partners/our partners/Meshkati Solutions Partners-22.png';
+import Partners23 from '@/images/our-partners/our partners/Meshkati Solutions Partners-23.png';
+import Partners24 from '@/images/our-partners/our partners/Meshkati Solutions Partners-24.png';
+import Partners25 from '@/images/our-partners/our partners/Meshkati Solutions Partners-25.png';
+import { RootLayoutContext } from '@/components/RootLayout'
+import WrapperSection from './WrapperSection'
 
 
 function TextInput({
@@ -141,6 +175,35 @@ const clients = [
 ]
 
 
+const partners = [
+  ['Partners01', Partners01],
+  ['Partners02', Partners02],
+  ['Partners03', Partners03],
+  ['Partners04', Partners04],
+  ['Partners05', Partners05],
+  ['Partners06', Partners06],
+  ['Partners07', Partners07],
+  ['Partners08', Partners08],
+  ['Partners09', Partners09],
+  ['Partners10', Partners10],
+  ['Partners11', Partners11],
+  ['Partners12', Partners12],
+  ['Partners13', Partners13],
+  ['Partners14', Partners14],
+  ['Partners15', Partners15],
+  ['Partners16', Partners16],
+  ['Partners17', Partners17],
+  ['Partners18', Partners18],
+  ['Partners19', Partners19],
+  ['Partners20', Partners20],
+  // ['Partners21', Partners21],
+  // ['Partners22', Partners22],
+  // ['Partners23', Partners23],
+  // ['Partners24', Partners24],
+  // ['Partners25', Partners25],
+]
+
+
 const values = [
   {
     title: 'TRANSPARENCY',
@@ -168,6 +231,36 @@ const values = [
   }
 ];
 
+
+
+function Partners() {
+  return (
+    <div className="mt-24 rounded-4xl bg-grayBg py-14 sm:mt-32 sm:py-32 lg:mt-56">
+      <Container>
+        <FadeIn className="flex items-center gap-x-8">
+          <h2 className="text-center font-display text-3xl font-semibold tracking-wider text-primary sm:text-left">
+            Our Partners
+          </h2>
+          {/* <div className="h-px flex-auto bg-secondary" /> */}
+        </FadeIn>
+        <FadeInStagger faster>
+          <ul
+            role="list"
+            className="mt-10 mb-[-52px] grid grid-cols-4 gap-x-8 gap-y-10 lg:grid-cols-8"
+          >
+            {partners.map(([client, logo]) => (
+              <li key={client as string} className='w-28'>
+                <FadeIn>
+                  <Image src={logo} alt={client as string} unoptimized />
+                </FadeIn>
+              </li>
+            ))}
+          </ul>
+        </FadeInStagger>
+      </Container>
+    </div>
+  )
+}
 
 function Clients() {
   return (
@@ -216,33 +309,47 @@ function Clients() {
 
 function Mission() {
   return (
-    <>
+    <div className='flex justify-center'>
+      <FadeIn className="w-[33.75rem] flex-none lg:w-[32rem]">
+        <StylizedImage
+          {...{ src: Consultancy, shape: 1 }}
+          sizes="(min-width: 960px) 20rem, 21rem"
+          className="justify-center lg:justify-center lg:group-even/section:justify-center"
+        />
+      </FadeIn>
       <SectionIntro
         title="Mission"
-        className="mt-24 sm:mt-32 lg:mt-40"
+        className="mt-96 sm:mt-32 lg:mt-32 mr-0 ml-0 px-8"
       >
-        <p className='ml-[200px] mt-[-60px]'>
+        <p className='ml-[80px] mt-[-0px]'>
           Providing innovative technology solutions that enable our clients
           keeping pace with market dynamics through a team of qualified.
         </p>
       </SectionIntro>
-    </>
+    </div>
   )
 }
 
 function Vission() {
   return (
-    <>
+    <div className='flex justify-center mt-10'>
       <SectionIntro
         title="Vission"
-        className="mt-96 sm:mt-32 lg:mt-96"
+        className="mt-96 sm:mt-32 lg:mt-36 mr-0 ml-0 px-8"
       >
-        <p className='ml-52 mt-[-60px]'>
+        <p className='ml-[80px] mt-[-0px]'>
           To be a leading company in providing digital solutions and services
           that achieve sustainable growth while fulfilling the Kingdom’s vision.
         </p>
       </SectionIntro>
-    </>
+      <FadeIn className="w-[33.75rem] flex-none lg:w-[32rem]">
+        <StylizedImage
+          {...{ src: Consultancy, shape: 1 }}
+          sizes="(min-width: 960px) 20rem, 21rem"
+          className="justify-center lg:justify-center lg:group-even/section:justify-center"
+        />
+      </FadeIn>
+    </div>
   )
 }
 
@@ -253,9 +360,9 @@ function CaseStudies({
   caseStudies: Array<MDXEntry<CaseStudy>>
 }) {
   return (
-    <>
+    <WrapperSection sectionTag='solutions'>
       <SectionIntro
-        title="Our Solutions"
+        title="Solutions"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
@@ -290,29 +397,31 @@ function CaseStudies({
           ))}
         </FadeInStagger>
       </Container>
-    </>
+    </WrapperSection>
   )
 }
 
 function Section({
   title,
   titleExtraClass,
+  topClass,
   image,
   children,
 }: {
   title: string;
+  topClass?: string;
   titleExtraClass?: string;
   image: React.ComponentPropsWithoutRef<typeof StylizedImage>
   children: React.ReactNode
 }) {
   return (
-    <Container className="group/section [counter-increment:section]">
-      <div className="lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20">
-        <div className="flex justify-center">
-          <FadeIn className="w-[33.75rem] flex-none lg:w-[32rem]">
+    <Container className={"group/section [counter-increment:section]" + " " + topClass}>
+      < div className="lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20 mt-[0px]" >
+        <div className={"flex justify-center" + " " + topClass}>
+          <FadeIn className="w-[33.75rem] flex-none lg:w-[25rem]">
             <StylizedImage
               {...image}
-              sizes="(min-width: 1024px) 41rem, 31rem"
+              sizes="(min-width: 1024px) 26rem, 31rem"
               className="justify-center lg:justify-end lg:group-even/section:justify-start "
             />
           </FadeIn>
@@ -331,14 +440,15 @@ function Section({
             <div className="mt-6">{children}</div>
           </FadeIn>
         </div>
-      </div>
-    </Container>
+      </div >
+    </Container >
   )
 }
 
 function Services() {
+
   return (
-    <>
+    <WrapperSection sectionTag='products'>
       <SectionIntro
         eyebrow=""
         title="Products"
@@ -398,7 +508,7 @@ function Services() {
         </Section>
 
 
-        <Section title="Huem" titleExtraClass='text-primary' image={{ src: HuemImg, shape: 1 }}>
+        <Section title="Huem" topClass='mt-[-130px]' titleExtraClass='text-primary' image={{ src: HuemImg, shape: 1 }}>
           <div className="space-y-6 text-base text-secondary">
             <p>
               A smart application to control the home easily and safely from one interface.
@@ -408,7 +518,7 @@ function Services() {
 
       </div>
 
-    </>
+    </WrapperSection>
   )
 }
 
@@ -417,7 +527,7 @@ function Values() {
     <>
       <SectionIntro
         title="Our Values"
-        className="mt-24 sm:mt-32 lg:mt-52"
+        className="mt-24 sm:mt-32 lg:mt-36"
       >
       </SectionIntro>
       <Container className="mt-16">
@@ -493,10 +603,10 @@ function ContactDetails() {
   )
 }
 
-export const metadata: Metadata = {
-  description:
-    'We are a development studio working at the intersection of design and technology.',
-}
+// export const metadata: Metadata = {
+//   description:
+//     'We are a development studio working at the intersection of design and technology.',
+// }
 
 export default async function Home() {
   let caseStudies = (await loadCaseStudies()).slice(0, 4)
@@ -519,13 +629,7 @@ export default async function Home() {
       <Mission />
       {/* </div> */}
 
-
-
       <Values />
-
-
-
-
 
       <CaseStudies caseStudies={caseStudies} />
 
@@ -546,6 +650,9 @@ export default async function Home() {
           </StatList>
         </Container>
       </FooterContainer>
+
+
+      <Partners />
 
       <Container className="mt-24 sm:mt-32 lg:mt-40">
         <div className="grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2">

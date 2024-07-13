@@ -85,3 +85,4 @@ export default async function config() {
 
   return withMDX(nextConfig)
 }
+

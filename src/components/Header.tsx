@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useContext } from 'react'
 import Link from 'next/link'
 import {
   Popover,
@@ -18,11 +18,13 @@ import { NavLinks } from './NavLinks'
 
 
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { RootLayoutContext } from './RootLayout'
 
 
 export interface MenuLink {
   name: string;
   href: string;
+  isSubPage?: boolean;
   subLinks: SubLink[];
 }
 
@@ -31,10 +33,22 @@ export interface SubLink {
   href: string;
 }
 
+
 export const Links: MenuLink[] = [
+  {
+    name: 'Solutions',
+    href: '/solutions',
+    isSubPage: false,
+    subLinks: [
+      { name: 'Businesses', href: '/solutions/businesses' },
+      { name: 'Home Automation', href: '/solutions/home_automation' },
+      { name: 'Additional Stack of Services', href: '/solutions/services' },
+    ]
+  },
   {
     name: 'Products',
     href: '/products',
+    isSubPage: false,
     subLinks: [
       { name: 'Leanh', href: '/products/leanh' },
       { name: 'Rack', href: '/products/rack' },
@@ -43,22 +57,15 @@ export const Links: MenuLink[] = [
     ]
   },
   {
-    name: 'Solutions',
-    href: '#',
-    subLinks: [
-      { name: 'Businesses', href: '/solutions/businesses' },
-      { name: 'Home Automation', href: '/solutions/home_automation' },
-      { name: 'Additional Stack of Services', href: '/solutions/services' },
-    ]
-  },
-  {
     name: 'Use-cases',
     href: '/use-cases',
+    isSubPage: true,
     subLinks: []
   },
   {
     name: 'Mstech',
     href: '#',
+    isSubPage: false,
     subLinks: [
       { name: 'About us ', href: '/about' },
       // { name: 'Careers', href: '#' },

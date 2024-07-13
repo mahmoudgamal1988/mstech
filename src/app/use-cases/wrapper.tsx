@@ -119,12 +119,12 @@ export default async function CaseStudyLayout({
             </div>
 
             <div className="border-y border-neutral-200 bg-neutral-100">
-              <div className="-my-px mx-auto max-w-[76rem] bg-neutral-200">
+              <div className="-my-px mx-auto max-w-[28rem] bg-transparent">
                 <GrayscaleTransitionImage
                   {...caseStudy.image}
                   quality={90}
                   className="w-full"
-                  sizes="(min-width: 1216px) 76rem, 100vw"
+                  sizes="(min-width: 416px) 26rem, 50vw"
                   priority
                 />
               </div>

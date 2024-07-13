@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useContext } from 'react'
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
@@ -12,19 +12,58 @@ import {
   Transition,
 } from '@headlessui/react'
 import { Links } from './Header'
+import { RootLayoutContext } from './RootLayout'
+import { useRouter } from 'next/navigation'
+
 
 
 export function NavLinks() {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   let timeoutRef = useRef<number | null>(null)
   const [isShowing, setIsShowing] = useState(false)
+  const contextRes = useContext(RootLayoutContext);
+  const { productRef, solutionRef } = contextRes as any;
+  const router = useRouter()
+
+  const scrollToSection = (sectionRef: any) => {
+    setTimeout(() => {
+      if(sectionRef.current){
+        sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 1000);
+  };
+
+  const navigateTo = (path: string) => {
+    router.push(path);
+  };
+
 
   return Links.map((link, index) => {
-    const { name, href, subLinks } = link;
+    const { name, href, isSubPage, subLinks } = link;
     return <Link
       key={name}
-      href={href}
+      href={(isSubPage && href) || "#"}
       className="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-sm text-gray-900 transition-colors delay-150 hover:text-gray-900 hover:delay-0"
+      onClick={() => {
+        switch (href) {
+          case "/products":
+            console.log("productRefproductRefproductRefproductRef", productRef)
+            if (productRef && productRef.current) {
+              scrollToSection(productRef)
+            } else {
+
+            }
+            break;
+          case "/solutions":
+            if (solutionRef && solutionRef.current) {
+              scrollToSection(solutionRef)
+            } else {
+
+            }
+          default:
+            break;
+        }
+      }}
       onMouseEnter={() => {
         if (timeoutRef.current) {
           window.clearTimeout(timeoutRef.current)
@@ -59,7 +98,7 @@ export function NavLinks() {
         {/* <a href={href}> */}
         {/* <Link href={href}> */}
 
-        <PopoverButton className="flex items-center" style={{pointerEvents:"none"}}>
+        <PopoverButton className="flex items-center" style={{ pointerEvents: "none" }}>
           <span className="relative z-10 text-white" > {name}</span >
           {subLinks.length > 0 && <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" />}
         </PopoverButton>

@@ -22,6 +22,7 @@ export default {
     extend: {
       borderRadius: {
         '4xl': '2.5rem',
+        '5xl': '5.5rem',
       },
       fontFamily: {
         sans: ['Mona Sans', ...defaultTheme.fontFamily.sans],
