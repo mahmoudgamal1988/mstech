@@ -81,77 +81,12 @@ export function GridPattern({
   let [hoveredBlocks, setHoveredBlocks] = useState<
     Array<[x: number, y: number, key: number]>
   >([])
-  let staticBlocks = [
-    [1, 1],
-    [2, 2],
-    [6, 2],
-    [4, 3],
-    [7, 4],
-  ]
-
-
-  const staticColors = [
-    { fill: "#1E96C7" },
-    { fill: "#1E96C7" },
-    { fill: "#1E96C7" },
-    { fill: "#197DB7" },
-    { fill: "#197DB7" },
-  ]
-
-  useEffect(() => {
-    if (!interactive) {
-      return
-    }
-
-    function onMouseMove(event: MouseEvent) {
-      if (!ref.current) {
-        return
-      }
-
-      let rect = ref.current.getBoundingClientRect()
-      let x = event.clientX - rect.left
-      let y = event.clientY - rect.top
-      if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
-        return
-      }
-
-      x = x - rect.width / 2 - 32
-      y = y - yOffset
-      x += Math.tan(32 / 160) * y
-      x = Math.floor(x / 96)
-      y = Math.floor(y / 160)
-
-      if (currentBlock.current?.[0] === x && currentBlock.current?.[1] === y) {
-        return
-      }
-
-      currentBlock.current = [x, y]
-
-      setHoveredBlocks((blocks) => {
-        let key = counter.current++
-        let block = [x, y, key] as (typeof hoveredBlocks)[number]
-        return [...blocks, block].filter(
-          (block) => !(block[0] === x && block[1] === y && block[2] !== key),
-        )
-      })
-    }
-
-    window.addEventListener('mousemove', onMouseMove)
-    return () => {
-      window.removeEventListener('mousemove', onMouseMove)
-    }
-  }, [yOffset, interactive])
 
   return (
     <div className='absolute inset-x-0 -top-14 -z-10 h-[830px] w-full fill-primary stroke-ooo [mask-image:linear-gradient(to_bottom_left,#030814_40%,#030814_50%)] bg-darkBg'>
-      {/* <div className='main'> */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40"></div>
-      <video src={"https://i.imgur.com/L7ZKFL9.mp4"} className="w-full h-full object-cover"  autoPlay loop muted />
-      <div className="content">
-        <h1>Welcome</h1>
-        <p>To my site.</p>
+      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40">
       </div>
-      {/* </div> */}
+      <video src={"https://i.imgur.com/L7ZKFL9.mp4"} className="w-full h-full object-cover" autoPlay loop muted />
     </div>
   )
 }

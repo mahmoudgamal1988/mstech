@@ -74,10 +74,11 @@ import Partners18 from '@/images/our-partners/our partners/Meshkati Solutions Pa
 import Partners19 from '@/images/our-partners/our partners/Meshkati Solutions Partners-19.png';
 import Partners20 from '@/images/our-partners/our partners/Meshkati Solutions Partners-20.png';
 // import Partners21 from '@/images/our-partners/our partners/Meshkati Solutions Partners-21.png';
-import Partners22 from '@/images/our-partners/our partners/Meshkati Solutions Partners-22.png';
-import Partners23 from '@/images/our-partners/our partners/Meshkati Solutions Partners-23.png';
-import Partners24 from '@/images/our-partners/our partners/Meshkati Solutions Partners-24.png';
-import Partners25 from '@/images/our-partners/our partners/Meshkati Solutions Partners-25.png';
+// import Partners22 from '@/images/our-partners/our partners/Meshkati Solutions Partners-22.png';
+// import Partners23 from '@/images/our-partners/our partners/Meshkati Solutions Partners-23.png';
+// import Partners24 from '@/images/our-partners/our partners/Meshkati Solutions Partners-24.png';
+// import Partners25 from '@/images/our-partners/our partners/Meshkati Solutions Partners-25.png';
+
 import { RootLayoutContext } from '@/components/RootLayout'
 import WrapperSection from './WrapperSection'
 
