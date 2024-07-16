@@ -10,6 +10,7 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
+import { StylizedImageSquare } from '@/components/StylizedImageSquare'
 import { PageIntro } from '@/components/PageIntro'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
@@ -19,11 +20,9 @@ import { Button } from '@/components/Button'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
 
-
-
 import RackImg from '@/images/products/rack.png'
 import HuemImg from '@/images/products/huem.png'
-import LeanhImg from '@/images/products/leanh.png'
+import LeanhImg from '@/images/products/leanh.jpg'
 import ProptechImg from '@/images/products/proptech.png'
 
 
@@ -50,7 +49,8 @@ import AGILITY from '@/images/values/AGILITY.png';
 import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 
 
-import Consultancy from '@/app/solutions/services/Consultancy.png';
+import vissionImg from '@/images/aboutUs/vision.jpg'
+import missionImg from '@/images/aboutUs/mission.jpg'
 
 
 import Partners01 from '@/images/our-partners/our partners/Meshkati Solutions Partners-01.png';
@@ -311,11 +311,11 @@ function Clients() {
 function Mission() {
   return (
     <div className='flex justify-center'>
-      <FadeIn className="w-[33.75rem] flex-none lg:w-[32rem]">
-        <StylizedImage
-          {...{ src: Consultancy, shape: 1 }}
+      <FadeIn className="w-[33.75rem] flex-none lg:w-[32rem] rounded-3xl object-fill">
+        <StylizedImageSquare
+          {...{ src: vissionImg, shape: 2 }}
           sizes="(min-width: 960px) 20rem, 21rem"
-          className="justify-center lg:justify-center lg:group-even/section:justify-center"
+          className="justify-center lg:justify-center lg:group-even/section:justify-center rounded-3xl"
         />
       </FadeIn>
       <SectionIntro
@@ -344,8 +344,8 @@ function Vission() {
         </p>
       </SectionIntro>
       <FadeIn className="w-[33.75rem] flex-none lg:w-[32rem]">
-        <StylizedImage
-          {...{ src: Consultancy, shape: 1 }}
+        <StylizedImageSquare
+          {...{ src: missionImg, shape: 2 }}
           sizes="(min-width: 960px) 20rem, 21rem"
           className="justify-center lg:justify-center lg:group-even/section:justify-center"
         />

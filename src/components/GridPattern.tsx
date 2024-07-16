@@ -86,7 +86,7 @@ export function GridPattern({
     <div className='absolute inset-x-0 -top-14 -z-10 h-[830px] w-full fill-primary stroke-ooo [mask-image:linear-gradient(to_bottom_left,#030814_40%,#030814_50%)] bg-darkBg'>
       <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40">
       </div>
-      <video src={"https://i.imgur.com/L7ZKFL9.mp4"} className="w-full h-full object-cover" autoPlay loop muted />
+      <video src={"https://i.imgur.com/ik7nnGd.mp4"} className="w-full h-full object-cover" autoPlay loop muted />
     </div>
   )
 }

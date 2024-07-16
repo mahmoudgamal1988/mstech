@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, useContext } from 'react'
+import { useRef, useState, useContext, useMemo } from 'react'
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
@@ -13,9 +13,7 @@ import {
 } from '@headlessui/react'
 import { Links } from './Header'
 import { RootLayoutContext } from './RootLayout'
-import { useRouter } from 'next/navigation'
-
-
+import { useRouter, usePathname } from 'next/navigation'
 
 export function NavLinks() {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
@@ -24,28 +22,48 @@ export function NavLinks() {
   const contextRes = useContext(RootLayoutContext);
   const { productRef, solutionRef } = contextRes as any;
   const router = useRouter()
+  const pathname = usePathname()
 
   const scrollToSection = (sectionRef: any) => {
     setTimeout(() => {
-      if(sectionRef.current){
+      if (sectionRef.current) {
         sectionRef.current.scrollIntoView({ behavior: 'smooth' });
       }
     }, 1000);
   };
 
-  const navigateTo = (path: string) => {
-    router.push(path);
-  };
+  // const navigateTo = (path: string) => {
+  //   router.push(path);
+  // };
 
+  // const isExsists = useMemo(() => {
+  //   return solutionRef.current || productRef.current
+  // }, [productRef, solutionRef]);
+
+
+  const isHomePage = useMemo(() => {
+    console.log("pathname pathname" ,pathname)
+    // Check if the pathname is '/' or empty, indicating it's the home page
+    if (pathname === '/' || pathname === '') {
+      return true;
+    } else {
+      return false;
+    }
+  }, [pathname]);
 
   return Links.map((link, index) => {
-    const { name, href, isSubPage, subLinks } = link;
+    const { name, href, isSubPage, sectionTag, subLinks } = link;
     return <Link
       key={name}
-      href={(isSubPage && href) || "#"}
+      // href={(isSubPage && href) || !isExsists ? href : "#"}
+      href={!isSubPage && isHomePage ? "#" : href}
       className="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-sm text-gray-900 transition-colors delay-150 hover:text-gray-900 hover:delay-0"
       onClick={() => {
-        switch (href) {
+        if (!isHomePage) {
+          return false
+        }
+
+        switch (sectionTag) {
           case "/products":
             console.log("productRefproductRefproductRefproductRef", productRef)
             if (productRef && productRef.current) {

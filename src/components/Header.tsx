@@ -25,6 +25,7 @@ export interface MenuLink {
   name: string;
   href: string;
   isSubPage?: boolean;
+  sectionTag?: string;
   subLinks: SubLink[];
 }
 
@@ -37,8 +38,9 @@ export interface SubLink {
 export const Links: MenuLink[] = [
   {
     name: 'Solutions',
-    href: '/solutions',
+    href: '/',
     isSubPage: false,
+    sectionTag: "/solutions",
     subLinks: [
       { name: 'Businesses', href: '/solutions/businesses' },
       { name: 'Home Automation', href: '/solutions/home_automation' },
@@ -47,8 +49,9 @@ export const Links: MenuLink[] = [
   },
   {
     name: 'Products',
-    href: '/products',
+    href: '/',
     isSubPage: false,
+    sectionTag: "/products",
     subLinks: [
       { name: 'Leanh', href: '/products/leanh' },
       { name: 'Rack', href: '/products/rack' },

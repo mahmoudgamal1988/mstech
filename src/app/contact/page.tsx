@@ -1,6 +1,7 @@
 import { useId } from 'react'
 import { type Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import { Border } from '@/components/Border'
 import { Button } from '@/components/Button'
@@ -9,6 +10,7 @@ import { FadeIn } from '@/components/FadeIn'
 import { Offices } from '@/components/Offices'
 import { PageIntro } from '@/components/PageIntro'
 import { SocialMedia } from '@/components/SocialMedia'
+import contactImg from '@/images/aboutUs/our_values.png'
 
 function TextInput({
   label,
@@ -105,7 +107,18 @@ function ContactDetails() {
 
       {/* <Offices className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2" /> */}
 
-      <Border className="mt-16 pt-16">
+      <div className='flex justify-center'>
+        <FadeIn>
+          <Image
+            src={contactImg}
+            alt={"contactImg"}
+            className='mt-8 max-w-96 rounded-3xl'
+            unoptimized
+          />
+        </FadeIn>
+      </div>
+
+      <Border className="mt-4 pt-16">
         <h2 className="font-display text-base font-semibold text-neutral-950">
           Email us
         </h2>

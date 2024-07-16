@@ -1,5 +1,6 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
+import { StylizedImageSquare } from '@/components/StylizedImageSquare'
 
 import { Border } from '@/components/Border'
 import { ContactSection } from '@/components/ContactSection'
@@ -23,6 +24,13 @@ import imageLeslieAlexander from '@/images/team/leslie-alexander.jpg'
 import imageMichaelFoster from '@/images/team/michael-foster.jpg'
 import imageWhitneyFrancis from '@/images/team/whitney-francis.jpg'
 import { loadArticles } from '@/lib/mdx'
+
+import aboutusImage from '@/images/aboutUs/SBD-PIC.png'
+import { StylizedImage } from '@/components/StylizedImage'
+
+import vissionImg from '@/images/aboutUs/vision.jpg'
+import missionImg from '@/images/aboutUs/mission.jpg'
+
 
 function Culture() {
   return (
@@ -184,36 +192,49 @@ export const metadata: Metadata = {
     'We believe that our strength lies in our collaborative approach, which puts our clients at the center of everything we do.',
 }
 
-
 function Mission() {
   return (
-    <>
+    <div className='flex justify-center'>
+      <FadeIn className="w-[33.75rem] flex-none lg:w-[32rem] rounded-3xl object-fill">
+        <StylizedImageSquare
+          {...{ src: vissionImg, shape: 2 }}
+          sizes="(min-width: 960px) 20rem, 21rem"
+          className="justify-center lg:justify-center lg:group-even/section:justify-center rounded-3xl"
+        />
+      </FadeIn>
       <SectionIntro
         title="Mission"
-        className="mt-24 sm:mt-32 lg:mt-40"
+        className="mt-96 sm:mt-32 lg:mt-32 mr-0 ml-0 px-8"
       >
-        <p className='ml-[200px] mt-[-60px]'>
+        <p className='ml-[80px] mt-[-0px]'>
           Providing innovative technology solutions that enable our clients
           keeping pace with market dynamics through a team of qualified.
         </p>
       </SectionIntro>
-    </>
+    </div>
   )
 }
 
 function Vission() {
   return (
-    <>
+    <div className='flex justify-center mt-96'>
       <SectionIntro
         title="Vission"
-        className="mt-96 sm:mt-32 lg:mt-96"
+        className="mt-96 sm:mt-32 lg:mt-36 mr-0 ml-0 px-8"
       >
-        <p className='ml-52 mt-[-60px]'>
+        <p className='ml-[80px] mt-[-0px]'>
           To be a leading company in providing digital solutions and services
           that achieve sustainable growth while fulfilling the Kingdom’s vision.
         </p>
       </SectionIntro>
-    </>
+      <FadeIn className="w-[33.75rem] flex-none lg:w-[32rem]">
+        <StylizedImageSquare
+          {...{ src: missionImg, shape: 2 }}
+          sizes="(min-width: 960px) 20rem, 21rem"
+          className="justify-center lg:justify-center lg:group-even/section:justify-center"
+        />
+      </FadeIn>
+    </div>
   )
 }
 
@@ -240,19 +261,47 @@ export default async function About() {
       <Mission />
 
 
-      <PageIntro eyebrow="." title="" extraTitleClass='text-gray-50' extraChildrenClass='text-gray-50'>
-        <p className='text-secondary mt-[-56px]'>
-          Meshkati Solutions MSTech part of AMNEST group is a team of innovative visionary Saudi professionals
-          who create and adopt high-tech smart solutions, focusing on the areas of AI and IoT
-        </p>
-        <div className="mt-10 max-w-2xl space-y-6 text-base text-secondary">
-          <p>
+
+      <div className='flex justify-center mt-10'>
+        <SectionIntro
+          title=""
+          className="mt-96 sm:mt-32 lg:mt-36 mr-0 ml-0 px-8"
+        >
+          <p className='ml-[0px] mt-[-0px]'>
+            Meshkati Solutions MSTech part of AMNEST group is a team of innovative visionary Saudi professionals
+            who create and adopt high-tech smart solutions, focusing on the areas of AI and IoT
             AMNEST Holding Group Company was established in 1996 under which 15
             companies do business in various sectors.
           </p>
-        </div>
+        </SectionIntro>
+        <FadeIn className="w-[33.75rem] flex-none lg:w-[32rem]">
+          <StylizedImage
+            {...{ src: aboutusImage, shape: 1 }}
+            sizes="(min-width: 960px) 20rem, 21rem"
+            className="justify-center lg:justify-center lg:group-even/section:justify-center"
+          />
+        </FadeIn>
+      </div>
 
-      </PageIntro>
+      {/* <PageIntro eyebrow="." title="" extraTitleClass='text-gray-50' extraChildrenClass='text-gray-50'> */}
+      {/* <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>
+          <p className='text-secondary mt-[-56px]'>
+            Meshkati Solutions MSTech part of AMNEST group is a team of innovative visionary Saudi professionals
+            who create and adopt high-tech smart solutions, focusing on the areas of AI and IoT
+          </p>
+          <div className="mt-10 max-w-2xl space-y-6 text-base text-secondary">
+            <p>
+              AMNEST Holding Group Company was established in 1996 under which 15
+              companies do business in various sectors.
+            </p>
+          </div>
+        </div>
+        <div>
+          <Image src={aboutusImage} alt={"client" as string} unoptimized />
+        </div>
+      </div> */}
+      {/* </PageIntro> */}
 
 
       {/* <Container className="mt-16">
