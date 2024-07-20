@@ -42,7 +42,6 @@ export function NavLinks() {
 
 
   const isHomePage = useMemo(() => {
-    console.log("pathname pathname" ,pathname)
     // Check if the pathname is '/' or empty, indicating it's the home page
     if (pathname === '/' || pathname === '') {
       return true;

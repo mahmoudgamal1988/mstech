@@ -4,27 +4,30 @@ import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { StylizedImage } from '@/components/StylizedImage'
 import Link from 'next/link'
+import { StylizedImageSquare } from './StylizedImageSquare'
 
 export function Section({
   title,
   titleExtraClass,
+  topClass,
   image,
   children,
 }: {
   title: string;
+  topClass?: string;
   titleExtraClass?: string;
   image: React.ComponentPropsWithoutRef<typeof StylizedImage>
   children: React.ReactNode
 }) {
   return (
-    <Container className="group/section [counter-increment:section]">
-      <div className="lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20">
-        <div className="flex justify-center">
-          <FadeIn className="w-[33.75rem] flex-none lg:w-[32rem]">
-            <StylizedImage
+    <Container className={"group/section [counter-increment:section]" + topClass}>
+      < div className="lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20 mt-[0px]" >
+        <div className={"flex justify-center" + " " + topClass}>
+          <FadeIn className="w-[33.75rem] flex-none lg:w-[25rem]">
+            <StylizedImageSquare
               {...image}
-              sizes="(min-width: 512px) 25rem, 25rem"
-              className="flex justify-center lg:justify-end lg:group-even/section:justify-start"
+              sizes="(min-width: 930px) 26rem, 31rem"
+              className="justify-center lg:justify-end lg:group-even/section:justify-start "
             />
           </FadeIn>
         </div>
@@ -42,7 +45,7 @@ export function Section({
             <div className="mt-6">{children}</div>
           </FadeIn>
         </div>
-      </div>
-    </Container>
+      </div >
+    </Container >
   )
 }

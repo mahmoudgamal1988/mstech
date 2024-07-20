@@ -20,7 +20,7 @@ export default async function BlogArticleWrapper({
     .filter(({ metadata }) => metadata !== article)
     .slice(0, 2)
 
-    console.log("article", )
+  console.log("article",)
   return (
     <>
       <article className="mt-24 sm:mt-32 lg:mt-40">
@@ -32,7 +32,9 @@ export default async function BlogArticleWrapper({
 
         <Container className="mt-24 sm:mt-32 lg:mt-72">
           <FadeIn>
-            <MDXComponents.wrapper>{children}</MDXComponents.wrapper>
+            <MDXComponents.wrapper>
+            {children}
+            </MDXComponents.wrapper>
           </FadeIn>
         </Container>
       </article>

@@ -81,6 +81,9 @@ import Partners20 from '@/images/our-partners/our partners/Meshkati Solutions Pa
 
 import { RootLayoutContext } from '@/components/RootLayout'
 import WrapperSection from './WrapperSection'
+import contactImg from '@/images/aboutUs/our_values.png'
+
+// import { useTranslation } from 'next-i18next'
 
 
 function TextInput({
@@ -236,7 +239,7 @@ const values = [
 
 function Partners() {
   return (
-    <div className="mt-24 rounded-4xl bg-grayBg py-14 sm:mt-32 sm:py-32 lg:mt-56">
+    <div className="mt-4 rounded-4xl bg-grayBg py-14 sm:mt-32 sm:py-32 lg:mt-28">
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-3xl font-semibold tracking-wider text-primary sm:text-left">
@@ -600,6 +603,16 @@ function ContactDetails() {
         Let’s make something awesome together!
         Drop us a line, or give us a heads up if you’re interested in visiting us.
       </p>
+      <div className='flex justify-center'>
+        <FadeIn>
+          <Image
+            src={contactImg}
+            alt={"contactImg"}
+            className='mt-8 max-w-96 rounded-3xl'
+            unoptimized
+          />
+        </FadeIn>
+      </div>
     </FadeIn>
   )
 }
@@ -611,9 +624,13 @@ function ContactDetails() {
 
 export default async function Home() {
   let caseStudies = (await loadCaseStudies()).slice(0, 4)
+  // const { t } = useTranslation('footer')
 
   return (
     <>
+
+      {/* <h1>{t('h1')}</h1> */}
+
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-white  [text-wrap:balance] sm:text-7xl">

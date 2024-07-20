@@ -1,6 +1,8 @@
 import logo from './businesses.svg'
-import imageHero from './2345345.png'
+import imageHero from './imageHero.png'
 import imageDebraFiscal from './debra-fiscal.jpg'
+import { FadeIn } from '@/components/FadeIn'
+import Image from 'next/image'
 
 export const caseStudy = {
   client: 'FamilyFund',
@@ -11,7 +13,7 @@ export const caseStudy = {
     'Collect, analyze data and transform them into meaningful reports in order to timely make the right decisions.',
   ],
   logo,
-  image: { src: imageHero },
+  image: { src: null },
   date: '2023-01',
   service: 'Web development, CMS',
   testimonial: {
@@ -25,6 +27,16 @@ export const metadata = {
   title: `${caseStudy.client} Case Study`,
   description: caseStudy.description,
 }
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+![](./imageHero.png)
 
 ## Overview
 
@@ -56,4 +68,3 @@ enhance tenant experiences, and maximize returns on their real estate investment
 efficient, and data-driven process.
 
 Property owners and managers can revolutionize their operations, improve tenant satisfaction, and optimize financial performance.
-

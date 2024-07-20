@@ -1,69 +1,19 @@
 'use client'
 
-import { useEffect, useId, useRef, useState, useContext } from 'react'
+import { useEffect, useId, useRef, useState, useContext, useMemo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { FadeIn, FadeInStagger } from './FadeIn'
 import { createContext, } from 'react'
 import Image from 'next/image'
 import PicOne from '@/images/bg/Picture1.png'
 import PicTwo from '@/images/bg/Picture2.png'
+import Video from 'next-video';
+import { useRouter, usePathname } from 'next/navigation'
+
 // import videoBg from '@/images/bg/';
 
 const FadeInStaggerContext = createContext(false)
 const viewport = { once: true, margin: '0px 0px -200px' }
-
-
-
-
-function StaticBlock({
-  x,
-  y,
-  ...props
-}: Omit<React.ComponentPropsWithoutRef<typeof motion.path>, 'x' | 'y'> & {
-  x: number
-  y: number
-}) {
-
-  let shouldReduceMotion = useReducedMotion()
-  let isInStaggerGroup = useContext(FadeInStaggerContext)
-
-  // console.log("y", props.fill)
-  return (
-    <motion.path
-      transform={`translate(${-32 * y + 96 * x} ${160 * y})`}
-      d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z"
-      // fill="transparent"
-      // stroke="black"
-      strokeWidth="2"
-      initial={{ pathLength: 0, fill: "transparent", opacity: 0 }}
-      animate={{ pathLength: 1, fill: props.fill as string, opacity: 1 }}
-      transition={{
-        duration: 0 + (y / 2),
-        ease: "easeInOut",
-        // repeat: Infinity,
-        // repeatType: 'reverse'
-      }}
-    // {...props}
-    />
-  )
-}
-
-function Block({
-  x,
-  y,
-  ...props
-}: Omit<React.ComponentPropsWithoutRef<typeof motion.path>, 'x' | 'y'> & {
-  x: number
-  y: number
-}) {
-  return (
-    <motion.path
-      transform={`translate(${-32 * y + 96 * x} ${160 * y})`}
-      d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z"
-      {...props}
-    />
-  )
-}
 
 
 export function GridPattern({
@@ -81,12 +31,50 @@ export function GridPattern({
   let [hoveredBlocks, setHoveredBlocks] = useState<
     Array<[x: number, y: number, key: number]>
   >([])
+  const pathname = usePathname()
+
+  const isHomepage = pathname === '/';
+  const [isVideoEnded, setIsVideoEnded] = useState<boolean>(false);
+
+  const IsVideo = useMemo(() => {
+    return isHomepage ? !isVideoEnded : false;
+  }, [isHomepage, isVideoEnded]);
 
   return (
     <div className='absolute inset-x-0 -top-14 -z-10 h-[830px] w-full fill-primary stroke-ooo [mask-image:linear-gradient(to_bottom_left,#030814_40%,#030814_50%)] bg-darkBg'>
       <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40">
       </div>
-      <video src={"https://i.imgur.com/ik7nnGd.mp4"} className="w-full h-full object-cover" autoPlay loop muted />
+
+      {
+        IsVideo ?
+          <Video
+            src={"https://i.imgur.com/ik7nnGd.mp4"}
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            onEnded={() => {
+              console.log("ended !!")
+              setIsVideoEnded(true)
+            }}
+          /> : <>
+            <FadeIn>
+              <Image
+                src={PicOne}
+                className='w-[1300px] ml-[-350px] mt-[-450px] absolute'
+                alt={'IMG'}
+                unoptimized
+              />
+            </FadeIn>
+            <FadeIn>
+              <Image
+                src={PicTwo}
+                className='w-[1300px] absolute right-[-450px] top-[100px]'
+                alt={'IMG'}
+                unoptimized
+              />
+            </FadeIn>
+          </>
+      }
     </div>
   )
 }
