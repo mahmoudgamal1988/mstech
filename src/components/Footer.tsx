@@ -19,7 +19,7 @@ const navigation = [
             See all <span aria-hidden="true">&rarr;</span>
           </>
         ),
-        href: '/solutions',
+        href: '/',
       },
     ],
   },
@@ -35,7 +35,7 @@ const navigation = [
             See all <span aria-hidden="true">&rarr;</span>
           </>
         ),
-        href: '/solutions',
+        href: '/',
       },
     ],
   },
@@ -128,15 +128,15 @@ function NewsletterForm() {
 
 export function Footer() {
   return (
-    <FooterContainer as="footer" className="mt-24 bg-lightBg w-full pt-28 p-4 sm:mt-32 lg:mt-40 " >
+    <FooterContainer as="footer" className="mt-24 bg-primary w-full pt-16 p-4 pb-5 sm:mt-32 lg:mt-40 " >
       <FadeIn>
-        <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">
           <Navigation />
           <div className="flex lg:justify-end">
             {/* <NewsletterForm /> */}
           </div>
         </div>
-        <div className="mb-20 mt-24 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-gray-400 pt-12">
+        <div className="mb-0 mt-12 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-gray-400 pt-8">
           <Link href="/" aria-label="Home">
             <Logo className="h-8 " fillOnHover />
           </Link>
