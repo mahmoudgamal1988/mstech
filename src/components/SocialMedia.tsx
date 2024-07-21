@@ -55,7 +55,7 @@ export const socialMediaProfiles = [
   {
     title: 'LinkedIn', href: 'https://www.linkedin.com/company/meshkati-solutions-company/', icon: InstagramIcon
   },
-  { title: 'Mail', href: 'Info@mstech.sa', icon: GitHubIcon },
+  { title: 'Mail', href: 'mailto:Info@mstech.sa', icon: GitHubIcon },
 
 ]
 
