@@ -25,9 +25,11 @@ export default {
         '5xl': '5.5rem',
       },
       fontFamily: {
-        sans: ['Mona Sans', ...defaultTheme.fontFamily.sans],
+        // sans: ['Mona Sans', ...defaultTheme.fontFamily.sans],
+        sans: ['DIN-NEXT-LT-W23-MEDIUM'],
         display: [
-          ['Mona Sans', ...defaultTheme.fontFamily.sans],
+          // ['Mona Sans', ...defaultTheme.fontFamily.sans],
+          ["DIN-NEXT-LT-W23-MEDIUM"],
           { fontVariationSettings: '"wdth" 125' },
         ],
       },

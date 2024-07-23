@@ -1,12 +1,21 @@
 @tailwind base;
 
-@font-face {
+/* @font-face {
   font-family: 'Mona Sans';
   font-weight: 200 900;
   font-display: block;
   font-style: normal;
   font-stretch: 75% 125%;
   src: url('../fonts/Mona-Sans.var.woff2') format('woff2');
+} */
+
+@font-face {
+  font-family: 'DIN-NEXT-LT-W23-MEDIUM';
+  /* font-weight: 200 900;
+  font-display: block;
+  font-style: normal;
+  font-stretch: 75% 125%; */
+  src: url('../fonts/DIN-NEXT-LT-W23-MEDIUM.otf') format('woff2');
 }
 
 /* src/styles/custom.css */
