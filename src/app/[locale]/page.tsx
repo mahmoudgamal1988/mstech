@@ -18,7 +18,6 @@ export default async function Home({ params: { locale } }: any) {
       locale={locale}
       resources={resources}
     >
-      <div className=""></div>
       <Header />
       {/* <WhySection />
       <VissionAndMission /> */}
