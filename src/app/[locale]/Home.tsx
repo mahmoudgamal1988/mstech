@@ -1,31 +1,23 @@
-
-import { useRef, useState, useContext } from 'react'
-import { type Metadata } from 'next'
+'use-client'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useId } from 'react'
 import { Container } from '@/components/Container'
 import { FooterContainer } from '@/components/FooterContainer'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
-import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { StylizedImageSquare } from '@/components/StylizedImageSquare'
 import { PageIntro } from '@/components/PageIntro'
-import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { Border } from '@/components/Border'
-import { StatList, StatListItem, CustomStatList } from '@/components/StatList'
+import { StatList, CustomStatList } from '@/components/StatList'
 import { Button } from '@/components/Button'
-import { Offices } from '@/components/Offices'
-import { SocialMedia } from '@/components/SocialMedia'
 
 import RackImg from '@/images/products/rack.png'
 import HuemImg from '@/images/products/huem.png'
 import LeanhImg from '@/images/products/leanh.jpg'
 import ProptechImg from '@/images/products/proptech.png'
-
-
 
 //Why Images
 import BRANDIMG from '@/images/why/BRAND.png';
@@ -44,10 +36,6 @@ import INNOVATION from '@/images/values/INNOVATION.png';
 import CLIENTCENTRIC from '@/images/values/CLIENTCENTRIC.png';
 import RESPECT from '@/images/values/RESPECT.png';
 import AGILITY from '@/images/values/AGILITY.png';
-
-
-import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
-
 
 import vissionImg from '@/images/aboutUs/vision.jpg'
 import missionImg from '@/images/aboutUs/mission.jpg'
@@ -73,74 +61,12 @@ import Partners17 from '@/images/our-partners/our partners/Meshkati Solutions Pa
 import Partners18 from '@/images/our-partners/our partners/Meshkati Solutions Partners-18.png';
 import Partners19 from '@/images/our-partners/our partners/Meshkati Solutions Partners-19.png';
 import Partners20 from '@/images/our-partners/our partners/Meshkati Solutions Partners-20.png';
-// import Partners21 from '@/images/our-partners/our partners/Meshkati Solutions Partners-21.png';
-// import Partners22 from '@/images/our-partners/our partners/Meshkati Solutions Partners-22.png';
-// import Partners23 from '@/images/our-partners/our partners/Meshkati Solutions Partners-23.png';
-// import Partners24 from '@/images/our-partners/our partners/Meshkati Solutions Partners-24.png';
-// import Partners25 from '@/images/our-partners/our partners/Meshkati Solutions Partners-25.png';
 
-import { RootLayoutContext } from '@/components/RootLayout'
 import WrapperSection from './WrapperSection'
 import contactImg from '@/images/aboutUs/our_values.png'
+import TranslationsProvider from '@/components/TranslationsProvider'
 
-// import { useTranslation } from 'next-i18next'
-
-
-function TextInput({
-  label,
-  ...props
-}: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
-  let id = useId()
-
-  return (
-    <div className="group relative z-0 transition-all focus-within:z-10">
-      <input
-        type="text"
-        id={id}
-        {...props}
-        placeholder=" "
-        className="peer block w-full border border-neutral-300 bg-transparent px-6 pb-4 pt-12 text-base/6 text-neutral-950 ring-4 ring-transparent transition focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5 group-first:rounded-t-2xl group-last:rounded-b-2xl"
-      />
-      <label
-        htmlFor={id}
-        className="pointer-events-none absolute left-6 top-1/2 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950 peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:text-neutral-950"
-      >
-        {label}
-      </label>
-    </div>
-  )
-}
-
-function RadioInput({
-  label,
-  ...props
-}: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
-  return (
-    <label className="flex gap-x-3">
-      <input
-        type="radio"
-        {...props}
-        className="h-6 w-6 flex-none appearance-none rounded-full border border-neutral-950/20 outline-none checked:border-[0.5rem] checked:border-neutral-950 focus-visible:ring-1 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
-      />
-      <span className="text-base/6 text-neutral-950">{label}</span>
-    </label>
-  )
-}
-
-const FormattedText = ({ text }: any) => {
-  const lines = text.split('\n');
-
-  return (
-    <div>
-      {lines.map((line: string, index: number) => (
-        <h1 key={index} className='flex flex-col items-center w-auto'>
-          {line}
-          {index !== lines.length - 1 && <br />}
-        </h1 >
-      ))}
-    </div>
-  );
-};
+import { useTranslation } from 'react-i18next'
 
 
 const clients = [
@@ -176,8 +102,7 @@ const clients = [
     title: "RESEACH\n & DEVELOPMENT",
     logo: RESEACH
   },
-]
-
+];
 
 const partners = [
   ['Partners01', Partners01],
@@ -205,8 +130,7 @@ const partners = [
   // ['Partners23', Partners23],
   // ['Partners24', Partners24],
   // ['Partners25', Partners25],
-]
-
+];
 
 const values = [
   {
@@ -236,6 +160,45 @@ const values = [
 ];
 
 
+function TextInput({
+  label,
+  ...props
+}: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
+  let id = useId()
+
+  return (
+    <div className="group relative z-0 transition-all focus-within:z-10">
+      <input
+        type="text"
+        id={id}
+        {...props}
+        placeholder=" "
+        className="peer block w-full border border-neutral-300 bg-transparent px-6 pb-4 pt-12 text-base/6 text-neutral-950 ring-4 ring-transparent transition focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5 group-first:rounded-t-2xl group-last:rounded-b-2xl"
+      />
+      <label
+        htmlFor={id}
+        className="pointer-events-none absolute left-6 top-1/2 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950 peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:text-neutral-950"
+      >
+        {label}
+      </label>
+    </div>
+  )
+}
+
+const FormattedText = ({ text }: any) => {
+  const lines = text.split('\n');
+
+  return (
+    <div>
+      {lines.map((line: string, index: number) => (
+        <h1 key={index} className='flex flex-col items-center w-auto'>
+          {line}
+          {index !== lines.length - 1 && <br />}
+        </h1 >
+      ))}
+    </div>
+  );
+};
 
 function Partners() {
   return (
@@ -358,11 +321,17 @@ function Vission() {
 }
 
 
-function CaseStudies({
-  caseStudies,
-}: {
-  caseStudies: Array<MDXEntry<CaseStudy>>
-}) {
+async function CaseStudies(
+  //   {
+  //   caseStudies,
+  // }
+  // : {
+  //   caseStudies: Array<MDXEntry<CaseStudy>>
+  // }
+) {
+
+  let caseStudies = (await loadCaseStudies()).slice(0, 4)
+
   return (
     <WrapperSection sectionTag='solutions'>
       <SectionIntro
@@ -622,34 +591,14 @@ function ContactDetails() {
 //     'We are a development studio working at the intersection of design and technology.',
 // }
 
-export default async function Home() {
-  let caseStudies = (await loadCaseStudies()).slice(0, 4)
-  // const { t } = useTranslation('footer')
+export default function Home() {
+  const { t } = useTranslation();
 
   return (
     <>
-
-      {/* <h1>{t('h1')}</h1> */}
-
-      <Container className="mt-24 sm:mt-32 md:mt-56">
-        <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-white  [text-wrap:balance] sm:text-7xl">
-            A pioneering journey in AI and IOT
-            to shape a future that inspires the world.
-          </h1>
-        </FadeIn>
-      </Container>
-
-      <Clients />
-
-      {/* <div className="grid gap-32 lg:grid-cols-2 mt-32"> */}
-      <Vission />
-      <Mission />
-      {/* </div> */}
-
       <Values />
 
-      <CaseStudies caseStudies={caseStudies} />
+      <CaseStudies />
 
       <Services />
 
