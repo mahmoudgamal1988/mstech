@@ -1,7 +1,7 @@
 import { type ImageProps } from 'next/image'
 import glob from 'fast-glob'
 
-async function loadEntries<T extends { date: string }>(
+export async function loadEntries<T extends { date: string }>(
   directory: string,
   metaName: string,
 ): Promise<Array<MDXEntry<T>>> {

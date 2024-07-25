@@ -1,4 +1,4 @@
-'use-client';
+'use client';
 import { FadeIn } from '@/components/FadeIn'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImageSquare } from '@/components/StylizedImageSquare'

@@ -31,42 +31,19 @@ export function StylizedImage({
   let { width, height, path } = shapes[shape]
 
   return (
-    <div
-      className={clsx(
-        className,
-        'relative flex aspect-[719/680] w-full',
-      )}
-    >
-      <foreignObject width={width} height={height} style={{ display: "flex" }}>
-        <Image
-          alt=""
-          className="flex w-full rounded-4xl object-contain origin-center scale-100 transition duration-500 motion-safe:hover:scale-105"
-          style={{ aspectRatio: `${width} / ${height}` }}
-          {...props}
-        />
-      </foreignObject>
-      {/* <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">
-        <g clipPath={`url(#${id}-clip)`} className="group">
-          <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-105">
-
-          </g>
-          <use
-            href={`#${id}-shape`}
-            strokeWidth="2"
-            className="stroke-neutral-950/10"
-          />
-        </g>
-        <defs>
-          <clipPath id={`${id}-clip`}>
-            <path
-              id={`${id}-shape`}
-              d={path}
-              fillRule="evenodd"
-              clipRule="evenodd"
+    <div className={clsx(className, 'relative flex aspect-[719/680] w-full')}>
+      <svg width="100%" height="100%" >
+        <foreignObject width={"100%"} height={"100%"}>
+          <div style={{ display: 'flex', width: '100%', height: '100%' }}>
+            <Image
+              alt=""
+              className="flex w-full rounded-4xl object-contain origin-center scale-95 transition duration-500 motion-safe:hover:scale-100"
+              style={{ aspectRatio: `${width} / ${height}` }}
+              {...props}
             />
-          </clipPath>
-        </defs>
-      </svg> */}
+          </div>
+        </foreignObject>
+      </svg>
     </div>
   )
 }

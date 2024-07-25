@@ -1,4 +1,4 @@
-'use-client'
+'use client';
 import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '@/components/Container'
@@ -12,8 +12,6 @@ import INNOVATION from '@/images/values/INNOVATION.png';
 import CLIENTCENTRIC from '@/images/values/CLIENTCENTRIC.png';
 import RESPECT from '@/images/values/RESPECT.png';
 import AGILITY from '@/images/values/AGILITY.png';
-
-
 
 import { useTranslation } from 'react-i18next'
 

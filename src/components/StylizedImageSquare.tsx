@@ -31,20 +31,21 @@ export function StylizedImageSquare({
   let { width, height, path } = shapes[shape]
 
   return (
-    <div
-      className={clsx(
-        className,
-        'relative flex aspect-[200/200] w-full',
-      )}
-    >
-      <foreignObject width={width} height={height} style={{ display: "flex" }}>
-        <Image
-          alt=""
-          className="flex rounded-4xl object-fill origin-center scale-100 w-96 h-96 transition duration-500 motion-safe:hover:scale-105"
-          style={{ aspectRatio: `${width} / ${height}` }}
-          {...props}
-        />
-      </foreignObject>
+    <div className={clsx(className, 'relative flex aspect-[200/200] w-full')}>
+      <svg width="100%" height="100%" >
+        <foreignObject width={"100%"} height={"100%"}>
+          <div style={{ display: 'flex', width: '100%', height: '100%' }}>
+            <Image
+              alt=""
+              className="flex rounded-4xl object-fill origin-center scale-95 w-96 h-96 transition duration-500 motion-safe:hover:scale-100"
+              style={{ aspectRatio: `${width} / ${height}` }}
+              {...props}
+            />
+          </div>
+
+        </foreignObject>
+      </svg>
+
       {/* <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">
         <g clipPath={`url(#${id}-clip)`} className="group">
           <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-105">

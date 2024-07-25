@@ -1,4 +1,4 @@
-'use-client';
+'use client';
 import Image from 'next/image'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
@@ -34,7 +34,7 @@ const clients = [
     logo: METHODOLOGY
   },
   {
-    title: "ADVANCED\n TECHNOLOGIES ",
+    title: "ADVANCED\n TECHNOLOGIES",
     logo: TECHNOLOGIES
   },
   {
@@ -53,6 +53,9 @@ const clients = [
 
 
 const FormattedText = ({ text }: any) => {
+  if (!text) {
+    return;
+  }
   const lines = text.split('\n');
 
   return (
@@ -68,7 +71,7 @@ const FormattedText = ({ text }: any) => {
 };
 
 export default function WhySection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -76,7 +79,7 @@ export default function WhySection() {
         <Container className="mt-0 sm:mt-32 lg:mt-0">
           <FadeIn>
             <h2 className="font-display text-2xl font-semibold text-lightBg">
-              Why MSTech
+              {t("Why_MSTech")}
             </h2>
           </FadeIn>
           <FadeInStagger className="mt-10" faster>
@@ -99,7 +102,7 @@ export default function WhySection() {
                         <div
                           className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-secondary [text-wrap:balance] sm:text-base transition-transform transform transition-filter filter-none group-hover:scale-110"
                         >
-                          <FormattedText text={client.title} />
+                          <FormattedText text={(t('WHY_VALUES'))?.split(i18n.language === "en" ? ',' : "،")[index]} />
                         </div>
                       </div>
                       {/* <Image src={client.logo} alt={client.logo} unoptimized /> */}
