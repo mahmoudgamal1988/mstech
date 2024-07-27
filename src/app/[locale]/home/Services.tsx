@@ -10,7 +10,7 @@ import RackImg from '@/images/products/rack.png'
 import HuemImg from '@/images/products/huem.png'
 import LeanhImg from '@/images/products/leanh.jpg'
 import ProptechImg from '@/images/products/proptech.png'
-import WrapperSection from '../WrapperSection'
+import { slashMethod } from '../page';
 
 
 function Section({
@@ -58,79 +58,91 @@ function Section({
 }
 
 export default function Services() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
-    <WrapperSection sectionTag='products'>
+    < >
       <SectionIntro
         eyebrow=""
-        title="Products"
+        title={t('PRODUCTS').split(slashMethod(i18n.language))[0]}
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          We adopt a customer-focused, data-driven,  and iterative methodology. Our Lean approach helps us validate new ideas
-          avoid  costly mistakes, and build successful businesses
+          {t('PRODUCTS').split(slashMethod(i18n.language))[1]}
         </p>
       </SectionIntro>
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
 
-        <Container className="mt-16">
-          <Section title="Leanh" titleExtraClass='text-green-600' image={{ src: LeanhImg }}>
+        {/* <Container className="mt-16"> */}
+          <Section
+            title={t('PRODUCTS_LEANH').split(slashMethod(i18n.language))[0]}
+            titleExtraClass='text-green-600'
+            image={{ src: LeanhImg }}
+          >
             <div className="space-y-6 text-base text-secondary">
-              <p>
-                A leading platform for developing smart city and <strong className="font-semibold text-neutral-600">Internet of Things</strong> solutions
-                using Artificial intelligence for forecasting, decision making and bringing
-                together solutions under one umbrella.
-              </p>
-              <p>
-                With Leanh, cities can harness the power of <strong className="font-semibold text-neutral-600">advanced technologies</strong>{' '}
-                data analytics, and IoT to optimize urban infrastructure
-                enhance public services, and improve the overall quality of life for residents.
-              </p>
+              {
+                t('PRODUCTS_LEANH').split(slashMethod(i18n.language)).slice(1).map((text, index) => {
+                  return <p key={index}>
+                    {text}
+                  </p>
+                })
+              }
             </div>
           </Section>
-        </Container>
+        {/* </Container> */}
 
-        <Section title="Rack" titleExtraClass='text-[#c2073f]' image={{ src: RackImg, shape: 1 }}>
+        <Section
+          title={t('PRODUCTS_RACK').split(slashMethod(i18n.language))[0]}
+          titleExtraClass='text-[#c2073f]'
+          image={{ src: RackImg, shape: 1 }}
+        >
           <div className="space-y-6 text-base text-secondary">
-            <p>
-              Rack Smart Retail System is one of the comprehensive solutions
-              fot managing retail operations and data analysis to increase efficiency and improve sales.
-            </p>
-            <p>
-              Rack offers real-time monitoring capabilities,
-              allowing you to stay updated on your business operations at all times.
-              With instant access to vital information, you can make informed decisions
-              and take proactive actions to drive business growth.
-            </p>
+            {
+              t('PRODUCTS_RACK').split(slashMethod(i18n.language)).slice(1).map((text, index) => {
+                return <p key={index}>
+                  {text}
+                </p>
+              })
+            }
           </div>
         </Section>
 
-        <Section title="Proptech" titleExtraClass='' image={{ src: ProptechImg }}>
+        <Section
+          title={t('PRODUCTS_PROPTECH').split(slashMethod(i18n.language))[0]}
+          titleExtraClass=''
+          image={{ src: ProptechImg }}>
           <div className="space-y-6 text-base text-secondary">
-            <p>
-              Introducing /proptech, the revolutionary smart solution for property management that empowers property owners
-              and managers to streamline operations, enhance tenant experiences, and maximize returns on their real estate investments.
-            </p>
-            <p>
-              Proptech leverages cutting-edge technology and innovative features to transform traditional property
-              management into a seamless, efficient, and data-driven process.
-            </p>
+            {
+              t('PRODUCTS_PROPTECH').split(slashMethod(i18n.language)).slice(1).map((text, index) => {
+                return <p key={index}>
+                  {text}
+                </p>
+              })
+            }
           </div>
         </Section>
 
 
-        <Section title="Huem" topClass='mt-[-130px]' titleExtraClass='text-primary' image={{ src: HuemImg, shape: 1 }}>
+        <Section
+          title={t('PRODUCTS_HUEM').split(slashMethod(i18n.language))[0]}
+          topClass='mt-[-130px]'
+          titleExtraClass='text-primary'
+          image={{ src: HuemImg, shape: 1 }}
+        >
           <div className="space-y-6 text-base text-secondary">
-            <p>
-              A smart application to control the home easily and safely from one interface.
-            </p>
+            {
+              t('PRODUCTS_HUEM').split(slashMethod(i18n.language)).slice(1).map((text, index) => {
+                return <p key={index}>
+                  {text}
+                </p>
+              })
+            }
           </div>
         </Section>
 
       </div>
 
-    </WrapperSection>
+    </>
   )
 }

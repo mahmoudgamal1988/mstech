@@ -6,10 +6,11 @@ import { useTranslation } from 'react-i18next'
 
 import vissionImg from '@/images/aboutUs/vision.jpg'
 import missionImg from '@/images/aboutUs/mission.jpg'
+import { commaMethod } from '../page';
 
 
-function Mission() {
-  const { t } = useTranslation();
+export function Mission() {
+  const { t, i18n } = useTranslation();
 
   return (
     <div className='flex justify-center'>
@@ -21,30 +22,29 @@ function Mission() {
         />
       </FadeIn>
       <SectionIntro
-        title="Mission"
+        title={t('MISSION')?.split(commaMethod(i18n.language))[0]}
         className="mt-96 sm:mt-32 lg:mt-32 mr-0 ml-0 px-8"
       >
         <p className='ml-[80px] mt-[-0px]'>
-          Providing innovative technology solutions that enable our clients
-          keeping pace with market dynamics through a team of qualified.
+          {t('MISSION')?.split(commaMethod(i18n.language))[1]}
         </p>
       </SectionIntro>
     </div>
   )
 }
 
-function Vission() {
-  const { t } = useTranslation();
+export function Vission() {
+  const { t, i18n,   } = useTranslation();
+  // console.log("---- tttttttttttttttttttttt 111" , i18n.options.resources)
 
   return (
     <div className='flex justify-center mt-10'>
       <SectionIntro
-        title="Vission"
+        title={t('VISSION')?.split(commaMethod(i18n.language))[0]}
         className="mt-96 sm:mt-32 lg:mt-36 mr-0 ml-0 px-8"
       >
         <p className='ml-[80px] mt-[-0px]'>
-          To be a leading company in providing digital solutions and services
-          that achieve sustainable growth while fulfilling the Kingdom’s vision.
+          {t('VISSION')?.split(commaMethod(i18n.language))[1]}
         </p>
       </SectionIntro>
       <FadeIn className="w-[33.75rem] flex-none lg:w-[32rem]">

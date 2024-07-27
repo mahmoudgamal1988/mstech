@@ -14,6 +14,7 @@ import TECHNOLOGIES from '@/images/why/TECHNOLOGIES.png';
 import TAILORED from '@/images/why/TAILORED.png';
 import NETWORK from '@/images/why/NETWORK.png';
 import RESEACH from '@/images/why/RESEACH.png';
+import { commaMethod } from '../page';
 
 
 const clients = [
@@ -70,6 +71,7 @@ const FormattedText = ({ text }: any) => {
   );
 };
 
+
 export default function WhySection() {
   const { t, i18n } = useTranslation();
 
@@ -79,7 +81,7 @@ export default function WhySection() {
         <Container className="mt-0 sm:mt-32 lg:mt-0">
           <FadeIn>
             <h2 className="font-display text-2xl font-semibold text-lightBg">
-              {t("Why_MSTech")}
+              {t("WHY_MSTECH_TITLE")}
             </h2>
           </FadeIn>
           <FadeInStagger className="mt-10" faster>
@@ -102,7 +104,7 @@ export default function WhySection() {
                         <div
                           className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-secondary [text-wrap:balance] sm:text-base transition-transform transform transition-filter filter-none group-hover:scale-110"
                         >
-                          <FormattedText text={(t('WHY_VALUES'))?.split(i18n.language === "en" ? ',' : "،")[index]} />
+                          <FormattedText text={(t('WHY_VALUES'))?.split(commaMethod(i18n.language))[index]} />
                         </div>
                       </div>
                       {/* <Image src={client.logo} alt={client.logo} unoptimized /> */}

@@ -7,21 +7,42 @@ import { StatList, CustomStatList } from '@/components/StatList'
 //values Images
 import TRANSPARENCY from '@/images/values/TRANSPARENCY.png';
 import { useTranslation } from 'react-i18next'
+import { commaMethod } from '../page';
 
 export default function Achievements() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <FooterContainer className="bg-grayBg max-w-full pb-40 pt-14 mt-20">
-      <PageIntro eyebrow="" title="Our Achievements" extraTitleClass='mt-0 text-lightBg' mainClass='lg:mt-16' >
+      <PageIntro eyebrow="" title={t("OUR_ACHIEVEMENTS")} extraTitleClass='mt-0 text-lightBg' mainClass='lg:mt-16' >
         <></>
       </PageIntro>
       <Container className="mt-20">
         <StatList>
-          <CustomStatList value="10k" label="Users" extraClass='text-secondary' icon={TRANSPARENCY} />
-          <CustomStatList value="12k" label="Connected devices" extraClass='text-secondary' icon={TRANSPARENCY} />
-          <CustomStatList value="3k" label="Managed Units" extraClass='text-secondary' icon={TRANSPARENCY} />
-          <CustomStatList value="115" label="Projects" extraClass='text-secondary' icon={TRANSPARENCY} />
+          <CustomStatList
+            value={t("OUR_ACHIEVEMENTS_USERS").split(commaMethod(i18n.language))[0]}
+            label={t("OUR_ACHIEVEMENTS_USERS").split(commaMethod(i18n.language))[1]}
+            extraClass='text-secondary'
+            icon={TRANSPARENCY}
+          />
+          <CustomStatList
+            value={t("OUR_ACHIEVEMENTS_UNITS").split(commaMethod(i18n.language))[0]}
+            label={t("OUR_ACHIEVEMENTS_UNITS").split(commaMethod(i18n.language))[1]}
+            extraClass='text-secondary'
+            icon={TRANSPARENCY}
+          />
+          <CustomStatList
+            value={t("OUR_ACHIEVEMENTS_CONNECTED").split(commaMethod(i18n.language))[0]}
+            label={t("OUR_ACHIEVEMENTS_CONNECTED").split(commaMethod(i18n.language))[1]}
+            extraClass='text-secondary'
+            icon={TRANSPARENCY}
+          />
+          <CustomStatList
+            value={t("OUR_ACHIEVEMENTS_PROJECTS").split(commaMethod(i18n.language))[0]}
+            label={t("OUR_ACHIEVEMENTS_PROJECTS").split(commaMethod(i18n.language))[1]}
+            extraClass='text-secondary'
+            icon={TRANSPARENCY}
+          />
         </StatList>
       </Container>
     </FooterContainer>

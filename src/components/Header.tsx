@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useRef, useState, useContext } from 'react'
 import Link from 'next/link'
@@ -20,6 +20,8 @@ import { NavLinks } from './NavLinks'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { RootLayoutContext } from './RootLayout'
 
+import initTranslations from '../app/i18n'
+import { createInstance } from 'i18next'
 
 export interface MenuLink {
   name: string;
@@ -35,46 +37,6 @@ export interface SubLink {
 }
 
 
-export const Links: MenuLink[] = [
-  {
-    name: 'Solutions',
-    href: '/',
-    isSubPage: false,
-    sectionTag: "/solutions",
-    subLinks: [
-      { name: 'Businesses', href: '/solutions/businesses' },
-      { name: 'Home Automation', href: '/solutions/home_automation' },
-      { name: 'Additional Stack of Services', href: '/solutions/services' },
-    ]
-  },
-  {
-    name: 'Products',
-    href: '/',
-    isSubPage: false,
-    sectionTag: "/products",
-    subLinks: [
-      { name: 'Leanh', href: '/products/leanh' },
-      { name: 'Rack', href: '/products/rack' },
-      { name: 'Huem', href: '/products/huem' },
-      { name: 'Proptech ', href: '/products/proptech' },
-    ]
-  },
-  {
-    name: 'Use-cases',
-    href: '/use-cases',
-    isSubPage: true,
-    subLinks: []
-  },
-  {
-    name: 'Mstech',
-    href: '#',
-    isSubPage: false,
-    subLinks: [
-      { name: 'About us ', href: '/about' },
-      // { name: 'Careers', href: '#' },
-    ]
-  },
-]
 
 
 
@@ -162,9 +124,55 @@ function MobileNavLink(
   )
 }
 
-export function Header() {
+export async function Header({ locale, namespaces }: any) {
 
   let [selectedTab, setSelectedTab] = useState<string>('')
+
+  const i18nNamespaces = ['Comman', "businesses", "HOME_AUTOMATION", "Services", "leanh", "rack", "HUEM", "PROPTECH"];
+  const i18n = createInstance();
+  const { t, resources } = await initTranslations(locale, i18nNamespaces, i18n);
+
+  const Links: MenuLink[] = [
+    {
+      name: t("SOLUTIONS"),
+      href: '/',
+      isSubPage: false,
+      sectionTag: "/solutions",
+      subLinks: [
+        { name: t("BUSINESSES", { ns: 'businesses' }), href: '/solutions/businesses' },
+        { name: t("HOME_AUTOMATION", { ns: 'HOME_AUTOMATION' }), href: '/solutions/home_automation' },
+        { name: t("SERVICES", { ns: 'Services' }), href: '/solutions/services' },
+      ]
+    },
+    {
+      name: 'Products',
+      href: '/',
+      isSubPage: false,
+      sectionTag: "/products",
+      subLinks: [
+        { name: t("LEANH", { ns: 'leanh' }), href: '/products/leanh' },
+        { name: t("RACK", { ns: 'rack' }), href: '/products/rack' },
+        { name: t("HUEM", { ns: 'HUEM' }), href: '/products/huem' },
+        { name: t("PROPTECH", { ns: 'PROPTECH' }), href: '/products/proptech' },
+      ]
+    },
+    {
+      name: t("USE-CASES", { ns: 'USE-CASES' }),
+      href: '/use-cases',
+      isSubPage: true,
+      subLinks: []
+    },
+    {
+      name: t("MSTECH", { ns: 'Comman' }),
+      href: '#',
+      isSubPage: false,
+      subLinks: [
+        { name: t("ABOUT_US"), href: '/about' },
+        // { name: 'Careers', href: '#' },
+      ]
+    },
+  ]
+
 
   return (
     <header>
@@ -175,7 +183,7 @@ export function Header() {
               <Logo className="h-10 w-auto" />
             </Link>
             <div className="hidden lg:flex lg:gap-10">
-              <NavLinks />
+              <NavLinks links={Links} />
             </div>
           </div>
           <div className="flex items-center gap-6">

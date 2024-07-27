@@ -62,9 +62,8 @@ export default function Partners() {
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-3xl font-semibold tracking-wider text-primary sm:text-left">
-            Our Partners
+            {t("OUR_PARTNERS")}
           </h2>
-          {/* <div className="h-px flex-auto bg-secondary" /> */}
         </FadeIn>
         <FadeInStagger faster>
           <ul

@@ -35,11 +35,13 @@ function TextInput({
 }
 
 function ContactForm() {
+  const { t } = useTranslation();
+
   return (
     <FadeIn className="lg:order-last">
       <form>
         <h2 className="font-display text-base font-semibold text-primary">
-          Work inquiries
+          {t("WORK_INQUIRIES")}
         </h2>
         <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
           <TextInput label="Name" name="name" autoComplete="name" />
@@ -58,7 +60,7 @@ function ContactForm() {
           <TextInput label="Message" name="message" />
         </div>
         <Button type="submit" className="mt-10">
-          Let’s work together
+          {t("FORM_CONFIRMATION")}
         </Button>
       </form>
     </FadeIn>
@@ -66,14 +68,15 @@ function ContactForm() {
 }
 
 function ContactDetails() {
+  const { t } = useTranslation();
+
   return (
     <FadeIn>
       <h2 className="font-display text-base font-semibold text-primary">
-        Get in touch.
+        {t("GET_IN_TOUCH")}
       </h2>
       <p className="mt-6 text-base text-neutral-600">
-        Let’s make something awesome together!
-        Drop us a line, or give us a heads up if you’re interested in visiting us.
+        {t("GET_IN_TOUCH_TEXT")}
       </p>
       <div className='flex justify-center'>
         <FadeIn>

@@ -11,11 +11,11 @@ import {
   PopoverPanel,
   Transition,
 } from '@headlessui/react'
-import { Links } from './Header'
+import { MenuLink } from './Header'
 import { RootLayoutContext } from './RootLayout'
 import { useRouter, usePathname } from 'next/navigation'
 
-export function NavLinks() {
+export function NavLinks({ links }: { links: MenuLink[] }) {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   let timeoutRef = useRef<number | null>(null)
   const [isShowing, setIsShowing] = useState(false)
@@ -50,7 +50,7 @@ export function NavLinks() {
     }
   }, [pathname]);
 
-  return Links.map((link, index) => {
+  return links.map((link, index) => {
     const { name, href, isSubPage, sectionTag, subLinks } = link;
     return <Link
       key={name}

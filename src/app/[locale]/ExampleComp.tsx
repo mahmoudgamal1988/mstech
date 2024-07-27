@@ -9,7 +9,7 @@ export default function ExampleComp() {
 
   return (
     <h3>
-      {t('pageTitle')}
+      {t('PAGE_TITLE')}
     </h3>
   )
 }

@@ -22,6 +22,7 @@ import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
 import { Header } from '@/components/Header'
 
+
 // import './styles/tailwind.css';
 
 export const RootLayoutContext = createContext<{
@@ -31,91 +32,6 @@ export const RootLayoutContext = createContext<{
   setLogoHovered: React.Dispatch<React.SetStateAction<boolean>>
 } | null>(null)
 
-function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  console.log("props props", props)
-  return (
-    <svg viewBox="0 0 24 24" fill='white' aria-hidden="true" {...props}>
-      <path d="m5.636 4.223 14.142 14.142-1.414 1.414L4.222 5.637z" />
-      <path d="M4.222 18.363 18.364 4.22l1.414 1.414L5.636 19.777z" />
-    </svg>
-  )
-}
-
-function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path d="M2 6h20v2H2zM2 16h20v2H2z" />
-    </svg>
-  )
-}
-
-// function Header({
-//   panelId,
-//   icon: Icon,
-//   expanded,
-//   onToggle,
-//   toggleRef,
-//   invert = false,
-// }: {
-//   panelId: string
-//   icon: React.ComponentType<{ className?: string }>
-//   expanded: boolean
-//   onToggle: () => void
-//   toggleRef: React.RefObject<HTMLButtonElement>
-//   invert?: boolean
-// }) {
-//   let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
-
-//   return (
-//     <Container>
-//       <div className="flex items-center justify-between">
-//         <Link
-//           href="/"
-//           aria-label="Home"
-//           onMouseEnter={() => setLogoHovered(true)}
-//           onMouseLeave={() => setLogoHovered(false)}
-//         >
-//           <Logomark
-//             className="h-8 sm:hidden"
-//             invert={invert}
-//             filled={logoHovered}
-//           />
-//           <Logo
-//             className="hidden h-8 sm:block"
-//             invert={invert}
-//             filled={logoHovered}
-//           />
-//         </Link>
-//         <div className="flex items-center gap-x-8">
-//           <Button href="/contact" invert={invert}>
-//             Contact us
-//           </Button>
-//           <button
-//             ref={toggleRef}
-//             type="button"
-//             onClick={onToggle}
-//             aria-expanded={expanded ? 'true' : 'false'}
-//             aria-controls={panelId}
-//             className={clsx(
-//               'group -m-2.5 rounded-full p-2.5 transition',
-//               invert ? 'hover:bg-white/10' : 'hover:bg-neutral-950/10',
-//             )}
-//             aria-label="Toggle navigation"
-//           >
-//             <Icon
-//               className={clsx(
-//                 'h-6 w-6',
-//                 invert
-//                   ? 'fill-white group-hover:fill-neutral-200'
-//                   : 'fill-white group-hover:fill-neutral-200',
-//               )}
-//             />
-//           </button>
-//         </div>
-//       </div>
-//     </Container>
-//   )
-// }
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
@@ -160,13 +76,16 @@ function Navigation() {
   )
 }
 
-function RootLayoutInner({ children }: { children: React.ReactNode }) {
+async function RootLayoutInner({ locale, namespaces, children }: any) {
   let panelId = useId()
   let [expanded, setExpanded] = useState(false)
   let openRef = useRef<React.ElementRef<'button'>>(null)
   let closeRef = useRef<React.ElementRef<'button'>>(null)
   let navRef = useRef<React.ElementRef<'div'>>(null)
   let shouldReduceMotion = useReducedMotion()
+
+
+
 
   useEffect(() => {
     function onClick(event: MouseEvent) {
@@ -273,7 +192,9 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
             yOffset={-96}
             interactive
           />
-          <main className="w-full flex-auto">{children}</main>
+
+          <main className="w-full flex-auto" >{children}</main>
+
         </motion.div>
         <Footer />
       </motion.div>

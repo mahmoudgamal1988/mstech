@@ -33,7 +33,7 @@ export function GridPattern({
   >([])
   const pathname = usePathname()
 
-  const isHomepage = pathname === '/';
+  const isHomepage = pathname === '/' || pathname === '/ar';
   const [isVideoEnded, setIsVideoEnded] = useState<boolean>(false);
 
   const IsVideo = useMemo(() => {

@@ -14,6 +14,7 @@ import RESPECT from '@/images/values/RESPECT.png';
 import AGILITY from '@/images/values/AGILITY.png';
 
 import { useTranslation } from 'react-i18next'
+import { commaMethod } from '../page';
 
 const values = [
   {
@@ -43,12 +44,12 @@ const values = [
 ];
 
 export default function Values() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <>
       <SectionIntro
-        title="Our Values"
+        title={t("VALUES_TITLE")}
         className="mt-24 sm:mt-32 lg:mt-36"
       >
       </SectionIntro>
@@ -69,7 +70,7 @@ export default function Values() {
                   </Link>
                 </h3>
                 <p className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-primary [text-wrap:balance] sm:text-base transition-transform transform group-hover:scale-110 group-hover:translate-y-2">
-                  {value.title}
+                  {(t('VALUES_VALUES'))?.split(commaMethod(i18n.language))[index]}
                 </p>
               </article>
             </FadeIn>

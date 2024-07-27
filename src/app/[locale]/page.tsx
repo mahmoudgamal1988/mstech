@@ -12,12 +12,20 @@ import Achievements from './home/Achievements'
 import Partners from './home/Partners'
 import Contact from './home/Contact'
 
+
+export const commaMethod = (lng: string): string => {
+  return lng === "en" ? ',' : "،"
+}
+export const slashMethod = (lng: string): string => {
+  return "/"
+}
+
 export default async function Home({ params: { locale } }: any) {
 
   const i18nNamespaces = ['home'];
   const i18n = createInstance();
 
-  const { t, resources } = await initTranslations(locale, ['home'], i18n);
+  const {  resources } = await initTranslations(locale, ['home'], i18n);
 
   return (
     <TranslationsProvider

@@ -20,14 +20,14 @@ export function Section({
   children: React.ReactNode
 }) {
   return (
-    <Container className={"group/section [counter-increment:section]" + topClass}>
+    <Container className={"group/section [counter-increment:section]" + " " + topClass}>
       < div className="lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20 mt-[0px]" >
         <div className={"flex justify-center" + " " + topClass}>
           <FadeIn className="w-[33.75rem] flex-none lg:w-[25rem]">
             <StylizedImageSquare
               {...image}
-              sizes="(min-width: 930px) 26rem, 31rem"
-              className="justify-center lg:justify-end lg:group-even/section:justify-start "
+              sizes="(min-width: 1024px) 26rem, 31rem"
+              className="justify-center lg:justify-center lg:group-even/section:justify-start "
             />
           </FadeIn>
         </div>

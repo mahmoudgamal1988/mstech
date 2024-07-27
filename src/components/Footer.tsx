@@ -5,55 +5,64 @@ import { FadeIn } from '@/components/FadeIn'
 import { Logo } from '@/components/Logo'
 import { socialMediaProfiles } from '@/components/SocialMedia'
 
-const navigation = [
-  {
-    title: 'Products',
-    links: [
-      { title: 'Leanh', href: '/products/leanh' },
-      { title: 'Rack', href: '/products/rack' },
-      { title: 'Huem', href: '/products/huem' },
-      { title: 'Proptech', href: '/products/proptech' },
-      {
-        title: (
-          <>
-            See all <span aria-hidden="true">&rarr;</span>
-          </>
-        ),
-        href: '/',
-      },
-    ],
-  },
-  {
-    title: 'Solutions',
-    links: [
-      { title: 'Businesses', href: '/solutions/businesses' },
-      { title: 'Home Automation', href: '/solutions/home_automation' },
-      { title: 'Additional Stack of Services', href: '/solutions/services' },
-      {
-        title: (
-          <>
-            See all <span aria-hidden="true">&rarr;</span>
-          </>
-        ),
-        href: '/',
-      },
-    ],
-  },
-  {
-    title: 'Company',
-    links: [
-      { title: 'Use-cases', href: '/use-cases' },
-      { title: 'About', href: '/about' },
-      { title: 'Contact us', href: '/contact' },
-    ],
-  },
-  {
-    title: 'Connect',
-    links: socialMediaProfiles,
-  },
-]
+import initTranslations from '../app/i18n'
+import { createInstance } from 'i18next'
 
-function Navigation() {
+
+async function Navigation({ locale, namespaces }: any) {
+  const i18nNamespaces = ['Comman', "businesses", "HOME_AUTOMATION", "Services", "leanh", "rack", "HUEM", "PROPTECH"];
+  const i18n = createInstance();
+  const { t, resources } = await initTranslations(locale, i18nNamespaces, i18n);
+
+
+  const navigation = [
+    {
+      title: 'Products',
+      links: [
+        { title: t("LEANH", { ns: 'leanh' }), href: '/products/leanh' },
+        { title: t("RACK", { ns: 'rack' }), href: '/products/rack' },
+        { title: t("HUEM", { ns: 'HUEM' }), href: '/products/huem' },
+        { title: t("PROPTECH", { ns: 'PROPTECH' }), href: '/products/proptech' },
+        {
+          title: (
+            <>
+              {t("SEE_ALL")}<span aria-hidden="true">&rarr;</span>
+            </>
+          ),
+          href: '/',
+        },
+      ],
+    },
+    {
+      title: 'Solutions',
+      links: [
+        { title: 'Businesses', href: '/solutions/businesses' },
+        { title: 'Home Automation', href: '/solutions/home_automation' },
+        { title: 'Additional Stack of Services', href: '/solutions/services' },
+        {
+          title: (
+            <>
+              {t("SEE_ALL")} <span aria-hidden="true">&rarr;</span>
+            </>
+          ),
+          href: '/',
+        },
+      ],
+    },
+    {
+      title: t("COMPANY"),
+      links: [
+        { title: t("USE-CASES", { ns: 'USE-CASES' }), href: '/use-cases' },
+        { title: t("ABOUT_US"), href: '/about' },
+        { title: t("CONNECT"), href: '/contact' },
+      ],
+    },
+    {
+      title: t("CONNECT"),
+      links: socialMediaProfiles,
+    },
+  ]
+
   return (
     <nav>
       <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-4">
