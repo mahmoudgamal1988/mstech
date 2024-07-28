@@ -15,7 +15,7 @@ export default async function initTranslations(
   i18nInstance.use(initReactI18next);
   const apiKey = "Hz_6KLT93Ywk7kMAM8Dc8w";
 
-  if (!resources) {
+  // if (!resources) {
     i18nInstance.use(
       resourcesToBackend(
         (language, namespace) => {
@@ -37,7 +37,7 @@ export default async function initTranslations(
         }
       )
     );
-  }
+  // }
 
   await i18nInstance.init({
     lng: locale,
