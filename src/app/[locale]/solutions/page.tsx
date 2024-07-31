@@ -142,8 +142,8 @@ export const metadata: Metadata = {
     'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
 }
 
-export default async function Work() {
-  let caseStudies = await loadCaseStudies()
+export default  function Work() {
+  // let caseStudies = await loadCaseStudies()
 
   return (
     <>

@@ -1,7 +1,7 @@
-'use client'
 
 import {
   createContext,
+  Suspense,
   useContext,
   useEffect,
   useId,
@@ -10,20 +10,13 @@ import {
 } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import clsx from 'clsx'
 import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
-
-import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { GridPattern } from '@/components/GridPattern'
-import { Logo, Logomark } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
 import { Header } from '@/components/Header'
-
-
-// import './styles/tailwind.css';
 
 export const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -32,6 +25,91 @@ export const RootLayoutContext = createContext<{
   setLogoHovered: React.Dispatch<React.SetStateAction<boolean>>
 } | null>(null)
 
+function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  console.log("props props", props)
+  return (
+    <svg viewBox="0 0 24 24" fill='white' aria-hidden="true" {...props}>
+      <path d="m5.636 4.223 14.142 14.142-1.414 1.414L4.222 5.637z" />
+      <path d="M4.222 18.363 18.364 4.22l1.414 1.414L5.636 19.777z" />
+    </svg>
+  )
+}
+
+function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path d="M2 6h20v2H2zM2 16h20v2H2z" />
+    </svg>
+  )
+}
+
+// function Header({
+//   panelId,
+//   icon: Icon,
+//   expanded,
+//   onToggle,
+//   toggleRef,
+//   invert = false,
+// }: {
+//   panelId: string
+//   icon: React.ComponentType<{ className?: string }>
+//   expanded: boolean
+//   onToggle: () => void
+//   toggleRef: React.RefObject<HTMLButtonElement>
+//   invert?: boolean
+// }) {
+//   let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
+
+//   return (
+//     <Container>
+//       <div className="flex items-center justify-between">
+//         <Link
+//           href="/"
+//           aria-label="Home"
+//           onMouseEnter={() => setLogoHovered(true)}
+//           onMouseLeave={() => setLogoHovered(false)}
+//         >
+//           <Logomark
+//             className="h-8 sm:hidden"
+//             invert={invert}
+//             filled={logoHovered}
+//           />
+//           <Logo
+//             className="hidden h-8 sm:block"
+//             invert={invert}
+//             filled={logoHovered}
+//           />
+//         </Link>
+//         <div className="flex items-center gap-x-8">
+//           <Button href="/contact" invert={invert}>
+//             Contact us
+//           </Button>
+//           <button
+//             ref={toggleRef}
+//             type="button"
+//             onClick={onToggle}
+//             aria-expanded={expanded ? 'true' : 'false'}
+//             aria-controls={panelId}
+//             className={clsx(
+//               'group -m-2.5 rounded-full p-2.5 transition',
+//               invert ? 'hover:bg-white/10' : 'hover:bg-neutral-950/10',
+//             )}
+//             aria-label="Toggle navigation"
+//           >
+//             <Icon
+//               className={clsx(
+//                 'h-6 w-6',
+//                 invert
+//                   ? 'fill-white group-hover:fill-neutral-200'
+//                   : 'fill-white group-hover:fill-neutral-200',
+//               )}
+//             />
+//           </button>
+//         </div>
+//       </div>
+//     </Container>
+//   )
+// }
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
@@ -76,7 +154,7 @@ function Navigation() {
   )
 }
 
-async function RootLayoutInner({ locale, namespaces, children }: any) {
+function RootLayoutInner({ children }: { children: React.ReactNode }) {
   let panelId = useId()
   let [expanded, setExpanded] = useState(false)
   let openRef = useRef<React.ElementRef<'button'>>(null)
@@ -84,8 +162,7 @@ async function RootLayoutInner({ locale, namespaces, children }: any) {
   let navRef = useRef<React.ElementRef<'div'>>(null)
   let shouldReduceMotion = useReducedMotion()
 
-
-
+  console.log("wrapppper 4")
 
   useEffect(() => {
     function onClick(event: MouseEvent) {
@@ -192,9 +269,7 @@ async function RootLayoutInner({ locale, namespaces, children }: any) {
             yOffset={-96}
             interactive
           />
-
-          <main className="w-full flex-auto" >{children}</main>
-
+          <main className="w-full flex-auto">{children}</main>
         </motion.div>
         <Footer />
       </motion.div>
@@ -202,11 +277,13 @@ async function RootLayoutInner({ locale, namespaces, children }: any) {
   )
 }
 
-export function RootLayout({ children }: { children: React.ReactNode }) {
+function RootLayout({ children, locale }: { children: React.ReactNode, locale: any }) {
   let pathname = usePathname()
   let [logoHovered, setLogoHovered] = useState(false)
   const productRef = useRef<HTMLDivElement>(null);
   const solutionRef = useRef<HTMLDivElement>(null);
+
+  console.log("wrapppper 3")
 
   return (
     <RootLayoutContext.Provider value={{ logoHovered, productRef, solutionRef, setLogoHovered }}>
@@ -214,3 +291,5 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
     </RootLayoutContext.Provider>
   )
 }
+
+export default (RootLayout as any);

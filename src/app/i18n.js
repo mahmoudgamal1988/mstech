@@ -1,58 +1,47 @@
-import { createInstance } from 'i18next';
+import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next/initReactI18next';
-import resourcesToBackend from 'i18next-resources-to-backend';
 import i18nConfig from '../../i18nConfig';
+import LanguageDetector from "i18next-browser-languagedetector";
 
-export default async function initTranslations(
-  locale,
-  namespaces,
-  i18nInstance,
-  resources
-) {
+const apiKey = "Hz_6KLT93Ywk7kMAM8Dc8w";
+const allNameSpaces = ["home", "businesses", "HOME_AUTOMATION", "Services", "leanh", "rack", "HUEM", "PROPTECH", "USE-CASES", "ABOUT_US", "CONTACT_US", "Comman"];
+const languages = i18nConfig.locales;
 
-  i18nInstance = i18nInstance || createInstance();
-
-  i18nInstance.use(initReactI18next);
-  const apiKey = "Hz_6KLT93Ywk7kMAM8Dc8w";
-
-  // if (!resources) {
-    i18nInstance.use(
-      resourcesToBackend(
-        (language, namespace) => {
-          return fetch(`https://api.i18nexus.com/project_resources/translations/${language}/${namespace}.json?api_key=${apiKey}`)
-            .then(response => {
-              if (!response.ok) {
-                throw new Error(`Failed to load ${namespace} namespace for ${language}: ${response.statusText}`);
-              }
-              return response.json();
-            })
-            .then(data => {
-              // console.log(`Loaded ${namespace} namespace for ${language}:`, data);
-              return data;
-            })
-            .catch(error => {
-              console.error(`Failed to load ${namespace} namespace for ${language}:`, error);
-              throw error;
-            })
+const loadTranslations = async () => {
+  try {
+    for (const language of languages) {
+      for (const namespace of allNameSpaces) {
+        const response = await fetch(`https://api.i18nexus.com/project_resources/translations/${language}/${namespace}.json?api_key=${apiKey}`);
+        if (!response.ok) {
+          throw new Error(`Failed to load ${namespace} namespace for ${language}: ${response.statusText}`);
         }
-      )
-    );
-  // }
+        const data = await response.json();
+        console.log("-----------daddd --------", data)
+        i18next.addResources(language, namespace, data);
+      }
+    }
+  } catch (error) {
+    console.error('Error loading translations:', error);
+    throw error;
+  }
+};
 
-  await i18nInstance.init({
-    lng: locale,
-    resources,
-    fallbackLng: i18nConfig.defaultLocale,
-    supportedLngs: i18nConfig.locales,
-    defaultNS: namespaces[0],
-    fallbackNS: namespaces[0],
-    ns: namespaces,
-    preload: resources ? [] : i18nConfig.locales,
-  });
+// Initialize i18next after loading all translations
+const initI18next = async () => {
+  return i18next
+    .use(initReactI18next)
+    .use(LanguageDetector)
+    .init({
+      lng: 'en', // Default language
+      fallbackLng: i18nConfig.defaultLocale,
+      supportedLngs: i18nConfig.locales,
+      ns: allNameSpaces, // List of namespaces
+      defaultNS: 'home', // Default namespace if not specified in t() calls
+      fallbackNS: "home",
+    }).then(async () => {
+      return await loadTranslations();
+    });
+};
 
-  return {
-    i18n: i18nInstance,
-    resources: i18nInstance.services.resourceStore.data,
-    t: i18nInstance.t
-  };
-}
+const i18nextPromise = initI18next();
+export default i18nextPromise;

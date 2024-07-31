@@ -10,7 +10,7 @@ export default function Header() {
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-white  [text-wrap:balance] sm:text-7xl">
-          {t("PAGE_TITLE")}
+            {t("PAGE_TITLE")}
           </h1>
         </FadeIn>
       </Container>

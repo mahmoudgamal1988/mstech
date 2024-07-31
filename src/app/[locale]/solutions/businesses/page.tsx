@@ -1,3 +1,5 @@
+'use client';
+
 import { Container } from '@/components/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { FadeIn } from '@/components/FadeIn'
@@ -12,10 +14,7 @@ import SmartAccessImg from './imageHero.png'
 import SmartbuildingImg from './imageHero.png'
 import businessesImg from './imageHero.png'
 import { StylizedImage } from '@/components/StylizedImage'
-
-import initTranslations from '../../../i18n'
-import { createInstance } from 'i18next'
-
+import { useTranslation } from 'react-i18next';
 
 const items = [
   {
@@ -68,11 +67,9 @@ const items = [
   },
 ];
 
-export default async function CaseStudyLayout({ params: { locale } }: any) {
+export default function CaseStudyLayout({ params: { locale } }: any) {
 
-  const i18nNamespaces = ['businesses'];
-  const i18n = createInstance();
-  const { t, resources } = await initTranslations(locale, i18nNamespaces, i18n);
+  const { t } = useTranslation()
 
   const splitTextWithBreaks = (text: string) => {
     return text.split('.').map((sentence, index) => (
@@ -89,12 +86,12 @@ export default async function CaseStudyLayout({ params: { locale } }: any) {
         <header>
           <PageIntro
             eyebrow=""
-            title={t('BUSINESSES')}
+            title={t('BUSINESSES', { ns: "businesses" })}
             centered
             extraTitleClass='text-white'
             extraChildrenClass='text-white'
           >
-            <h1>{t('BUSINESSES_TITLE')}</h1>
+            <h1>{t('BUSINESSES_TITLE', { ns: "businesses" })}</h1>
           </PageIntro>
         </header>
 
@@ -115,7 +112,7 @@ export default async function CaseStudyLayout({ params: { locale } }: any) {
                 </h1>
                 <p className='font-sans text-secondary mt-8'>
                   {
-                    splitTextWithBreaks(t('BUSINESSES_CONTENT'))}
+                    splitTextWithBreaks(t('BUSINESSES_CONTENT', { ns: "businesses" }))}
                 </p>
               </div>
 

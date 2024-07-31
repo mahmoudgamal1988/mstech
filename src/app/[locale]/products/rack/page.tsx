@@ -1,19 +1,19 @@
+'use client';
+
 import { Container } from '@/components/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { FadeIn } from '@/components/FadeIn'
 import { StylizedImage } from '@/components/StylizedImage'
-import initTranslations from '../../../i18n'
-import { createInstance } from 'i18next'
+import { useTranslation } from 'react-i18next';
+
 
 import logo from './rack.png'
 import productDetails from './rack3.png'
 import productDetails2 from './rack22.png'
 
-export default async function Rack({ params: { locale } }: any) {
+export default function Rack({ params: { locale } }: any) {
 
-  const i18nNamespaces = ['rack'];
-  const i18n = createInstance();
-  const { t, resources } = await initTranslations(locale, i18nNamespaces, i18n);
+  const { t } = useTranslation()
 
   const splitTextWithBreaks = (text: string) => {
     return text.split('.').map((sentence, index) => (
@@ -30,12 +30,12 @@ export default async function Rack({ params: { locale } }: any) {
         <header>
           <PageIntro
             eyebrow=""
-            title={t('RACK')}
+            title={t('RACK', { ns: "rack" })}
             centered
             extraTitleClass='text-white'
             extraChildrenClass='text-white'
           >
-            <h1>{t('RACK_TITLE')}</h1>
+            <h1>{t('RACK_TITLE', { ns: "rack" })}</h1>
           </PageIntro>
         </header>
 
@@ -52,7 +52,7 @@ export default async function Rack({ params: { locale } }: any) {
               <div className='px-44'>
                 <p className='font-sans text-secondary mt-8'>
                   {
-                    splitTextWithBreaks(t('RACK_CONTENT'))
+                    splitTextWithBreaks(t('RACK_CONTENT', { ns: "rack" }))
                   }
                 </p>
               </div>
@@ -70,7 +70,7 @@ export default async function Rack({ params: { locale } }: any) {
               <div className='px-44'>
                 <p className='font-sans text-secondary mt-8'>
                   {
-                    splitTextWithBreaks(t('RACK_CONTENT_2'))
+                    splitTextWithBreaks(t('RACK_CONTENT_2', { ns: "rack" }))
                   }
                 </p>
               </div>

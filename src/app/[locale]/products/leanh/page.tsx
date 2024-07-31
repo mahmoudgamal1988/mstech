@@ -1,18 +1,16 @@
+'use client';
+
 import { Container } from '@/components/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { FadeIn } from '@/components/FadeIn'
 import { StylizedImage } from '@/components/StylizedImage'
-import initTranslations from '../../../i18n'
-import { createInstance } from 'i18next'
+import { useTranslation } from 'react-i18next';
 
 import logo from './image.png'
 import leanhDetails from './Leanh2.png'
 
-export default async function Leanh({ params: { locale } }: any) {
-
-  const i18nNamespaces = ['leanh'];
-  const i18n = createInstance();
-  const { t, resources } = await initTranslations(locale, i18nNamespaces, i18n);
+export default function Leanh({ params: { locale } }: any) {
+  const { t } = useTranslation()
 
   const splitTextWithBreaks = (text: string) => {
     return text.split('.').map((sentence, index) => (
@@ -29,12 +27,12 @@ export default async function Leanh({ params: { locale } }: any) {
         <header>
           <PageIntro
             eyebrow=""
-            title={t('LEANH')}
+            title={t('LEANH', { ns: "leanh" })}
             centered
             extraTitleClass='text-white'
             extraChildrenClass='text-white'
           >
-            <h1>{t('LEANH_TITLE')}</h1>
+            <h1>{t('LEANH_TITLE', { ns: "leanh" })}</h1>
           </PageIntro>
         </header>
 
@@ -51,7 +49,7 @@ export default async function Leanh({ params: { locale } }: any) {
               <div className='px-44'>
                 <p className='font-sans text-secondary mt-8'>
                   {
-                    splitTextWithBreaks(t('LEANH_CONTENT'))}
+                    splitTextWithBreaks(t('LEANH_CONTENT', { ns: "leanh" }))}
                 </p>
               </div>
             </>
@@ -68,7 +66,7 @@ export default async function Leanh({ params: { locale } }: any) {
               <div className='px-44'>
                 <p className='font-sans text-secondary mt-8'>
                   {
-                    splitTextWithBreaks(t('LEANH_CONTENT_2'))}
+                    splitTextWithBreaks(t('LEANH_CONTENT_2', { ns: "leanh" }))}
                 </p>
               </div>
             </>

@@ -1,19 +1,15 @@
-import Link from 'next/link'
+'use client';
 
+import Link from 'next/link'
 import { FooterContainer } from '@/components/FooterContainer'
 import { FadeIn } from '@/components/FadeIn'
 import { Logo } from '@/components/Logo'
 import { socialMediaProfiles } from '@/components/SocialMedia'
+import { useTranslation } from 'react-i18next';
 
-import initTranslations from '../app/i18n'
-import { createInstance } from 'i18next'
+function Navigation() {
 
-
-async function Navigation({ locale, namespaces }: any) {
-  const i18nNamespaces = ['Comman', "businesses", "HOME_AUTOMATION", "Services", "leanh", "rack", "HUEM", "PROPTECH"];
-  const i18n = createInstance();
-  const { t, resources } = await initTranslations(locale, i18nNamespaces, i18n);
-
+  const { t } = useTranslation()
 
   const navigation = [
     {
@@ -26,7 +22,7 @@ async function Navigation({ locale, namespaces }: any) {
         {
           title: (
             <>
-              {t("SEE_ALL")}<span aria-hidden="true">&rarr;</span>
+              {t("SEE_ALL", { ns: "Comman" })}<span aria-hidden="true">&rarr;</span>
             </>
           ),
           href: '/',
@@ -42,7 +38,7 @@ async function Navigation({ locale, namespaces }: any) {
         {
           title: (
             <>
-              {t("SEE_ALL")} <span aria-hidden="true">&rarr;</span>
+              {t("SEE_ALL", { ns: "Comman" })} <span aria-hidden="true">&rarr;</span>
             </>
           ),
           href: '/',
@@ -50,7 +46,7 @@ async function Navigation({ locale, namespaces }: any) {
       ],
     },
     {
-      title: t("COMPANY"),
+      title: t("COMPANY", { ns: "Comman" }),
       links: [
         { title: t("USE-CASES", { ns: 'USE-CASES' }), href: '/use-cases' },
         { title: t("ABOUT_US"), href: '/about' },
@@ -58,7 +54,7 @@ async function Navigation({ locale, namespaces }: any) {
       ],
     },
     {
-      title: t("CONNECT"),
+      title: t("CONNECT", { ns: "Comman" }),
       links: socialMediaProfiles,
     },
   ]

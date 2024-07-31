@@ -1,18 +1,17 @@
+'use client';
+
 import { Container } from '@/components/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { FadeIn } from '@/components/FadeIn'
 import { StylizedImage } from '@/components/StylizedImage'
-import initTranslations from '../../../i18n'
-import { createInstance } from 'i18next'
+import { useTranslation } from 'react-i18next';
 
 import logo from './proptech.png'
 import productDetails from './pimg.png'
 
-export default async function Proptech({ params: { locale } }: any) {
+export default function Proptech({ params: { locale } }: any) {
 
-  const i18nNamespaces = ['PROPTECH'];
-  const i18n = createInstance();
-  const { t, resources } = await initTranslations(locale, i18nNamespaces, i18n);
+  const { t } = useTranslation()
 
   const splitTextWithBreaks = (text: string) => {
     return text.split('.').map((sentence, index) => (
@@ -29,12 +28,12 @@ export default async function Proptech({ params: { locale } }: any) {
         <header>
           <PageIntro
             eyebrow=""
-            title={t('PROPTECH')}
+            title={t('PROPTECH', { ns: "PROPTECH" })}
             centered
             extraTitleClass='text-white'
             extraChildrenClass='text-white'
           >
-            <h1>{t('PROPTECH_TITLE')}</h1>
+            <h1>{t('PROPTECH_TITLE', { ns: "PROPTECH" })}</h1>
           </PageIntro>
         </header>
 
@@ -54,7 +53,7 @@ export default async function Proptech({ params: { locale } }: any) {
                 </h1>
                 <p className='font-sans text-secondary mt-8'>
                   {
-                    splitTextWithBreaks(t('PROPTECH_CONTENT'))}
+                    splitTextWithBreaks(t('PROPTECH_CONTENT', { ns: "PROPTECH" }))}
                 </p>
               </div>
             </>
@@ -74,7 +73,7 @@ export default async function Proptech({ params: { locale } }: any) {
                 </h1>
                 <p className='font-sans text-secondary mt-8'>
                   {
-                    splitTextWithBreaks(t('PROPTECH_CONTENT_2'))
+                    splitTextWithBreaks(t('PROPTECH_CONTENT_2', { ns: "PROPTECH" }))
                   }
                 </p>
               </div>

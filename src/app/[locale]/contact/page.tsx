@@ -1,3 +1,5 @@
+'use client'
+
 import { useId } from 'react'
 import { type Metadata } from 'next'
 import Link from 'next/link'
@@ -7,14 +9,10 @@ import { Border } from '@/components/Border'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { Offices } from '@/components/Offices'
 import { PageIntro } from '@/components/PageIntro'
 import { SocialMedia } from '@/components/SocialMedia'
 import contactImg from '@/images/aboutUs/our_values.png'
 
-import initTranslations from '../../i18n'
-import { createInstance } from 'i18next'
-import TranslationsProvider from '@/components/TranslationsProvider'
 import { useTranslation } from 'react-i18next'
 
 function TextInput({
@@ -42,21 +40,12 @@ function TextInput({
   )
 }
 
+export default function Contact({ params: { locale } }: any) {
 
-
-export default async function Contact({ params: { locale } }: any) {
-
-  const i18nNamespaces = ['Comman', 'CONTACT_US'];
-  const i18n = createInstance();
-  const { t, resources } = await initTranslations(locale, i18nNamespaces, i18n);
+  const { t } = useTranslation()
 
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
-      locale={locale}
-      resources={resources}
-    >
-
+    <>
       <PageIntro
         eyebrow={t('CONTACT_US', { ns: 'CONTACT_US' })}
         title={t('CONTACT_US_TITLE', { ns: 'CONTACT_US' })}
@@ -76,7 +65,7 @@ export default async function Contact({ params: { locale } }: any) {
           <FadeIn className="lg:order-last">
             <form>
               <h2 className="font-display text-base font-semibold text-neutral-950">
-                {t("REQUEST")}
+                {t("REQUEST", { ns: "CONTACT_US" })}
               </h2>
               <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
                 <TextInput label="Name" name="name" autoComplete="name" />
@@ -119,11 +108,11 @@ export default async function Contact({ params: { locale } }: any) {
 
             <Border className="mt-4 pt-16">
               <h2 className="font-display text-base font-semibold text-neutral-950">
-                {t("EMAIL_US")}
+                {t("EMAIL_US", { ns: "Comman" })}
               </h2>
               <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
                 {[
-                  [t('PRESS'), t('PRESS_VALUE')],
+                  [t('PRESS', { ns: "Comman" }), t('PRESS_VALUE', { ns: "Comman" })],
                 ].map(([label, email]) => (
                   <div key={email}>
                     <dt className="font-semibold text-neutral-950">{label}</dt>
@@ -142,15 +131,14 @@ export default async function Contact({ params: { locale } }: any) {
 
             <Border className="mt-16 pt-16">
               <h2 className="font-display text-base font-semibold text-neutral-950">
-                {t("FOLLOW_US")}
+                {t("FOLLOW_US", { ns: "Comman" })}
               </h2>
               <SocialMedia className="mt-6" />
             </Border>
           </FadeIn>
         </div>
       </Container>
-
-    </TranslationsProvider>
+    </>
   )
 }
 

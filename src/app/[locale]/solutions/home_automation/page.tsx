@@ -1,16 +1,13 @@
-import { ContactSection } from '@/components/ContactSection'
+'use client';
+
 import { Container } from '@/components/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { FadeIn } from '@/components/FadeIn'
+import { useTranslation } from 'react-i18next';
 
-import initTranslations from '../../../i18n'
-import { createInstance } from 'i18next'
+export default function HomeAutomation({ params: { locale } }: any) {
 
-export default async function HomeAutomation({ params: { locale } }: any) {
-
-  const i18nNamespaces = ['HOME_AUTOMATION'];
-  const i18n = createInstance();
-  const { t, resources } = await initTranslations(locale, i18nNamespaces, i18n);
+  const { t } = useTranslation()
 
   const splitTextWithBreaks = (text: string) => {
     return text.split('.').map((sentence, index) => (
@@ -27,12 +24,12 @@ export default async function HomeAutomation({ params: { locale } }: any) {
         <header>
           <PageIntro
             eyebrow=""
-            title={t('HOME_AUTOMATION')}
+            title={t('HOME_AUTOMATION', { ns: "HOME_AUTOMATION" })}
             centered
             extraTitleClass='text-white'
             extraChildrenClass='text-white'
           >
-            <h1>{t('HOME_AUTOMATION_TITLE')}</h1>
+            <h1>{t('HOME_AUTOMATION_TITLE', { ns: "HOME_AUTOMATION" })}</h1>
           </PageIntro>
         </header>
 
@@ -46,7 +43,7 @@ export default async function HomeAutomation({ params: { locale } }: any) {
                 </h1>
                 <p className='font-sans text-secondary mt-8'>
                   {
-                    splitTextWithBreaks(t('HOME_AUTOMATION_CONTENT'))}
+                    splitTextWithBreaks(t('HOME_AUTOMATION_CONTENT', { ns: "HOME_AUTOMATION" }))}
                 </p>
               </div>
 

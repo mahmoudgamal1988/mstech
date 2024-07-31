@@ -1,12 +1,11 @@
+'use client';
+
 import { Container } from '@/components/Container'
 import { PageIntro } from '@/components/PageIntro'
-import { type CaseStudy, type MDXEntry } from '@/lib/mdx'
 import { SectionIntro } from '@/components/SectionIntro'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import Image from 'next/image'
-
-import initTranslations from '../../i18n'
-import { createInstance } from 'i18next'
+import { useTranslation } from 'react-i18next';
 
 
 import EmotionDetection from './emotionsDetections.png'
@@ -21,59 +20,57 @@ import { slashMethod } from '../page'
 
 
 
-export default async function UsesCases({ params: { locale } }: any) {
+export default function UsesCases({ params: { locale } }: any) {
 
-  const i18nNamespaces = ['USE-CASES'];
-  const i18n = createInstance();
-  const { t, resources } = await initTranslations(locale, i18nNamespaces, i18n);
+  const { t, i18n } = useTranslation()
 
   const items = [
     {
       id: "0",
-      title: t("EMOTION_DETECTION").split(slashMethod(i18n.language))[0],
-      description: t("EMOTION_DETECTION").split(slashMethod(i18n.language))[1],
+      title: t("EMOTION_DETECTION", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[0],
+      description: t("EMOTION_DETECTION", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[1],
       imgUrl: EmotionDetection,
     },
     {
       id: "1",
-      title: t("FACE_RECOGNITION").split(slashMethod(i18n.language))[0],
-      description: t("FACE_RECOGNITION").split(slashMethod(i18n.language))[1],
+      title: t("FACE_RECOGNITION", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[0],
+      description: t("FACE_RECOGNITION", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[1],
       imgUrl: FaceImg,
     },
     {
       id: "2",
-      title: t("HEATMAP_DISCOVERY").split(slashMethod(i18n.language))[0],
-      description: t("HEATMAP_DISCOVERY").split(slashMethod(i18n.language))[1],
+      title: t("HEATMAP_DISCOVERY", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[0],
+      description: t("HEATMAP_DISCOVERY", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[1],
       imgUrl: HeatmapImg,
     },
     {
       id: "3",
-      title: t("TRACKING").split(slashMethod(i18n.language))[0],
-      description: t("TRACKING").split(slashMethod(i18n.language))[1],
+      title: t("TRACKING", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[0],
+      description: t("TRACKING", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[1],
       imgUrl: PresontrackingImg,
     },
     {
       id: "4",
-      title: t("SMART_PARKING").split(slashMethod(i18n.language))[0],
-      description: t("SMART_PARKING").split(slashMethod(i18n.language))[1],
+      title: t("SMART_PARKING", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[0],
+      description: t("SMART_PARKING", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[1],
       imgUrl: SmartparkingImg,
     },
     {
       id: "5",
-      title: t("ACCESS_CONTROL").split(slashMethod(i18n.language))[0],
-      description: t("ACCESS_CONTROL").split(slashMethod(i18n.language))[1],
+      title: t("ACCESS_CONTROL", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[0],
+      description: t("ACCESS_CONTROL", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[1],
       imgUrl: SmartAccessImg,
     },
     {
       id: "6",
-      title: t("SMART_BUILDINGS").split(slashMethod(i18n.language))[0],
-      description: t("SMART_BUILDINGS").split(slashMethod(i18n.language))[1],
+      title: t("SMART_BUILDINGS", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[0],
+      description: t("SMART_BUILDINGS", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[1],
       imgUrl: SmartbuildingImg,
     },
     {
       id: "7",
-      title: t("ALERT_DETECTION").split(slashMethod(i18n.language))[0],
-      description: t("ALERT_DETECTION").split(slashMethod(i18n.language))[1],
+      title: t("ALERT_DETECTION", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[0],
+      description: t("ALERT_DETECTION", { ns: "USE-CASES" }).split(slashMethod(i18n.language))[1],
       imgUrl: EmotionDetection,
     },
   ];
@@ -82,8 +79,8 @@ export default async function UsesCases({ params: { locale } }: any) {
       <article className="mt-24 sm:mt-32 lg:mt-40">
         <header>
           <PageIntro
-            eyebrow={t("USE-CASES")}
-            title={t("USE-CASES_TITLE")}
+            eyebrow={t("USE-CASES", { ns: "USE-CASES" })}
+            title={t("USE-CASES_TITLE", { ns: "USE-CASES" })}
             centered
             extraTitleClass='text-white'
             extraChildrenClass='text-white'
@@ -106,7 +103,7 @@ export default async function UsesCases({ params: { locale } }: any) {
                   Overview
                 </h1>
                 <p className='font-sans text-secondary'>
-                  {t("USE-CASES_CONTENT")}
+                  {t("USE-CASES_CONTENT", { ns: "USE-CASES" })}
                 </p>
               </div>
 

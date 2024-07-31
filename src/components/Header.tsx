@@ -10,18 +10,16 @@ import {
   PopoverPanel,
 } from '@headlessui/react'
 import { AnimatePresence, motion } from 'framer-motion'
-
 import { Button } from '@/components/NavButton'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLinks } from './NavLinks'
+import { useTranslation } from 'react-i18next';
 
 
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { RootLayoutContext } from './RootLayout'
-
-import initTranslations from '../app/i18n'
-import { createInstance } from 'i18next'
+import { slashMethod } from '@/app/[locale]/page';
+import LanguageChanger from './LanguageChanger';
 
 export interface MenuLink {
   name: string;
@@ -35,10 +33,6 @@ export interface SubLink {
   name: string;
   href: string;
 }
-
-
-
-
 
 function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -66,9 +60,6 @@ function ChevronUpIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-
-
-
 interface Props {
   link: MenuLink;
   isSelected: boolean;
@@ -79,7 +70,6 @@ function MobileNavLink(
   props: Props
 ) {
   const { link, isSelected, onClick } = props;
-
   return (
     <Popover className="relative w-full" >
       <PopoverButton
@@ -124,17 +114,14 @@ function MobileNavLink(
   )
 }
 
-export async function Header({ locale, namespaces }: any) {
+export function Header() {
 
   let [selectedTab, setSelectedTab] = useState<string>('')
-
-  const i18nNamespaces = ['Comman', "businesses", "HOME_AUTOMATION", "Services", "leanh", "rack", "HUEM", "PROPTECH"];
-  const i18n = createInstance();
-  const { t, resources } = await initTranslations(locale, i18nNamespaces, i18n);
+  const { t, i18n } = useTranslation()
 
   const Links: MenuLink[] = [
     {
-      name: t("SOLUTIONS"),
+      name: t("SOLUTIONS").split(slashMethod(i18n.language))[0],
       href: '/',
       isSubPage: false,
       sectionTag: "/solutions",
@@ -145,7 +132,7 @@ export async function Header({ locale, namespaces }: any) {
       ]
     },
     {
-      name: 'Products',
+      name: t("PRODUCTS").split(slashMethod(i18n.language))[0],
       href: '/',
       isSubPage: false,
       sectionTag: "/products",
@@ -167,12 +154,11 @@ export async function Header({ locale, namespaces }: any) {
       href: '#',
       isSubPage: false,
       subLinks: [
-        { name: t("ABOUT_US"), href: '/about' },
+        { name: t("ABOUT_US", { ns: "ABOUT_US" }), href: '/about' },
         // { name: 'Careers', href: '#' },
       ]
     },
   ]
-
 
   return (
     <header>
@@ -249,6 +235,7 @@ export async function Header({ locale, namespaces }: any) {
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
                             <Button href="/contact">Contact Us</Button>
+                            <LanguageChanger />
                           </div>
                         </PopoverPanel>
                       </>
@@ -260,6 +247,8 @@ export async function Header({ locale, namespaces }: any) {
             <Button href="/contact" className="hidden lg:block">
               Contact Us
             </Button>
+            <LanguageChanger />
+
           </div>
         </Container>
       </nav>

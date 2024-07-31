@@ -1,56 +1,58 @@
 'use client'
 
-import { type Metadata } from 'next'
-import { RootLayout } from '@/components/RootLayout'
-
+import {
+  Suspense,
+  useEffect,
+  useState,
+} from 'react'
+import RootLayout from '@/components/RootLayout'
 import '@/styles/tailwind.css'
-// import '../styles/base.css';
-
-import initTranslations from '../i18n'
-import TranslationsProvider from '@/components/TranslationsProvider'
-import { createInstance } from 'i18next'
-import { useRouter, usePathname } from 'next/navigation';
-
-// export const metadata: Metadata = {
-//   title: {
-//     template: '%s - Meshkati',
-//     default: 'Meshkati - Meshkati Solutions',
-//   },
-// }
-
-export default async function Layout({ children }: { children: React.ReactNode, locale: any }) {
-
-  // const router = useRouter()
-  // console.log("i18n.language router, ", router)
-
-  const pathname = usePathname();
-  const locale = pathname.split('/')[1]; // Assuming the language code is the first part of the path
-
-  locale.length
-  const i18nNamespaces = ['home'];
-  const i18n_ = createInstance();
-  const { i18n, resources } = await initTranslations(locale.length > 2 ? "en" : locale, i18nNamespaces, i18n_);
-  // const router = useRouter();
-  // const { locale } = router; // Extracting the locale from the URL
+import i18nextPromise from '@/app/i18n'
+import i18next from 'i18next';
+import { I18nextProvider, withTranslation } from 'react-i18next'
+import Loader from '@/components/Loader'
 
 
-  // Function to get the language from the URL
-  console.log("i18n.language, ", locale)
+export default function Layout({ children }: { children: React.ReactNode, locale: any }) {
+  // const pathname = usePathname();
+  // const locale = pathname.split('/')[1]; // Assuming the language code is the first part of the path
+
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  console.log("wrapppper")
+
+  useEffect(() => {
+    i18nextPromise
+      .then(() => {
+        console.log("doneee")
+        setIsInitialized(true);
+      })
+      .catch((error: string) => {
+        console.error('Error initializing i18next:', error);
+        setIsInitialized(false);
+      });
+  }, []);
+
+  if (!isInitialized) {
+    return <html lang="en" className="h-full bg-neutral-950 text-base antialiased">
+      <body className="flex min-h-full flex-col" style={{ direction: "ltr" }}>
+        {/* <div>Loading translations...</div>; */}
+        <Loader />
+      </body>
+    </html >
+  }
 
 
   return (
-    <html lang="en" className="h-full bg-neutral-950 text-base antialiased">
-      <TranslationsProvider
-        namespaces={i18nNamespaces}
-        locale={locale}
-        resources={resources}
-      >
-        <body className="flex min-h-full flex-col" style={{ direction: i18n.language === "en" ? "ltr" : "rtl" }}>
-          <RootLayout>{children}</RootLayout>
+    <I18nextProvider i18n={i18next}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <html lang={i18next.language} className="h-full bg-neutral-950 text-base antialiased">
+          <body className="flex min-h-full flex-col" style={{ direction: i18next.language === "en" ? "ltr" : "rtl" }}>
+            <RootLayout>{children}</RootLayout>
+          </body>
+        </html >
+      </Suspense>
+    </I18nextProvider >
 
-        </body>
-      </TranslationsProvider>
-
-    </html>
   )
 }

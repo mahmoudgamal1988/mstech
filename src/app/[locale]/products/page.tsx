@@ -17,13 +17,8 @@ export const metadata: Metadata = {
     'Stay up-to-date with the latest industry news as our marketing teams finds new ways to re-purpose old CSS tricks articles.',
 }
 
-export default async function Blog() {
-  let articles = await loadArticles()
-
-
-  console.log("articles ")
-
-  console.log("articles", articles)
+export default function Blog() {
+  // let articles = await loadArticles()
 
   return (
     <>
