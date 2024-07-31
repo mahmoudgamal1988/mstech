@@ -59,7 +59,7 @@ export default function Values() {
             <FadeIn key={index} className="flex">
               <article className="relative flex flex-col w-full content-center items-center rounded-3xl p-6 transition hover: sm:p-8 group">
                 <h3>
-                  <Link href={value.title}>
+                  < >
                     <span className="absolute inset-0 rounded-3xl" />
                     <Image
                       src={value.logo}
@@ -67,7 +67,7 @@ export default function Values() {
                       alt={value.logo as any}
                       unoptimized
                     />
-                  </Link>
+                  </>
                 </h3>
                 <p className="mt-6 mx-2 flex justify-start font-display text-xs font-semibold text-primary [text-wrap:balance] sm:text-base transition-transform transform group-hover:scale-110 group-hover:translate-y-2">
                   {(t('VALUES_VALUES'))?.split(commaMethod(i18n.language))[index]}

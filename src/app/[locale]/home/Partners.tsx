@@ -58,7 +58,7 @@ export default function Partners() {
   const { t } = useTranslation();
 
   return (
-    <div className="mt-4 rounded-4xl bg-grayBg py-14 sm:mt-32 sm:py-32 lg:mt-28">
+    <div className="mt-4 rounded-4xl bg-white py-0 sm:mt-32 sm:py-8 lg:mt-12">
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-3xl font-semibold tracking-wider text-primary sm:text-left">

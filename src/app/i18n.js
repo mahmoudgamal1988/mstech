@@ -32,7 +32,7 @@ const initI18next = async () => {
     .use(initReactI18next)
     .use(LanguageDetector)
     .init({
-      lng: i18nConfig.defaultLocale, // Default language
+      // lng: i18nConfig.defaultLocale, // Default language
       fallbackLng: i18nConfig.defaultLocale,
       supportedLngs: i18nConfig.locales,
       ns: allNameSpaces, // List of namespaces

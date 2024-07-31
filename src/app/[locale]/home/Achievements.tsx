@@ -13,7 +13,7 @@ export default function Achievements() {
   const { t, i18n } = useTranslation();
 
   return (
-    <FooterContainer className="bg-grayBg max-w-full pb-40 pt-14 mt-20">
+    <FooterContainer className="bg-grayBg max-w-full pb-20 pt-3 mt-20">
       <PageIntro eyebrow="" title={t("OUR_ACHIEVEMENTS")} extraTitleClass='mt-0 text-lightBg' mainClass='lg:mt-16' >
         <></>
       </PageIntro>

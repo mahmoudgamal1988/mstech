@@ -49,8 +49,8 @@ function Navigation() {
       title: t("COMPANY", { ns: "Comman" }),
       links: [
         { title: t("USE-CASES", { ns: 'USE-CASES' }), href: '/use-cases' },
-        { title: t("ABOUT_US"), href: '/about' },
-        { title: t("CONNECT"), href: '/contact' },
+        { title: t("ABOUT_US", { ns: "ABOUT_US" }), href: '/about' },
+        { title: t("CONNECT", { ns: "Comman" }), href: '/contact' },
       ],
     },
     {
