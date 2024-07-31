@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next'
 import businessesImg from '@/images/solutions/businesses.svg'
 import homeImg from '@/images/solutions/home.svg'
 import servicesImg from '@/images/solutions/services.svg'
-import { commaMethod, slashMethod } from '../page';
+import { commaMethod, slashMethod } from '@/components/RootLayout';
 
 const caseStudies: any[] = [
   {

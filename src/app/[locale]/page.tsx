@@ -8,14 +8,6 @@ import Achievements from './home/Achievements'
 import Partners from './home/Partners'
 import Contact from './home/Contact'
 
-
-export const commaMethod = (lng: string): string => {
-  return lng === "en" ? ',' : "،"
-}
-export const slashMethod = (lng: string): string => {
-  return "/"
-}
-
 export default function Home() {
 
   return (

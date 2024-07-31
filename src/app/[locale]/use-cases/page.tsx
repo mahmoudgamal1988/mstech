@@ -15,7 +15,7 @@ import PresontrackingImg from './presontracking.png'
 import SmartparkingImg from './smartparking.png'
 import SmartAccessImg from './smartAccess.png'
 import SmartbuildingImg from './smartbuilding.png'
-import { slashMethod } from '../page'
+import { commaMethod, slashMethod } from '@/components/RootLayout';
 
 
 

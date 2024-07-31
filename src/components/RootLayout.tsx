@@ -18,6 +18,13 @@ import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
 import { Header } from '@/components/Header'
 
+
+export const commaMethod = (lng: string): string => {
+  return lng === "en" ? ',' : "،"
+}
+export const slashMethod = (lng: string): string => {
+  return "/"
+}
 export const RootLayoutContext = createContext<{
   logoHovered: boolean
   productRef: React.RefObject<HTMLDivElement>;

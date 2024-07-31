@@ -14,7 +14,7 @@ import RESPECT from '@/images/values/RESPECT.png';
 import AGILITY from '@/images/values/AGILITY.png';
 
 import { useTranslation } from 'react-i18next'
-import { commaMethod } from '../page';
+import { commaMethod, slashMethod } from '@/components/RootLayout';
 
 const values = [
   {

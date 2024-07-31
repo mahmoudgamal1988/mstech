@@ -14,7 +14,7 @@ import TECHNOLOGIES from '@/images/why/TECHNOLOGIES.png';
 import TAILORED from '@/images/why/TAILORED.png';
 import NETWORK from '@/images/why/NETWORK.png';
 import RESEACH from '@/images/why/RESEACH.png';
-import { commaMethod } from '../page';
+import { commaMethod, slashMethod } from '@/components/RootLayout';
 
 
 const clients = [

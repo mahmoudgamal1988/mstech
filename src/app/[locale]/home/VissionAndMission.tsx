@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 
 import vissionImg from '@/images/aboutUs/vision.jpg'
 import missionImg from '@/images/aboutUs/mission.jpg'
-import { commaMethod } from '../page';
+import { commaMethod, slashMethod } from '@/components/RootLayout';
 
 
 export function Mission() {
@@ -34,7 +34,7 @@ export function Mission() {
 }
 
 export function Vission() {
-  const { t, i18n,   } = useTranslation();
+  const { t, i18n, } = useTranslation();
   // console.log("---- tttttttttttttttttttttt 111" , i18n.options.resources)
 
   return (

@@ -2,7 +2,7 @@
 import { SectionIntro } from '@/components/SectionIntro'
 import { PageIntro } from '@/components/PageIntro'
 import { Section } from '@/components/Section'
-import { slashMethod } from '../../page'
+import { commaMethod, slashMethod } from '@/components/RootLayout';
 import { useTranslation } from 'react-i18next';
 
 import ConsultancyImg from './Consultancy.png'

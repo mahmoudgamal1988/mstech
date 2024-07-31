@@ -7,7 +7,7 @@ import { StatList, CustomStatList } from '@/components/StatList'
 //values Images
 import TRANSPARENCY from '@/images/values/TRANSPARENCY.png';
 import { useTranslation } from 'react-i18next'
-import { commaMethod } from '../page';
+import { commaMethod } from '@/components/RootLayout';
 
 export default function Achievements() {
   const { t, i18n } = useTranslation();

@@ -10,7 +10,7 @@ import RackImg from '@/images/products/rack.png'
 import HuemImg from '@/images/products/huem.png'
 import LeanhImg from '@/images/products/leanh.jpg'
 import ProptechImg from '@/images/products/proptech.png'
-import { slashMethod } from '../page';
+import { commaMethod, slashMethod } from '@/components/RootLayout';
 
 
 function Section({

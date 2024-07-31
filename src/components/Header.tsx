@@ -18,7 +18,7 @@ import { useTranslation } from 'react-i18next';
 
 
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { slashMethod } from '@/app/[locale]/page';
+import { commaMethod, slashMethod } from '@/components/RootLayout';
 import LanguageChanger from './LanguageChanger';
 
 export interface MenuLink {
