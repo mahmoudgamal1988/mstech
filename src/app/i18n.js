@@ -16,7 +16,7 @@ const loadTranslations = async () => {
           throw new Error(`Failed to load ${namespace} namespace for ${language}: ${response.statusText}`);
         }
         const data = await response.json();
-        console.log("-----------daddd --------", data)
+        // console.log("-----------daddd --------", data)
         i18next.addResources(language, namespace, data);
       }
     }
@@ -32,7 +32,7 @@ const initI18next = async () => {
     .use(initReactI18next)
     .use(LanguageDetector)
     .init({
-      lng: 'en', // Default language
+      lng: i18nConfig.defaultLocale, // Default language
       fallbackLng: i18nConfig.defaultLocale,
       supportedLngs: i18nConfig.locales,
       ns: allNameSpaces, // List of namespaces
