@@ -234,7 +234,7 @@ export function Header() {
                             <MobileNavLink href="/#faqs">FAQs</MobileNavLink> */}
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
-                            <Button href="/contact">Contact Us</Button>
+                            <Button href="/contact">         {t('CONTACT_US', { ns: 'CONTACT_US' })}</Button>
                             <LanguageChanger />
                           </div>
                         </PopoverPanel>
@@ -245,7 +245,7 @@ export function Header() {
               )}
             </Popover>
             <Button href="/contact" className="hidden lg:block">
-              Contact Us
+              {t('CONTACT_US', { ns: 'CONTACT_US' })}
             </Button>
             <LanguageChanger />
 

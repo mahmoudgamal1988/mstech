@@ -6,14 +6,16 @@ import { FadeIn } from '@/components/FadeIn'
 import { Logo } from '@/components/Logo'
 import { socialMediaProfiles } from '@/components/SocialMedia'
 import { useTranslation } from 'react-i18next';
+import { slashMethod } from './RootLayout';
+import { title } from 'process';
 
 function Navigation() {
 
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const navigation = [
     {
-      title: 'Products',
+      title: t("PRODUCTS").split(slashMethod(i18n.language))[0],
       links: [
         { title: t("LEANH", { ns: 'leanh' }), href: '/products/leanh' },
         { title: t("RACK", { ns: 'rack' }), href: '/products/rack' },
@@ -30,11 +32,11 @@ function Navigation() {
       ],
     },
     {
-      title: 'Solutions',
+      title: t("SOLUTIONS").split(slashMethod(i18n.language))[0],
       links: [
-        { title: 'Businesses', href: '/solutions/businesses' },
-        { title: 'Home Automation', href: '/solutions/home_automation' },
-        { title: 'Additional Stack of Services', href: '/solutions/services' },
+        { title: t("BUSINESSES", { ns: 'businesses' }), href: '/solutions/businesses' },
+        { title: t("HOME_AUTOMATION", { ns: 'HOME_AUTOMATION' }), href: '/solutions/home_automation' },
+        { title: t("SERVICES", { ns: 'Services' }), href: '/solutions/services' },
         {
           title: (
             <>

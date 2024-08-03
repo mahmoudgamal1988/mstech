@@ -60,16 +60,16 @@ export function GridPattern({
             <FadeIn>
               <Image
                 src={PicOne}
-                className='w-[1300px] ml-[-350px] mt-[-450px] absolute'
-                alt={'IMG'}
+                className="w-full sm:w-[800px] lg:w-[1300px] absolute left-0 sm:left-[-200px] lg:left-[-350px] mt-0 sm:mt-[-200px] lg:mt-[-450px]"
+                alt="IMG"
                 unoptimized
               />
             </FadeIn>
             <FadeIn>
               <Image
                 src={PicTwo}
-                className='w-[1300px] absolute right-[-450px] top-[100px]'
-                alt={'IMG'}
+                className="w-full sm:w-[800px] lg:w-[1300px] absolute right-0 sm:right-[-200px] lg:right-[-450px] top-[50px] sm:top-[100px]"
+                alt="IMG"
                 unoptimized
               />
             </FadeIn>

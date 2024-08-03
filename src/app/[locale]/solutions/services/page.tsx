@@ -57,7 +57,7 @@ export default function Services({ params: { locale } }: any) {
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
 
-        <Section title={t('SERVICES_CONSULTANCY', { ns: "" }).split(slashMethod(i18n.language))[0]} titleExtraClass='text-primary' image={{ src: ConsultancyImg }}>
+        <Section title={t('SERVICES_CONSULTANCY', { ns: "Services" }).split(slashMethod(i18n.language))[0]} titleExtraClass='text-primary' image={{ src: ConsultancyImg }}>
           <div className="space-y-6 text-base text-secondary">
             <>
               {t('SERVICES_CONSULTANCY', { ns: "Services" }).split(slashMethod(i18n.language))[1]}
@@ -75,14 +75,14 @@ export default function Services({ params: { locale } }: any) {
             </>
           </div>
         </Section>
-        <Section title={t('SERVICES_MANAGED_SERVICES').split(slashMethod(i18n.language))[0]} titleExtraClass='text-primary' image={{ src: ManagedServicesImg }}>
+        <Section title={t('SERVICES_MANAGED_SERVICES', { ns: "Services" }).split(slashMethod(i18n.language))[0]} titleExtraClass='text-primary' image={{ src: ManagedServicesImg }}>
           <div className="space-y-6 text-base text-secondary">
             <>
               {t('SERVICES_MANAGED_SERVICES', { ns: "Services" }).split(slashMethod(i18n.language))[1]}
             </>
           </div>
         </Section>
-        <Section title={t('SERVICES_INTEGRATION_SERVICES').split(slashMethod(i18n.language))[0]} titleExtraClass='text-primary' image={{ src: IntegrationServicesgImg }}>
+        <Section title={t('SERVICES_INTEGRATION_SERVICES', { ns: "Services" }).split(slashMethod(i18n.language))[0]} titleExtraClass='text-primary' image={{ src: IntegrationServicesgImg }}>
           <div className="space-y-6 text-base text-secondary">
             <>
               {t('SERVICES_INTEGRATION_SERVICES', { ns: "Services" }).split(slashMethod(i18n.language))[1]}
