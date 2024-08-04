@@ -27,6 +27,9 @@ import Partners20 from '@/images/our-partners/our partners/Meshkati Solutions Pa
 
 
 const partners = [
+  ['Partners20', Partners20],
+  ['Partners17', Partners17],
+  ['Partners19', Partners19],
   ['Partners01', Partners01],
   ['Partners02', Partners02],
   ['Partners03', Partners03],
@@ -43,10 +46,7 @@ const partners = [
   ['Partners14', Partners14],
   ['Partners15', Partners15],
   ['Partners16', Partners16],
-  ['Partners17', Partners17],
   ['Partners18', Partners18],
-  ['Partners19', Partners19],
-  ['Partners20', Partners20],
   // ['Partners21', Partners21],
   // ['Partners22', Partners22],
   // ['Partners23', Partners23],
