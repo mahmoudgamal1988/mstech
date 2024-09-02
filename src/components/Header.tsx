@@ -72,13 +72,22 @@ function MobileNavLink(
   const { link, isSelected, onClick } = props;
   return (
     <Popover className="relative w-full" >
-      <PopoverButton
-        className="w-full flex flex-row content-between  text-sm font-semibold leading-6 text-gray-900"
-        onClick={onClick}
-      >
-        <span>{link.name}</span>
-        {link.subLinks.length > 0 && <ChevronDownIcon className="h-5 w-5 text-gray-400" />}
-      </PopoverButton>
+      {
+        link.subLinks.length > 0 ?
+          <PopoverButton
+            className="w-full flex flex-row content-between  text-sm font-semibold leading-6 text-gray-900"
+            onClick={onClick}
+          >
+            <a href={link.href} className="block font-semibold text-gray-900">
+              <span >{link.name}</span>
+            </a>
+            {<ChevronDownIcon className="h-5 w-5 text-gray-400" />}
+          </PopoverButton>
+          :
+          <a href={link.href} className="block font-semibold text-sm leading-6 text-gray-900">
+            <span >{link.name}</span>
+          </a>
+      }
       {
         isSelected && link.subLinks.length > 0 &&
         <Transition
