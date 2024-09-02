@@ -68,6 +68,7 @@ interface Props {
 
 function MobileNavLink(
   props: Props
+  
 ) {
   const { link, isSelected, onClick } = props;
   return (
