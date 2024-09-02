@@ -30,7 +30,7 @@ const loadTranslations = async () => {
 const initI18next = async () => {
   return i18next
     .use(initReactI18next)
-    .use(LanguageDetector)
+    // .use(LanguageDetector)
     .init({
       // lng: i18nConfig.defaultLocale, // Default language
       fallbackLng: i18nConfig.defaultLocale,
