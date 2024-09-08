@@ -37,16 +37,16 @@ export default function HomeAutomation({ params: { locale } }: any) {
           <FadeIn>
             {/* <MDXComponents.wrapper>{ */}
             <>
-              <div className='px-44 pt-28'>
-                <h1 style={{ fontSize: "32px", fontWeight: "bold", marginBottom: "16px" }} className='text-primary font-sans'>
+              <div className='pt-48 md:pt-8 lg:pt-12 px-4 md:px-20 lg:px-44'>
+                <h1 className='text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-primary font-sans'>
                   Overview
                 </h1>
-                <p className='font-sans text-secondary mt-8'>
+                <p className='font-sans text-secondary mt-4 md:mt-8'>
                   {
-                    splitTextWithBreaks(t('HOME_AUTOMATION_CONTENT', { ns: "HOME_AUTOMATION" }))}
+                    splitTextWithBreaks(t('HOME_AUTOMATION_CONTENT', { ns: "HOME_AUTOMATION" }))
+                  }
                 </p>
               </div>
-
             </>
           </FadeIn>
         </Container>

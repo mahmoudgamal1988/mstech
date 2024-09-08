@@ -100,7 +100,7 @@ function Partners() {
         <FadeInStagger faster>
           <ul
             role="list"
-            className="mt-10 mb-[-52px] grid grid-cols-4 gap-x-8 gap-y-10 lg:grid-cols-8"
+            className="mt-10 mb-[-52px] grid grid-cols-4 gap-x-8 gap-y-10 lg:grid-cols-8 md:grid-cols-8"
           >
             {partners.map(([client, logo]) => (
               <li key={client as string} className='w-28'>

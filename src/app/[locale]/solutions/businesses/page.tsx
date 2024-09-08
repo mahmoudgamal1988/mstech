@@ -82,7 +82,7 @@ export default function CaseStudyLayout({ params: { locale } }: any) {
 
   return (
     <>
-      <article className="mt-24 sm:mt-32 lg:mt-40">
+      <article className="mt-40 sm:mt-32 lg:mt-40">
         <header>
           <PageIntro
             eyebrow=""
