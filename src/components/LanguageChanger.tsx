@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import i18nConfig from '../../i18nConfig';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 export default function LanguageChanger() {
     const { i18n } = useTranslation();
@@ -14,14 +14,21 @@ export default function LanguageChanger() {
         : i18n.language;
 
     useEffect(() => {
+        // console.log("currentLocale currentLocale", currentLocale)
+        // console.log("currentLocale currentLocale currentPathname.length", currentPathname.length)
+
         if (currentPathname.length) {
             // console.log("currentLocale", currentLocale)
             i18n.changeLanguage(currentLocale)
         }
     }, [currentLocale, currentPathname, i18n]);
 
+    function removeLanguagePrefix(url: string) {
+        return url.replace(/^\/(en|ar)/, '');
+    }
+
     // console.log("currentPathname", currentPathname)
-    const handleChange = (e: any) => {
+    const handleChange = useCallback((e: any) => {
         const newLocale = e.target.value;
 
         // set cookie for next-i18n-router
@@ -31,20 +38,24 @@ export default function LanguageChanger() {
         const expires = date.toUTCString();
         document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
 
+
         // redirect to the new locale path
         if (
             currentLocale === i18nConfig.defaultLocale
         ) {
             router.push('/' + newLocale + currentPathname);
         } else {
-            router.push(
-                currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
-            );
-        }
+            const updatedUrl = removeLanguagePrefix(currentPathname);
 
+            router.push('/' + newLocale + updatedUrl);
+
+            // router.push(
+            //     currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
+            // );
+        }
         i18n.changeLanguage(newLocale)
         router.refresh();
-    };
+    }, [currentLocale, currentPathname, i18n, router]);
 
     return (
         <div className="flex justify-center items-center">

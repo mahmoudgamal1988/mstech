@@ -46,7 +46,7 @@ export default function Leanh({ params: { locale } }: any) {
           </FadeIn>
           <FadeIn>
             <>
-              <div className='px-44'>
+              <div className='px-4 md:px-20 lg:px-44'>
                 <p className='font-sans text-secondary mt-8'>
                   {
                     splitTextWithBreaks(t('LEANH_CONTENT', { ns: "leanh" }))}
@@ -63,7 +63,7 @@ export default function Leanh({ params: { locale } }: any) {
           </FadeIn>
           <FadeIn>
             <>
-              <div className='px-44'>
+              <div className='px-4 md:px-20 lg:px-44'>
                 <p className='font-sans text-secondary mt-8'>
                   {
                     splitTextWithBreaks(t('LEANH_CONTENT_2', { ns: "leanh" }))}

@@ -39,7 +39,7 @@ export default function HomeAutomation({ params: { locale } }: any) {
             <>
               <div className='pt-48 md:pt-8 lg:pt-12 px-4 md:px-20 lg:px-44'>
                 <h1 className='text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-primary font-sans'>
-                  Overview
+                  {(t('OVERVIEW', { ns: "Comman" }))}
                 </h1>
                 <p className='font-sans text-secondary mt-4 md:mt-8'>
                   {

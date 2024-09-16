@@ -49,7 +49,7 @@ export default function Rack({ params: { locale } }: any) {
           </FadeIn>
           <FadeIn>
             <>
-              <div className='px-44'>
+              <div className='px-4 md:px-20 lg:px-44'>
                 <p className='font-sans text-secondary mt-8'>
                   {
                     splitTextWithBreaks(t('RACK_CONTENT', { ns: "rack" }))
@@ -67,7 +67,7 @@ export default function Rack({ params: { locale } }: any) {
           </FadeIn>
           <FadeIn>
             <>
-              <div className='px-44'>
+              <div className='px-4 md:px-20 lg:px-44'>
                 <p className='font-sans text-secondary mt-8'>
                   {
                     splitTextWithBreaks(t('RACK_CONTENT_2', { ns: "rack" }))

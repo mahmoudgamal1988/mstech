@@ -68,7 +68,7 @@ interface Props {
 
 function MobileNavLink(
   props: Props
-  
+
 ) {
   const { link, isSelected, onClick } = props;
   return (
@@ -244,7 +244,7 @@ export function Header() {
                             <MobileNavLink href="/#faqs">FAQs</MobileNavLink> */}
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
-                            <Button href="/contact">         {t('CONTACT_US', { ns: 'CONTACT_US' })}</Button>
+                            <Button href="/contact">{t('CONTACT_US', { ns: 'CONTACT_US' })}</Button>
                             <LanguageChanger />
                           </div>
                         </PopoverPanel>

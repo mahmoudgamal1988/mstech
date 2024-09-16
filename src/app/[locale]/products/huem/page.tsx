@@ -48,7 +48,7 @@ export default function Huem({ params: { locale } }: any) {
           </FadeIn>
           <FadeIn>
             <>
-              <div className='px-44'>
+              <div className='px-4 md:px-20 lg:px-44'>
                 <h1 style={{ fontSize: "32px", fontWeight: "bold", marginBottom: "16px" }} className='text-primary font-sans'>
                   {/* Overview */}
                 </h1>
@@ -68,7 +68,7 @@ export default function Huem({ params: { locale } }: any) {
           </FadeIn>
           <FadeIn>
             <>
-              <div className='px-44'>
+              <div className='px-4 md:px-20 lg:px-44'>
                 <h1 style={{ fontSize: "32px", fontWeight: "bold", marginBottom: "16px" }} className='text-primary font-sans'>
                   {/* Overview */}
                 </h1>
