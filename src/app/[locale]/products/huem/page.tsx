@@ -50,7 +50,7 @@ export default function Huem({ params: { locale } }: any) {
             <>
               <div className='px-4 md:px-20 lg:px-44'>
                 <h1 style={{ fontSize: "32px", fontWeight: "bold", marginBottom: "16px" }} className='text-primary font-sans'>
-                  {/* Overview */}
+                  {(t('OVERVIEW', { ns: "Comman" }))}
                 </h1>
                 <p className='font-sans text-secondary mt-8'>
                   {
@@ -70,7 +70,7 @@ export default function Huem({ params: { locale } }: any) {
             <>
               <div className='px-4 md:px-20 lg:px-44'>
                 <h1 style={{ fontSize: "32px", fontWeight: "bold", marginBottom: "16px" }} className='text-primary font-sans'>
-                  {/* Overview */}
+                  {(t('OVERVIEW', { ns: "Comman" }))}
                 </h1>
                 <p className='font-sans text-secondary mt-8'>
                   {

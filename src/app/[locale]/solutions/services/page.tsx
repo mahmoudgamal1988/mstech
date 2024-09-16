@@ -47,7 +47,7 @@ export default function Services({ params: { locale } }: any) {
       <br />
       <br />
 
-      <SectionIntro eyebrow="" title="Overview" className="mt-96 sm:mt-32 lg:mt-96">
+      <SectionIntro eyebrow="" title={(t('OVERVIEW', { ns: "Comman" }))} className="mt-96 sm:mt-32 lg:mt-96">
         <>
           {
             t('SERVICES_TITLE', { ns: "Services" })

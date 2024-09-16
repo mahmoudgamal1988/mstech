@@ -100,7 +100,7 @@ export default function UsesCases({ params: { locale } }: any) {
             <>
               <div className='pl-8'>
                 <h1 style={{ fontSize: "32px", fontWeight: "bold", marginBottom: "16px" }} className='text-primary font-sans'>
-                  Overview
+                  {(t('OVERVIEW', { ns: "Comman" }))}
                 </h1>
                 <p className='font-sans text-secondary'>
                   {t("USE-CASES_CONTENT", { ns: "USE-CASES" })}
