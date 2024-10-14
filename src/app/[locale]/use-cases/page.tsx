@@ -108,7 +108,7 @@ export default function UsesCases({ params: { locale } }: any) {
               </div>
 
               <SectionIntro
-                title="Use Cases"
+                title={(t('USE-CASES', { ns: "USE-CASES" }))}
                 className="mt-24 sm:mt-32 lg:mt-40"
               >
               </SectionIntro>
